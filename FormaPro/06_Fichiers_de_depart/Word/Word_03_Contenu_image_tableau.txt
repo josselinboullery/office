@@ -1,0 +1,16 @@
+Titre : Fiche pratique - Accueil des participants
+
+Texte :
+Chaque participant doit etre accueilli simplement, avec le sourire, puis oriente vers la salle.
+Une feuille de presence doit etre signee a l entree.
+Les documents de formation sont remis au debut de la matinee.
+
+Tableau a creer :
+Document | Quantite | Responsable
+Feuille de presence | 1 | Formateur
+Support stagiaire | 12 | Assistant
+Stylos | 12 | Assistant
+Badges | 12 | Accueil
+
+Image a inserer :
+Utiliser le fichier image_placeholder_accueil.svg.

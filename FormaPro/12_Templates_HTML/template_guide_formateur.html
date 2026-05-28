@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITRE_JOURNEE}} - Guide formateur</title>
+  <style>
+    :root {
+      --color-primary: #334155;
+      --color-secondary: #1F2937;
+      --color-accent: #64748B;
+      --color-bg-soft: #F8FAFC;
+      --color-text: #111827;
+      --color-card: #FFFFFF;
+      --color-border: #E5E7EB;
+      --color-success: #15803D;
+      --color-warning: #B45309;
+      --color-danger: #B91C1C;
+      --radius: 8px;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .theme-word { --color-primary: #185ABD; --color-secondary: #2B579A; --color-accent: #41A5EE; --color-bg-soft: #F3F7FF; }
+    .theme-excel { --color-primary: #107C41; --color-secondary: #217346; --color-accent: #33C481; --color-bg-soft: #F1FAF5; }
+    .theme-powerpoint { --color-primary: #C43E1C; --color-secondary: #D24726; --color-accent: #F0643B; --color-bg-soft: #FFF4F0; }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--color-text);
+      background: #FFFFFF;
+    }
+
+    a { color: var(--color-primary); }
+    a:focus, button:focus, input:focus { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+
+    .wrap { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; }
+    header { background: var(--color-bg-soft); border-bottom: 1px solid var(--color-border); padding: 2rem 0; }
+    .top-link { display: inline-block; margin-bottom: 1rem; font-weight: 700; text-decoration: none; }
+    h1 { margin: 0; font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.15; color: var(--color-secondary); }
+    h2 { margin: 0 0 1rem; color: var(--color-secondary); }
+    h3 { margin: 0 0 0.5rem; color: var(--color-secondary); }
+    .lead { max-width: 760px; margin: 0.75rem 0 0; font-size: 1.1rem; }
+    .meta, .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .badge { min-height: 2rem; padding: 0.25rem 0.75rem; border-radius: 999px; background: #FFFFFF; border: 1px solid var(--color-border); font-weight: 700; }
+
+    button, .button {
+      min-height: 44px;
+      border: 0;
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      background: var(--color-primary);
+      color: #FFFFFF;
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    button.secondary { background: #FFFFFF; color: var(--color-primary); border: 1px solid var(--color-primary); }
+    main { padding: 2rem 0; }
+    section { margin-bottom: 2rem; }
+    .panel, .card, .timeline { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .panel { padding: 1.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .card { padding: 1rem; }
+    .timeline { padding: 1rem; }
+    .timeline ol { list-style: none; padding: 0; margin: 0; }
+    .timeline li { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--color-border); }
+    .time { font-weight: 800; color: var(--color-primary); }
+    .callout { border-left: 5px solid var(--color-primary); background: var(--color-bg-soft); border-radius: var(--radius); padding: 1rem; margin: 1rem 0; }
+    .callout.warning { border-color: var(--color-warning); }
+    .callout.error { border-color: var(--color-danger); }
+    .checklist { list-style: none; padding: 0; margin: 0; }
+    .checklist li { display: flex; gap: 0.75rem; padding: 0.75rem; border-bottom: 1px solid var(--color-border); }
+    .checklist input { width: 1.25rem; height: 1.25rem; margin-top: 0.2rem; accent-color: var(--color-primary); }
+    .accordion { border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; margin-top: 0.75rem; background: #FFFFFF; }
+    .accordion button { width: 100%; border-radius: 0; text-align: left; }
+    .accordion-content { display: none; padding: 1rem; }
+    .accordion-content.open { display: block; }
+
+    @media (max-width: 800px) {
+      .grid { grid-template-columns: 1fr; }
+      .timeline li { grid-template-columns: 1fr; gap: 0.25rem; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 1rem, 1120px); }
+      button, .button { width: 100%; }
+      .actions { flex-direction: column; }
+      .panel { padding: 1rem; }
+    }
+
+    @media print {
+      body { background: #FFFFFF; color: #111827; }
+      .no-print, .actions, button { display: none !important; }
+      header { background: #FFFFFF; }
+      .panel, .card, .timeline, .callout { box-shadow: none; break-inside: avoid; }
+      .accordion-content, .print-open { display: block !important; }
+      a { color: #111827; text-decoration: none; }
+    }
+  </style>
+</head>
+<body class="theme-general">
+  <!-- Remplacer par theme-word, theme-excel ou theme-powerpoint pour une journée dédiée. -->
+  <header>
+    <div class="wrap">
+      <a class="top-link no-print" href="../00_Index_general/index.html">Retour à l'index général</a>
+      <h1>{{TITRE_JOURNEE}}</h1>
+      <p class="lead">{{OBJECTIF_GLOBAL_JOURNEE}}</p>
+      <div class="meta">
+        <span class="badge">{{LOGICIEL}}</span>
+        <span class="badge">{{DATE}}</span>
+        <span class="badge">Durée : {{DUREE}}</span>
+        <span class="badge">Guide formateur</span>
+      </div>
+      <div class="actions no-print">
+        <button type="button" onclick="window.print()">Imprimer / Exporter en PDF</button>
+        <button type="button" class="secondary" data-open-all>Tout ouvrir</button>
+        <button type="button" class="secondary" data-close-all>Tout fermer</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="grid">
+      <article class="panel">
+        <h2>Avant de commencer</h2>
+        <ul class="checklist" data-checklist-id="{{ID_CHECKLIST_PREPARATION}}">
+          <li><input type="checkbox"><span>{{PREPARATION_1}}</span></li>
+          <li><input type="checkbox"><span>{{PREPARATION_2}}</span></li>
+          <li><input type="checkbox"><span>{{PREPARATION_3}}</span></li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h2>Matériel et fichiers</h2>
+        <ul>
+          <li>{{MATERIEL_1}}</li>
+          <li>{{FICHIER_A_OUVRIR_1}}</li>
+          <li>{{FICHIER_A_DISTRIBUER_1}}</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="timeline">
+      <h2>Timeline de la journée</h2>
+      <ol>
+        <li><span class="time">{{HORAIRE_1}}</span><span>{{SEQUENCE_1}}</span></li>
+        <li><span class="time">{{HORAIRE_2}}</span><span>{{SEQUENCE_2}}</span></li>
+        <li><span class="time">{{HORAIRE_3}}</span><span>{{SEQUENCE_3}}</span></li>
+      </ol>
+    </section>
+
+    <section class="panel">
+      <h2>Séquence type</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Ce que le formateur montre</h3>
+          <p>{{DEMONSTRATION_FORMATEUR}}</p>
+        </article>
+        <article class="card">
+          <h3>Ce que les stagiaires font</h3>
+          <p>{{ACTION_STAGIAIRES}}</p>
+        </article>
+      </div>
+      <div class="accordion">
+        <button type="button" aria-expanded="false">Afficher les consignes stagiaires</button>
+        <div class="accordion-content">
+          <p>{{CONSIGNE_A_DIRE_SIMPLEMENT}}</p>
+        </div>
+      </div>
+      <div class="accordion">
+        <button type="button" aria-expanded="false">Afficher les réponses</button>
+        <div class="accordion-content">
+          <p>{{REPONSES_OU_POINTS_ATTENDUS}}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="panel">
+        <h2>Vigilance</h2>
+        <div class="callout warning">
+          <h3>Erreur fréquente</h3>
+          <p>{{ERREUR_FREQUENTE}}</p>
+        </div>
+        <div class="callout">
+          <h3>Question à poser</h3>
+          <p>{{QUESTION_GROUPE}}</p>
+        </div>
+      </article>
+      <article class="panel">
+        <h2>Adaptation</h2>
+        <div class="accordion">
+          <button type="button" aria-expanded="false">Version courte si retard</button>
+          <div class="accordion-content">
+            <p>{{VERSION_COURTE}}</p>
+          </div>
+        </div>
+        <div class="accordion">
+          <button type="button" aria-expanded="false">Activité bonus</button>
+          <div class="accordion-content">
+            <p>{{ACTIVITE_BONUS}}</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Fin de journée</h2>
+      <ul class="checklist" data-checklist-id="{{ID_CHECKLIST_FIN}}">
+        <li><input type="checkbox"><span>{{VALIDATION_FIN_1}}</span></li>
+        <li><input type="checkbox"><span>{{VALIDATION_FIN_2}}</span></li>
+        <li><input type="checkbox"><span>{{VALIDATION_FIN_3}}</span></li>
+      </ul>
+      <div class="callout">
+        <h3>Synthèse à dire</h3>
+        <p>{{SYNTHESE_FORMATEUR}}</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function safeStorageGet(key) { try { return localStorage.getItem(key); } catch (error) { return null; } }
+    function safeStorageSet(key, value) { try { localStorage.setItem(key, value); return true; } catch (error) { return false; } }
+
+    document.querySelectorAll('.accordion').forEach(function (accordion) {
+      var button = accordion.querySelector('button');
+      var content = accordion.querySelector('.accordion-content');
+      button.addEventListener('click', function () {
+        var isOpen = content.classList.toggle('open');
+        button.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
+
+    document.querySelector('[data-open-all]')?.addEventListener('click', function () {
+      document.querySelectorAll('.accordion-content').forEach(function (content) { content.classList.add('open'); });
+      document.querySelectorAll('.accordion button').forEach(function (button) { button.setAttribute('aria-expanded', 'true'); });
+    });
+
+    document.querySelector('[data-close-all]')?.addEventListener('click', function () {
+      document.querySelectorAll('.accordion-content').forEach(function (content) { content.classList.remove('open'); });
+      document.querySelectorAll('.accordion button').forEach(function (button) { button.setAttribute('aria-expanded', 'false'); });
+    });
+
+    document.querySelectorAll('[data-checklist-id]').forEach(function (list) {
+      var key = 'formapro-guide-' + list.dataset.checklistId;
+      var saved = safeStorageGet(key);
+      var states = saved ? JSON.parse(saved) : [];
+      var boxes = list.querySelectorAll('input[type="checkbox"]');
+      boxes.forEach(function (box, index) {
+        box.checked = Boolean(states[index]);
+        box.addEventListener('change', function () {
+          safeStorageSet(key, JSON.stringify(Array.from(boxes).map(function (item) { return item.checked; })));
+        });
+      });
+    });
+  </script>
+</body>
+</html>

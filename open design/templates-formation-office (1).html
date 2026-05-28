@@ -1,0 +1,99 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Templates de formation Office</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Accueil">
+        <img class="brand-logo" src="mppl4wrn-logo-badge.svg" alt="" />
+        <span>Formation Office</span>
+      </a>
+      <nav class="nav" aria-label="Modules">
+        <a href="screens/word.html">Word</a>
+        <a href="screens/excel.html">Excel</a>
+        <a href="screens/powerpoint.html">PowerPoint</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Design system pédagogique</span>
+          <h1>Trois templates de cours Office prêts à adapter.</h1>
+          <p class="lead">Une base moderne pour former des débutants : objectifs lisibles, exercices guidés, ressources de séance et progression claire pour Word, Excel et PowerPoint.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="screens/word.html">Ouvrir Word</a>
+            <a class="button secondary" href="#modules">Voir les modules</a>
+          </div>
+        </div>
+        <aside class="preview-panel" aria-label="Aperçu du template">
+          <div class="app-window">
+            <div class="window-bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+            <div class="ribbon">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="document-demo">
+              <div class="doc-line title"></div>
+              <div class="doc-line full"></div>
+              <div class="doc-line mid"></div>
+              <div class="doc-line full"></div>
+              <div class="doc-line short"></div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="modules" aria-labelledby="modules-title">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Modules</span>
+            <h2 id="modules-title">Un même système, trois usages.</h2>
+          </div>
+          <p>Chaque écran est un template distinct, pensé pour être utilisé comme support de cours responsive ou affiché sur desktop pendant une session.</p>
+        </div>
+
+        <div class="module-grid">
+          <a class="card" href="screens/word.html" style="--card-color: var(--word)">
+            <div>
+              <div class="module-icon">W</div>
+              <div class="tag-row"><span class="tag">mise en page</span><span class="tag">styles</span></div>
+            </div>
+            <div>
+              <h3>Word — document propre</h3>
+              <p>Apprendre à structurer un document, utiliser les styles et préparer une consigne imprimable.</p>
+            </div>
+          </a>
+          <a class="card" href="screens/excel.html" style="--card-color: var(--excel)">
+            <div>
+              <div class="module-icon">X</div>
+              <div class="tag-row"><span class="tag">tableau</span><span class="tag">formule</span></div>
+            </div>
+            <div>
+              <h3>Excel — suivi simple</h3>
+              <p>Construire un tableau lisible, saisir une formule et repérer les erreurs courantes.</p>
+            </div>
+          </a>
+          <a class="card" href="screens/powerpoint.html" style="--card-color: var(--powerpoint)">
+            <div>
+              <div class="module-icon">P</div>
+              <div class="tag-row"><span class="tag">slides</span><span class="tag">présentation</span></div>
+            </div>
+            <div>
+              <h3>PowerPoint — message clair</h3>
+              <p>Transformer une idée en slide lisible avec hiérarchie, visuels simples et répétition maîtrisée.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

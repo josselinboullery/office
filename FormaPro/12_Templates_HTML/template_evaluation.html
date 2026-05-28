@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITRE_EVALUATION}} - Évaluation</title>
+  <style>
+    :root {
+      --color-primary: #334155;
+      --color-secondary: #1F2937;
+      --color-accent: #64748B;
+      --color-bg-soft: #F8FAFC;
+      --color-text: #111827;
+      --color-card: #FFFFFF;
+      --color-border: #E5E7EB;
+      --color-success: #15803D;
+      --color-warning: #B45309;
+      --radius: 8px;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+    .theme-word { --color-primary: #185ABD; --color-secondary: #2B579A; --color-accent: #41A5EE; --color-bg-soft: #F3F7FF; }
+    .theme-excel { --color-primary: #107C41; --color-secondary: #217346; --color-accent: #33C481; --color-bg-soft: #F1FAF5; }
+    .theme-powerpoint { --color-primary: #C43E1C; --color-secondary: #D24726; --color-accent: #F0643B; --color-bg-soft: #FFF4F0; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; font-size: 16px; line-height: 1.65; color: var(--color-text); background: var(--color-bg-soft); }
+    a { color: var(--color-primary); }
+    a:focus, button:focus, input:focus, textarea:focus { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+    .wrap { width: min(1080px, calc(100% - 2rem)); margin: 0 auto; }
+    header { background: #FFFFFF; border-bottom: 1px solid var(--color-border); padding: 2rem 0; }
+    .top-link { display: inline-block; margin-bottom: 1rem; font-weight: 700; text-decoration: none; }
+    h1 { margin: 0; font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.15; color: var(--color-secondary); }
+    h2 { margin: 0 0 1rem; color: var(--color-secondary); }
+    h3 { margin: 0 0 0.5rem; color: var(--color-secondary); }
+    .lead { max-width: 760px; margin: 0.75rem 0 0; font-size: 1.1rem; }
+    .meta, .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .badge { min-height: 2rem; padding: 0.25rem 0.75rem; border-radius: 999px; background: var(--color-bg-soft); border: 1px solid var(--color-border); font-weight: 700; }
+    button { min-height: 44px; border: 0; border-radius: var(--radius); padding: 0.75rem 1rem; background: var(--color-primary); color: #FFFFFF; font: inherit; font-weight: 700; cursor: pointer; }
+    button.secondary { background: #FFFFFF; color: var(--color-primary); border: 1px solid var(--color-primary); }
+    main { padding: 2rem 0; }
+    section { margin-bottom: 2rem; }
+    .panel, .question { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .panel { padding: 1.5rem; }
+    .question { padding: 1rem; margin-bottom: 1rem; }
+    .scale { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.75rem; }
+    .scale label { display: flex; gap: 0.5rem; align-items: flex-start; min-height: 44px; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: var(--radius); background: var(--color-bg-soft); }
+    input[type="radio"], input[type="checkbox"] { width: 1.2rem; height: 1.2rem; margin-top: 0.2rem; accent-color: var(--color-primary); }
+    textarea { width: 100%; min-height: 7rem; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 0.75rem; font: inherit; resize: vertical; }
+    .checklist { list-style: none; padding: 0; margin: 0; }
+    .checklist li { display: flex; gap: 0.75rem; padding: 0.75rem; border-bottom: 1px solid var(--color-border); }
+    .progress { height: 0.8rem; background: #E5E7EB; border-radius: 999px; overflow: hidden; margin-top: 1rem; }
+    .progress span { display: block; width: 0; height: 100%; background: var(--color-primary); transition: width 180ms ease; }
+    .progress-text { font-weight: 700; }
+    @media (max-width: 760px) { .scale { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .wrap { width: min(100% - 1rem, 1080px); } button { width: 100%; } .actions { flex-direction: column; } .panel { padding: 1rem; } }
+    @media print {
+      body { background: #FFFFFF; color: #111827; }
+      .no-print, .actions, button { display: none !important; }
+      .panel, .question { box-shadow: none; break-inside: avoid; }
+      a { color: #111827; text-decoration: none; }
+      textarea { border: 1px solid #111827; }
+    }
+  </style>
+</head>
+<body class="theme-general">
+  <header>
+    <div class="wrap">
+      <a class="top-link no-print" href="../00_Index_general/index.html">Retour à l'index général</a>
+      <h1>{{TITRE_EVALUATION}}</h1>
+      <p class="lead">{{INTRO_EVALUATION}}</p>
+      <div class="meta">
+        <span class="badge">{{TYPE_EVALUATION}}</span>
+        <span class="badge">Public : grands débutants</span>
+        <span class="badge">Durée : {{DUREE}}</span>
+      </div>
+      <div class="actions no-print">
+        <button type="button" onclick="window.print()">Imprimer / Exporter en PDF</button>
+        <button type="button" class="secondary" data-reset>Réinitialiser</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel">
+      <h2>Consigne</h2>
+      <p>{{CONSIGNE_RASSURANTE}}</p>
+      <p class="progress-text" aria-live="polite">Progression : <span data-progress-text>0%</span></p>
+      <div class="progress" aria-hidden="true"><span data-progress-bar></span></div>
+    </section>
+
+    <section>
+      <h2>Auto-positionnement</h2>
+      <article class="question">
+        <h3>{{QUESTION_1}}</h3>
+        <div class="scale">
+          <label><input type="radio" name="q1">Je ne sais pas encore</label>
+          <label><input type="radio" name="q1">Je sais un peu</label>
+          <label><input type="radio" name="q1">Je sais faire seul</label>
+        </div>
+      </article>
+      <article class="question">
+        <h3>{{QUESTION_2}}</h3>
+        <div class="scale">
+          <label><input type="radio" name="q2">Je ne sais pas encore</label>
+          <label><input type="radio" name="q2">Je sais un peu</label>
+          <label><input type="radio" name="q2">Je sais faire seul</label>
+        </div>
+      </article>
+      <article class="question">
+        <h3>{{QUESTION_3}}</h3>
+        <div class="scale">
+          <label><input type="radio" name="q3">Je ne sais pas encore</label>
+          <label><input type="radio" name="q3">Je sais un peu</label>
+          <label><input type="radio" name="q3">Je sais faire seul</label>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Production attendue</h2>
+      <ul class="checklist">
+        <li><input type="checkbox"><span>{{PRODUCTION_1}}</span></li>
+        <li><input type="checkbox"><span>{{PRODUCTION_2}}</span></li>
+        <li><input type="checkbox"><span>{{PRODUCTION_3}}</span></li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>Commentaires</h2>
+      <label for="comments">{{QUESTION_OUVERTE}}</label>
+      <textarea id="comments" placeholder="Écrire ici si besoin"></textarea>
+    </section>
+  </main>
+
+  <script>
+    function updateProgress() {
+      var fields = document.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+      var groups = {};
+      var total = 0;
+      var done = 0;
+      fields.forEach(function (field) {
+        if (field.type === 'radio') {
+          groups[field.name] = groups[field.name] || [];
+          groups[field.name].push(field);
+        } else {
+          total += 1;
+          if (field.checked) done += 1;
+        }
+      });
+      Object.keys(groups).forEach(function (name) {
+        total += 1;
+        if (groups[name].some(function (field) { return field.checked; })) done += 1;
+      });
+      var percent = total ? Math.round((done / total) * 100) : 0;
+      document.querySelector('[data-progress-text]').textContent = percent + '%';
+      document.querySelector('[data-progress-bar]').style.width = percent + '%';
+    }
+
+    document.querySelectorAll('input').forEach(function (field) {
+      field.addEventListener('change', updateProgress);
+    });
+
+    document.querySelector('[data-reset]')?.addEventListener('click', function () {
+      document.querySelectorAll('input').forEach(function (field) { field.checked = false; });
+      document.querySelectorAll('textarea').forEach(function (field) { field.value = ''; });
+      updateProgress();
+    });
+
+    updateProgress();
+  </script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITRE_EXERCICE}} - Exercice</title>
+  <style>
+    :root {
+      --color-primary: #334155;
+      --color-secondary: #1F2937;
+      --color-accent: #64748B;
+      --color-bg-soft: #F8FAFC;
+      --color-text: #111827;
+      --color-card: #FFFFFF;
+      --color-border: #E5E7EB;
+      --color-success: #15803D;
+      --color-warning: #B45309;
+      --radius: 8px;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+    .theme-word { --color-primary: #185ABD; --color-secondary: #2B579A; --color-accent: #41A5EE; --color-bg-soft: #F3F7FF; }
+    .theme-excel { --color-primary: #107C41; --color-secondary: #217346; --color-accent: #33C481; --color-bg-soft: #F1FAF5; }
+    .theme-powerpoint { --color-primary: #C43E1C; --color-secondary: #D24726; --color-accent: #F0643B; --color-bg-soft: #FFF4F0; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; font-size: 16px; line-height: 1.65; color: var(--color-text); background: var(--color-bg-soft); }
+    a { color: var(--color-primary); }
+    a:focus, button:focus, input:focus { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+    .wrap { width: min(1040px, calc(100% - 2rem)); margin: 0 auto; }
+    header { padding: 2rem 0; background: #FFFFFF; border-bottom: 1px solid var(--color-border); }
+    .top-link { display: inline-block; margin-bottom: 1rem; font-weight: 700; text-decoration: none; }
+    h1 { margin: 0; font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.15; color: var(--color-secondary); }
+    h2 { margin: 0 0 1rem; color: var(--color-secondary); }
+    h3 { margin: 0 0 0.5rem; color: var(--color-secondary); }
+    .lead { max-width: 760px; margin: 0.75rem 0 0; font-size: 1.1rem; }
+    .meta, .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .badge { min-height: 2rem; padding: 0.25rem 0.75rem; border-radius: 999px; background: var(--color-bg-soft); border: 1px solid var(--color-border); font-weight: 700; }
+    button, .button { min-height: 44px; border: 0; border-radius: var(--radius); padding: 0.75rem 1rem; background: var(--color-primary); color: #FFFFFF; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
+    button.secondary { background: #FFFFFF; color: var(--color-primary); border: 1px solid var(--color-primary); }
+    main { padding: 2rem 0; }
+    section { margin-bottom: 2rem; }
+    .panel, .card { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .panel { padding: 1.5rem; }
+    .grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1rem; }
+    .card { padding: 1rem; }
+    .steps { counter-reset: steps; list-style: none; padding: 0; margin: 0; }
+    .steps li { counter-increment: steps; display: grid; grid-template-columns: 2.5rem 1fr; gap: 0.75rem; padding: 1rem 0; border-bottom: 1px solid var(--color-border); }
+    .steps li::before { content: counter(steps); display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 999px; background: var(--color-primary); color: #FFFFFF; font-weight: 800; }
+    .checklist { list-style: none; padding: 0; margin: 0; }
+    .checklist li { display: flex; gap: 0.75rem; padding: 0.75rem; border-bottom: 1px solid var(--color-border); }
+    .checklist input { width: 1.25rem; height: 1.25rem; margin-top: 0.2rem; accent-color: var(--color-primary); }
+    .callout { border-left: 5px solid var(--color-primary); background: var(--color-bg-soft); border-radius: var(--radius); padding: 1rem; margin: 1rem 0; }
+    .callout.warning { border-color: var(--color-warning); }
+    .callout.remember { border-color: var(--color-success); }
+    .accordion { border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; margin-top: 0.75rem; background: #FFFFFF; }
+    .accordion button { width: 100%; border-radius: 0; text-align: left; }
+    .accordion-content { display: none; padding: 1rem; }
+    .accordion-content.open { display: block; }
+    @media (max-width: 820px) { .grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .wrap { width: min(100% - 1rem, 1040px); } button, .button { width: 100%; } .actions { flex-direction: column; } .panel { padding: 1rem; } }
+    @media print {
+      body { background: #FFFFFF; color: #111827; }
+      .no-print, .actions, button { display: none !important; }
+      .panel, .card, .callout { box-shadow: none; break-inside: avoid; }
+      .accordion-content, .print-open { display: block !important; }
+      a { color: #111827; text-decoration: none; }
+    }
+  </style>
+</head>
+<body class="theme-word">
+  <header>
+    <div class="wrap">
+      <a class="top-link no-print" href="../00_Index_general/index.html">Retour à l'index général</a>
+      <h1>{{TITRE_EXERCICE}}</h1>
+      <p class="lead">{{CONTEXTE_PROFESSIONNEL}}</p>
+      <div class="meta">
+        <span class="badge">{{LOGICIEL}}</span>
+        <span class="badge">Niveau : {{NIVEAU}}</span>
+        <span class="badge">Durée : {{DUREE}}</span>
+        <span class="badge">Fichier : {{FICHIER_DE_DEPART}}</span>
+      </div>
+      <div class="actions no-print">
+        <button type="button" onclick="window.print()">Imprimer / Exporter en PDF</button>
+        <button type="button" class="secondary" data-open-all>Tout ouvrir</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="grid">
+      <article class="panel">
+        <h2>Objectif</h2>
+        <p>{{OBJECTIF_EXERCICE}}</p>
+        <div class="callout remember">
+          <h3>Résultat attendu</h3>
+          <p>{{RESULTAT_ATTENDU}}</p>
+        </div>
+      </article>
+      <aside class="panel">
+        <h2>Critères de réussite</h2>
+        <ul>
+          <li>{{CRITERE_1}}</li>
+          <li>{{CRITERE_2}}</li>
+          <li>{{CRITERE_3}}</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="panel">
+      <h2>Consignes</h2>
+      <ol class="steps">
+        <li>{{ETAPE_1}}</li>
+        <li>{{ETAPE_2}}</li>
+        <li>{{ETAPE_3}}</li>
+        <li>{{ETAPE_4}}</li>
+      </ol>
+      <div class="accordion">
+        <button type="button" aria-expanded="false">Afficher un indice</button>
+        <div class="accordion-content">
+          <p>{{INDICE}}</p>
+        </div>
+      </div>
+      <div class="accordion">
+        <button type="button" aria-expanded="false">Afficher le corrigé</button>
+        <div class="accordion-content">
+          <p>{{CORRIGE_RESUME}}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Checklist</h2>
+      <ul class="checklist" data-checklist-id="{{ID_CHECKLIST_EXERCICE}}">
+        <li><input type="checkbox"><span>{{CHECK_1}}</span></li>
+        <li><input type="checkbox"><span>{{CHECK_2}}</span></li>
+        <li><input type="checkbox"><span>{{CHECK_3}}</span></li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>Pour aller plus loin</h2>
+      <p>{{BONUS}}</p>
+    </section>
+  </main>
+
+  <script>
+    function safeStorageGet(key) { try { return localStorage.getItem(key); } catch (error) { return null; } }
+    function safeStorageSet(key, value) { try { localStorage.setItem(key, value); return true; } catch (error) { return false; } }
+    document.querySelectorAll('.accordion').forEach(function (accordion) {
+      var button = accordion.querySelector('button');
+      var content = accordion.querySelector('.accordion-content');
+      button.addEventListener('click', function () {
+        var isOpen = content.classList.toggle('open');
+        button.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
+    document.querySelector('[data-open-all]')?.addEventListener('click', function () {
+      document.querySelectorAll('.accordion-content').forEach(function (content) { content.classList.add('open'); });
+      document.querySelectorAll('.accordion button').forEach(function (button) { button.setAttribute('aria-expanded', 'true'); });
+    });
+    document.querySelectorAll('[data-checklist-id]').forEach(function (list) {
+      var key = 'formapro-exercice-' + list.dataset.checklistId;
+      var saved = safeStorageGet(key);
+      var states = saved ? JSON.parse(saved) : [];
+      var boxes = list.querySelectorAll('input[type="checkbox"]');
+      boxes.forEach(function (box, index) {
+        box.checked = Boolean(states[index]);
+        box.addEventListener('change', function () {
+          safeStorageSet(key, JSON.stringify(Array.from(boxes).map(function (item) { return item.checked; })));
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+Active,Name,Task Nesting,Actual Dates Enabled,Actual Start,Actual End,Planned Dates Enabled,Planned Start,Planned End,Task Type,Attached,Script,Data Source,Synchronization ID,Display ID,Animation,Animation Behavior,Provided Progress %,Comments,Material Cost,Labor Cost,Equipment Cost,Subcontractor Cost,User 1,User 2,User 3,User 4,User 5,User 6,User 7,User 8,User 9,User 10
+1,New Task,0,1,,,1,,,,,,,,,,Scale,"0,0%",0,"0,000000","0,000000","0,000000","0,000000",,,,,,,,,,
+1,Plaque Arriere,0,1,,,1,27/05/2015 09:00:00,27/05/2015 17:00:00,Construct,Sets->Plaque Arriere,,,,,,Scale,"0,0%",0,"0,000000","0,000000","0,000000","0,000000",,,,,,,,,,
+1,Plaque Avant,0,1,,,1,28/05/2015 09:00:00,28/05/2015 17:00:00,Construct,Sets->Plaque Avant,,,,,,Scale,"0,0%",0,"0,000000","0,000000","0,000000","0,000000",,,,,,,,,,
+1,Plaque Droite,0,1,,,1,29/05/2015 09:00:00,29/05/2015 17:00:00,Construct,Sets->Plaque Droite,,,,,,Scale,"0,0%",0,"0,000000","0,000000","0,000000","0,000000",,,,,,,,,,
+1,Plaque Gauche,0,1,,,1,01/06/2015 00:03:00,03/06/2015 00:22:00,Construct,Sets->Plaque Gauche,,,,,Montage du Local->Translation Gauche,Match End,"59,9%",0,"0,000000","0,000000","0,000000","0,000000",,,,,,,,,,
+1,Poteaux Arriere,0,1,,,1,01/06/2015 23:48:00,04/06/2015 00:20:00,Construct,Sets->Poteaux Arriere,,,,,,Scale,"0,0%",0,"0,000000","0,000000","0,000000","0,000000",,,,,,,,,,
+1,Poteaux Avant,0,1,,,1,02/06/2015 23:49:00,05/06/2015 00:24:00,Construct,Sets->Poteaux Avant,,,,,Montage du Local->Translation Plaque Avant,Scale,"0,0%",0,"0,000000","0,000000","0,000000","0,000000",,,,,,,,,,
+1,Poteaux Droite,0,1,,,1,04/06/2015 00:17:00,06/06/2015 00:22:00,Construct,Sets->Poteaux Droite,,,,,,Scale,"0,0%",0,"0,000000","0,000000","0,000000","0,000000",,,,,,,,,,
+1,Poteaux Gauche,0,1,,,1,05/06/2015,07/06/2015 00:09:00,Construct,Sets->Poteaux Gauche,,,,,,Scale,"0,0%",0,"0,000000","0,000000","0,000000","0,000000",,,,,,,,,,
+1,Sol,0,1,,,1,06/06/2015,08/06/2015 01:00:00,Construct,Sets->Sol,,,,,,Scale,"0,0%",0,"0,000000","0,000000","0,000000","0,000000",,,,,,,,,,
+1,Toiture,0,1,,,1,07/06/2015 01:00:00,09/06/2015 01:00:00,Construct,Sets->Toiture,,,,,Montage du Local->Apparition Toit,Scale,"0,0%",0,"0,000000","0,000000","0,000000","0,000000",,,,,,,,,,

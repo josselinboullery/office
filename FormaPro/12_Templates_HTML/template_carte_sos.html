@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITRE_SOS}} - Carte SOS</title>
+  <style>
+    :root {
+      --color-primary: #334155;
+      --color-secondary: #1F2937;
+      --color-accent: #64748B;
+      --color-bg-soft: #F8FAFC;
+      --color-text: #111827;
+      --color-card: #FFFFFF;
+      --color-border: #E5E7EB;
+      --color-success: #15803D;
+      --color-warning: #B45309;
+      --color-danger: #B91C1C;
+      --radius: 8px;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+    .theme-word { --color-primary: #185ABD; --color-secondary: #2B579A; --color-accent: #41A5EE; --color-bg-soft: #F3F7FF; }
+    .theme-excel { --color-primary: #107C41; --color-secondary: #217346; --color-accent: #33C481; --color-bg-soft: #F1FAF5; }
+    .theme-powerpoint { --color-primary: #C43E1C; --color-secondary: #D24726; --color-accent: #F0643B; --color-bg-soft: #FFF4F0; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; font-size: 16px; line-height: 1.65; color: var(--color-text); background: linear-gradient(180deg, var(--color-bg-soft), #FFFFFF 18rem); }
+    a { color: var(--color-primary); }
+    a:focus, button:focus { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+    .wrap { width: min(980px, calc(100% - 2rem)); margin: 0 auto; }
+    header { padding: 2rem 0; border-bottom: 1px solid var(--color-border); }
+    .top-link { display: inline-block; margin-bottom: 1rem; font-weight: 700; text-decoration: none; }
+    h1 { margin: 0; font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.15; color: var(--color-secondary); }
+    h2 { margin: 0 0 1rem; color: var(--color-secondary); }
+    h3 { margin: 0 0 0.5rem; color: var(--color-secondary); }
+    .lead { max-width: 760px; margin: 0.75rem 0 0; font-size: 1.1rem; }
+    .meta, .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .badge { min-height: 2rem; padding: 0.25rem 0.75rem; border-radius: 999px; background: #FFFFFF; border: 1px solid var(--color-border); font-weight: 700; }
+    button { min-height: 44px; border: 0; border-radius: var(--radius); padding: 0.75rem 1rem; background: var(--color-primary); color: #FFFFFF; font: inherit; font-weight: 700; cursor: pointer; }
+    button.secondary { background: #FFFFFF; color: var(--color-primary); border: 1px solid var(--color-primary); }
+    main { padding: 2rem 0; }
+    section { margin-bottom: 2rem; }
+    .panel { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem; }
+    .problem { border-left: 6px solid var(--color-danger); }
+    .quick { border-left: 6px solid var(--color-success); }
+    .full { border-left: 6px solid var(--color-primary); }
+    .hidden-block { display: none; }
+    .hidden-block.open { display: block; }
+    .steps { counter-reset: steps; list-style: none; padding: 0; margin: 0; }
+    .steps li { counter-increment: steps; display: grid; grid-template-columns: 2.5rem 1fr; gap: 0.75rem; padding: 1rem 0; border-bottom: 1px solid var(--color-border); }
+    .steps li::before { content: counter(steps); display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 999px; background: var(--color-primary); color: #FFFFFF; font-weight: 800; }
+    .callout { border-left: 5px solid var(--color-warning); background: var(--color-bg-soft); border-radius: var(--radius); padding: 1rem; margin-top: 1rem; }
+    @media (max-width: 640px) { .wrap { width: min(100% - 1rem, 980px); } button { width: 100%; } .actions { flex-direction: column; } .panel { padding: 1rem; } }
+    @media print {
+      body { background: #FFFFFF; color: #111827; }
+      .no-print, .actions, button { display: none !important; }
+      .panel, .callout { box-shadow: none; break-inside: avoid; }
+      .hidden-block { display: block !important; }
+      a { color: #111827; text-decoration: none; }
+    }
+  </style>
+</head>
+<body class="theme-general">
+  <header>
+    <div class="wrap">
+      <a class="top-link no-print" href="../00_Index_general/index.html">Retour à l'index général</a>
+      <h1>{{TITRE_SOS}}</h1>
+      <p class="lead">{{PHRASE_RASSURANTE}}</p>
+      <div class="meta">
+        <span class="badge">{{LOGICIEL}}</span>
+        <span class="badge">{{TYPE_PROBLEME}}</span>
+        <span class="badge">Carte SOS</span>
+      </div>
+      <div class="actions no-print">
+        <button type="button" onclick="window.print()">Imprimer / Exporter en PDF</button>
+        <button type="button" class="secondary" data-show-quick>Voir la solution rapide</button>
+        <button type="button" class="secondary" data-show-full>Voir l'explication complète</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel problem">
+      <h2>Problème</h2>
+      <p>{{PROBLEME}}</p>
+      <h3>Cause probable</h3>
+      <p>{{CAUSE_PROBABLE}}</p>
+    </section>
+
+    <section class="panel quick hidden-block" data-quick>
+      <h2>Solution rapide</h2>
+      <p>{{SOLUTION_RAPIDE}}</p>
+    </section>
+
+    <section class="panel full hidden-block" data-full>
+      <h2>Explication complète</h2>
+      <p>{{EXPLICATION_COMPLETE}}</p>
+      <ol class="steps">
+        <li>{{ETAPE_1}}</li>
+        <li>{{ETAPE_2}}</li>
+        <li>{{ETAPE_3}}</li>
+      </ol>
+      <div class="callout">
+        <h3>Astuce de prévention</h3>
+        <p>{{ASTUCE_PREVENTION}}</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.querySelector('[data-show-quick]')?.addEventListener('click', function () {
+      document.querySelector('[data-quick]').classList.toggle('open');
+    });
+
+    document.querySelector('[data-show-full]')?.addEventListener('click', function () {
+      document.querySelector('[data-full]').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
