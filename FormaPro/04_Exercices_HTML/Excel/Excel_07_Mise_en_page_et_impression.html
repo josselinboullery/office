@@ -3,97 +3,161 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mise en page et impression</title>
+  <title>Mise en page et impression – Excel 07</title>
   <style>
-:root{--p:#334155;--s:#1F2937;--a:#64748B;--bg:#F8FAFC;--t:#111827;--b:#E5E7EB;--ok:#15803D;--w:#B45309;--d:#B91C1C;--r:8px}
-.theme-word{--p:#185ABD;--s:#2B579A;--a:#41A5EE;--bg:#F3F7FF;--t:#1F2937;--b:#D8E3F8}
-.theme-excel{--p:#107C41;--s:#217346;--a:#33C481;--bg:#F1FAF5;--t:#1F2937;--b:#CFEBDD}
-.theme-powerpoint{--p:#C43E1C;--s:#D24726;--a:#F0643B;--bg:#FFF4F0;--t:#1F2937;--b:#F6D4C9}
-*{box-sizing:border-box}
-body{margin:0;font-family:"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.65;color:var(--t);background:linear-gradient(180deg,var(--bg),#fff 28rem)}
-.wrap{width:min(1120px,calc(100% - 2rem));margin:auto}
-header{padding:2rem 0;border-bottom:1px solid var(--b)}
-main{padding:2rem 0}
-h1{margin:0;color:var(--s);font-size:clamp(1.9rem,4vw,2.65rem);line-height:1.15}
-h2{margin:0 0 1rem;color:var(--s);font-size:1.5rem}
-h3{margin:.25rem 0;color:var(--s);font-size:1.12rem}
-p{margin:.5rem 0 1rem}
-a{color:var(--p);font-weight:700}
-a:focus,button:focus,input:focus,textarea:focus,select:focus{outline:3px solid var(--a);outline-offset:3px}
-.top{display:inline-block;margin-bottom:1rem;text-decoration:none}
-.lead{max-width:780px;font-size:1.1rem}
-.meta,.actions,.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
-.badge{display:inline-flex;align-items:center;min-height:2rem;border:1px solid var(--b);border-radius:999px;background:#fff;padding:.25rem .75rem;font-weight:700}
-button,.button{min-height:44px;border:0;border-radius:var(--r);background:var(--p);color:#fff;padding:.72rem 1rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
-button.secondary,.button.secondary{background:#fff;color:var(--p);border:1px solid var(--p)}
-.panel,.card,.toc{background:#fff;border:1px solid var(--b);border-radius:var(--r);box-shadow:0 8px 24px rgba(15,23,42,.08)}
-.panel{padding:1.5rem;margin-bottom:1.5rem}
-.card{padding:1rem}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.two{grid-template-columns:repeat(2,1fr)}
-.toc{padding:1rem;margin-bottom:1.5rem}
-.toc ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
-.toc a{display:block;min-height:44px;border-radius:var(--r);background:var(--bg);padding:.65rem .8rem;text-decoration:none}
-.callout{border-left:5px solid var(--p);background:var(--bg);border-radius:var(--r);padding:1rem;margin:1rem 0}
-.callout.ok{border-color:var(--ok)}.callout.warn{border-color:var(--w)}.callout.danger{border-color:var(--d)}
-.steps{counter-reset:s;list-style:none;padding:0;margin:0}
-.steps li{counter-increment:s;display:grid;grid-template-columns:2.5rem 1fr;gap:.75rem;padding:.75rem 0;border-bottom:1px solid var(--b)}
-.steps li:before{content:counter(s);display:grid;place-items:center;width:2rem;height:2rem;border-radius:999px;background:var(--p);color:#fff;font-weight:800}
-.checklist{list-style:none;margin:0;padding:0}
-.checklist li{display:flex;gap:.75rem;padding:.72rem;border-bottom:1px solid var(--b)}
-.checklist input{width:1.2rem;height:1.2rem;margin-top:.2rem;accent-color:var(--p)}
-.accordion{border:1px solid var(--b);border-radius:var(--r);overflow:hidden;margin-top:.75rem;background:#fff}
-.accordion button{width:100%;border-radius:0;text-align:left;justify-content:flex-start}
-.content{display:none;padding:1rem}
-.content.open{display:block}
-.quiz-options{display:grid;gap:.5rem;margin-top:.75rem}
-.quiz-options button{background:#fff;color:var(--s);border:1px solid var(--b);justify-content:flex-start;text-align:left}
-.feedback{font-weight:800}
-table{width:100%;border-collapse:collapse;margin-top:1rem}
-th,td{border:1px solid var(--b);padding:.65rem;text-align:left;vertical-align:top}
-th{background:var(--bg);color:var(--s)}
-input[type=search],textarea,select{min-height:44px;border:1px solid var(--b);border-radius:var(--r);padding:.65rem .8rem;font:inherit}
-textarea{width:100%;min-height:7rem}
-.search-item[hidden]{display:none}
-@media(max-width:900px){.grid,.two,.toc ul{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.wrap{width:min(100% - 1rem,1120px)}.grid,.two,.toc ul{grid-template-columns:1fr}.panel{padding:1rem}button,.button{width:100%}.actions,.filters{flex-direction:column}}
-@media print{body{background:#fff;color:#111827}.no-print,.actions,button{display:none!important}.panel,.card,.toc,.callout,table{box-shadow:none;break-inside:avoid}.content{display:block!important}a{color:#111827;text-decoration:none}}
-
-.table-scroll{overflow-x:auto}.table-scroll table{min-width:760px}
-</style>
+:root{--p:#107C41;--s:#217346;--a:#33C481;--bg:#F1FAF5;--t:#1F2937;--b:#CFEBDD;--ok:#15803D;--w:#B45309;--r:8px}
+*{box-sizing:border-box}body{margin:0;font-family:"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.65;color:var(--t);background:var(--bg)}
+.wrap{width:min(1040px,calc(100% - 2rem));margin:auto}header{background:#fff;border-bottom:1px solid var(--b);padding:2rem 0}main{padding:2rem 0}
+h1{margin:0;color:var(--s);font-size:clamp(1.9rem,4vw,2.5rem);line-height:1.15}h2{color:var(--s);margin:0 0 1rem}h3{color:var(--s);margin:.25rem 0}
+a{color:var(--p);font-weight:700}a:focus,button:focus,input:focus{outline:3px solid var(--a);outline-offset:3px}
+.meta,.actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.badge{background:var(--bg);border:1px solid var(--b);border-radius:999px;padding:.25rem .75rem;font-weight:700}
+button,.button{min-height:44px;border:0;border-radius:var(--r);background:var(--p);color:#fff;padding:.75rem 1rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}.secondary{background:#fff!important;color:var(--p)!important;border:1px solid var(--p)!important}
+.panel{background:#fff;border:1px solid var(--b);border-radius:var(--r);box-shadow:0 8px 24px rgba(15,23,42,.08);padding:1.5rem;margin-bottom:1.5rem}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}.steps li{counter-increment:s;display:grid;grid-template-columns:2.5rem 1fr;gap:.75rem;padding:.8rem 0;border-bottom:1px solid var(--b)}.steps li:before{content:counter(s);display:grid;place-items:center;width:2rem;height:2rem;border-radius:999px;background:var(--p);color:#fff;font-weight:800}
+.checklist{list-style:none;padding:0;margin:0}.checklist li{display:flex;gap:.75rem;padding:.7rem;border-bottom:1px solid var(--b)}.checklist input{width:1.2rem;height:1.2rem;accent-color:var(--p)}.callout{border-left:5px solid var(--p);background:var(--bg);padding:1rem;border-radius:var(--r);margin:1rem 0}.ok{border-color:var(--ok)}
+.accordion{border:1px solid var(--b);border-radius:var(--r);overflow:hidden;margin-top:.75rem}.accordion button{width:100%;border-radius:0;text-align:left;justify-content:flex-start}.content{display:none;padding:1rem;background:#fff}.content.open{display:block}
+.exercise-header{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+.exercise-layout{display:grid;grid-template-columns:180px 1fr;gap:2rem;align-items:start}
+.exercise-sidebar{position:sticky;top:1rem;display:flex;flex-direction:column;gap:.25rem}
+.exercise-sidebar a{display:block;padding:.5rem .75rem;border-radius:var(--r);text-decoration:none;color:var(--t);font-weight:500;border:1px solid transparent}
+.exercise-sidebar a:hover,.exercise-sidebar a.active{background:#fff;border-color:var(--b);color:var(--p)}
+.progress-widget{background:var(--bg);border:1px solid var(--b);border-radius:var(--r);padding:1rem;min-width:220px}
+.progress-widget-top{display:flex;gap:.75rem;align-items:center;margin:.5rem 0}
+.progress-track{height:8px;background:var(--b);border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;background:var(--p);border-radius:999px;width:0%;transition:width .3s}
+.progress-count{font-size:.85rem;margin:.25rem 0 0;color:var(--s)}
+.progress-widget-square{width:40px;height:40px;border-radius:var(--r);background:var(--p);flex-shrink:0}
+.mini-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+.mini-step{background:var(--bg);border:1px solid var(--b);border-radius:var(--r);padding:.75rem}
+.mini-step-num{font-weight:800;color:var(--p);margin:0 0 .25rem}
+.mini-step-desc{margin:0;font-size:.9rem}
+.section-label{text-transform:uppercase;font-size:.75rem;font-weight:700;letter-spacing:.08em;color:var(--s);margin:0 0 .5rem}
+.top{font-size:.9rem;display:inline-block;margin-bottom:.75rem}
+.resource-list{list-style:none;padding:0;margin:0}.resource-list li{display:flex;align-items:center;gap:.75rem;padding:.7rem;border-bottom:1px solid var(--b)}
+.format-badge{background:var(--bg);border:1px solid var(--b);border-radius:4px;padding:.1rem .4rem;font-size:.75rem;font-weight:700}
+@media(max-width:640px){.wrap{width:min(100% - 1rem,1040px)}button,.button{width:100%}.actions{flex-direction:column}.panel{padding:1rem}.exercise-layout{grid-template-columns:1fr}.exercise-sidebar{display:none}.exercise-header{grid-template-columns:1fr}.mini-steps{grid-template-columns:1fr}}
+@media print{body{background:#fff}.actions,button,.no-print{display:none!important}.panel,.callout{box-shadow:none;break-inside:avoid}.content{display:block!important}a{color:#111827;text-decoration:none}}
+  </style>
+  <link rel="stylesheet" href="../../assets/formapro-design.css">
 </head>
 <body class="theme-excel">
+  <nav class="site-nav no-print">
+    <a class="site-nav-logo" href="../../00_Index_general/index.html">
+      <span class="site-nav-logo-icon">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="2" rx="1" fill="white"/><rect x="2" y="6" width="7" height="2" rx="1" fill="white"/><rect x="2" y="10" width="5" height="2" rx="1" fill="white"/></svg>
+      </span>
+      Formation Office
+    </a>
+    <div class="site-nav-tabs">
+      <a href="../../03_Supports_stagiaires_HTML/Support_Word_Debutant.html">Word</a>
+      <a href="../../03_Supports_stagiaires_HTML/Support_Excel_Debutant.html" class="excel-active">Excel</a>
+      <a href="../../03_Supports_stagiaires_HTML/Support_PowerPoint_Debutant.html">PowerPoint</a>
+    </div>
+  </nav>
   <header>
     <div class="wrap">
-      <a class="top no-print" href="../../00_Index_general/index.html">Retour à l'index général</a>
-      <h1>Mise en page et impression</h1>
-      <p class="lead">Vous devez remettre un tableau de frais de déplacement imprimable.</p>
-      <div class="meta"><span class="badge">Excel</span><span class="badge">Exercice 07</span><span class="badge">Cas pratique</span></div>
-      <div class="actions no-print"><button type="button" onclick="window.print()">Imprimer / Exporter en PDF</button><button type="button" class="secondary" data-open-all>Tout ouvrir</button><button type="button" class="secondary" data-close-all>Tout fermer</button></div>
+      <div class="exercise-header">
+        <div>
+          <a class="top no-print" href="../../03_Supports_stagiaires_HTML/Support_Excel_Debutant.html">Retour support Excel</a>
+          <p class="section-label">Module 07</p>
+          <h1>Mise en page et impression.</h1>
+          <p class="lead">Préparer un tableau de frais de déplacement imprimable.</p>
+          <div class="meta">
+            <span class="badge">Excel</span>
+            <span class="badge">Exercice 07</span>
+            <span class="badge">Cas pratique</span>
+          </div>
+        </div>
+        <div class="progress-widget no-print">
+          <p class="section-label">Progression séance</p>
+          <div class="progress-widget-top">
+            <div style="flex:1">
+              <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+              <p class="progress-count" id="prog-count">0 / 5 étapes validées</p>
+            </div>
+            <div class="progress-widget-square"></div>
+          </div>
+          <div style="display:flex;gap:.4rem;flex-wrap:wrap">
+            <span class="badge" style="font-size:.75rem">Mise en page impression</span>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
   <main class="wrap">
-    
-    <p><a href="../../03_Supports_stagiaires_HTML/Support_Excel_Debutant.html">Retour au support Excel</a></p>
-    <section class="grid two">
-      <article class="panel"><h2>Contexte professionnel</h2><p>Vous devez remettre un tableau de frais de déplacement imprimable.</p><div class="callout ok"><h3>Objectif</h3><p>Préparer un tableau lisible en aperçu avant impression.</p></div></article>
-      <aside class="panel"><h2>Fichier de départ</h2><p><a href="../../06_Fichiers_de_depart/Excel/frais_vacances_mise_en_page.xlsx">frais_vacances_mise_en_page.xlsx</a></p><h3>Critères de réussite</h3><ul><li>Totaux calculés</li><li>Orientation paysage</li><li>Zone d'impression</li><li>Ajustement 1 page en largeur</li><li>Aperçu vérifié</li></ul></aside>
-    </section>
-    <section class="panel"><h2>Consignes</h2><ol class="steps"><li>Ouvrir le fichier frais vacances.</li><li>Calculer Total = Quantité x Prix unitaire.</li><li>Mettre les montants au format monétaire.</li><li>Passer en orientation paysage.</li><li>Ajuster à 1 page en largeur.</li><li>Définir une zone d'impression et ajouter un pied de page avec numéro de page.</li></ol></section>
-    <section class="panel"><h2>Aide</h2><div class="accordion"><button type="button" aria-expanded="false">Afficher un indice</button><div class="content"><p>Contrôlez toujours l'aperçu avant d'imprimer.</p></div></div><div class="accordion"><button type="button" aria-expanded="false">Afficher le corrigé résumé</button><div class="content"><ul><li>Colonne Total calculée</li><li>Paysage actif</li><li>Largeur ajustée sur une page</li><li>Pied de page avec numéro</li></ul></div></div></section>
-    <section class="panel"><h2>Checklist stagiaire</h2><ul class="checklist" data-checklist-id="mise-en-page-et-impression-checklist"><li><input type="checkbox"><span>Totaux calculés</span></li><li><input type="checkbox"><span>Orientation paysage</span></li><li><input type="checkbox"><span>Zone d'impression</span></li><li><input type="checkbox"><span>Ajustement 1 page en largeur</span></li><li><input type="checkbox"><span>Aperçu vérifié</span></li></ul></section>
-    <section class="panel"><h2>Corrigé formateur</h2><p><a href="../../05_Corriges_HTML/Excel/Corrige_Excel_07_Mise_en_page_et_impression.html">Ouvrir le corrigé détaillé</a></p></section>
-    
+    <div class="exercise-layout">
+      <nav class="exercise-sidebar no-print">
+        <a href="#objectif" class="active">Objectif</a>
+        <a href="#exercice">Exercice</a>
+        <a href="#ressources">Ressources</a>
+        <a href="#validation">Validation</a>
+      </nav>
+      <div>
+        <section class="panel" id="objectif">
+          <p class="section-label">Objectif pédagogique</p>
+          <h2>Préparer un tableau lisible en aperçu avant impression.</h2>
+          <p>Configurer la mise en page pour une impression propre sur une page.</p>
+          <div class="mini-steps">
+            <div class="mini-step"><p class="mini-step-num">1. Calculer</p><p class="mini-step-desc">Total = Quantité × Prix unitaire, format monétaire.</p></div>
+            <div class="mini-step"><p class="mini-step-num">2. Configurer</p><p class="mini-step-desc">Orientation paysage, zone d'impression définie.</p></div>
+            <div class="mini-step"><p class="mini-step-num">3. Vérifier</p><p class="mini-step-desc">Aperçu avant impression et numéro de page.</p></div>
+          </div>
+          <div class="callout ok" style="margin-top:1.25rem"><h3>Résultat attendu</h3><p>Un tableau qui s'imprime sur une page, avec pied de page et numérotation.</p></div>
+        </section>
+        <section class="panel" id="exercice">
+          <p class="section-label">Exercice guidé</p>
+          <h2>Remettre un tableau de frais imprimable.</h2>
+          <p>Les apprenants calculent les totaux, configurent la mise en page et vérifient l'aperçu avant impression.</p>
+          <div class="actions no-print" style="margin-bottom:1.25rem">
+            <a class="button" href="../../06_Fichiers_de_depart/Excel/frais_vacances_mise_en_page.xlsx">Ouvrir le fichier</a>
+            <a class="button secondary" href="../../05_Corriges_HTML/Excel/Corrige_Excel_07_Mise_en_page_et_impression.html">Ouvrir le corrigé</a>
+          </div>
+          <h3 style="margin-top:1rem;margin-bottom:.5rem">Étapes</h3>
+          <ol class="steps">
+            <li>Ouvrir le fichier frais vacances.</li>
+            <li>Calculer Total = Quantité × Prix unitaire.</li>
+            <li>Mettre les montants au format monétaire.</li>
+            <li>Passer en orientation paysage.</li>
+            <li>Ajuster à 1 page en largeur.</li>
+            <li>Définir une zone d'impression et ajouter un pied de page avec numéro de page.</li>
+          </ol>
+          <div class="accordion"><button type="button" aria-expanded="false">Afficher un indice</button><div class="content"><p>Contrôlez toujours l'aperçu avant d'imprimer.</p></div></div>
+          <div class="accordion"><button type="button" aria-expanded="false">Afficher le corrigé résumé</button><div class="content"><p>Colonne Total calculée, paysage actif, largeur ajustée sur une page, pied de page avec numéro.</p></div></div>
+        </section>
+        <section class="panel" id="ressources">
+          <p class="section-label">Ressources de séance</p>
+          <h2>À distribuer pendant l'atelier.</h2>
+          <ul class="resource-list">
+            <li><a href="../../06_Fichiers_de_depart/Excel/frais_vacances_mise_en_page.xlsx">frais_vacances_mise_en_page.xlsx</a><span class="format-badge">XLSX</span></li>
+            <li><a href="../../05_Corriges_HTML/Excel/Corrige_Excel_07_Mise_en_page_et_impression.html">Corrigé détaillé</a><span class="format-badge">HTML</span></li>
+          </ul>
+        </section>
+        <section class="panel" id="validation">
+          <p class="section-label">Validation</p>
+          <h2>Checklist de réussite.</h2>
+          <ul class="checklist" data-checklist-id="excel-07-validation">
+            <li><input type="checkbox"><label>Totaux calculés</label></li>
+            <li><input type="checkbox"><label>Orientation paysage</label></li>
+            <li><input type="checkbox"><label>Zone d'impression</label></li>
+            <li><input type="checkbox"><label>Ajustement 1 page en largeur</label></li>
+            <li><input type="checkbox"><label>Aperçu vérifié</label></li>
+          </ul>
+        </section>
+        <section class="panel">
+          <h2>Pour aller plus loin</h2>
+          <p>Répéter la ligne d'en-têtes sur chaque page si le tableau s'étend sur plusieurs.</p>
+        </section>
+      </div>
+    </div>
   </main>
   <script>
 function safeStorageGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
 function safeStorageSet(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}
 document.querySelectorAll('.accordion button').forEach(function(b){b.addEventListener('click',function(){var c=b.nextElementSibling,o=c.classList.toggle('open');b.setAttribute('aria-expanded',String(o));});});
-document.querySelectorAll('[data-open-all]').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.content').forEach(function(c){c.classList.add('open')});});});
-document.querySelectorAll('[data-close-all]').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.content').forEach(function(c){c.classList.remove('open')});});});
-document.querySelectorAll('[data-checklist-id]').forEach(function(list){var key='formapro-'+list.dataset.checklistId;var saved=safeStorageGet(key);var states=saved?JSON.parse(saved):[];var boxes=list.querySelectorAll('input[type=checkbox]');boxes.forEach(function(box,i){box.checked=Boolean(states[i]);box.addEventListener('change',function(){safeStorageSet(key,JSON.stringify(Array.from(boxes).map(function(x){return x.checked})))});});});
-document.querySelectorAll('.quiz-options').forEach(function(q){var ans=q.dataset.answer;var fb=q.parentElement.querySelector('.feedback');q.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){fb.textContent=b.dataset.choice===ans?'Bonne réponse.':'Pas encore. Relisez la consigne puis réessayez.';});});});
-document.querySelectorAll('[data-search]').forEach(function(input){input.addEventListener('input',function(){var v=input.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');document.querySelectorAll('.search-item').forEach(function(item){var t=item.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');item.hidden=v && !t.includes(v);});});});
-</script>
+document.querySelectorAll('[data-checklist-id]').forEach(function(list){var key='formapro-'+list.dataset.checklistId;var saved=safeStorageGet(key);var states=saved?JSON.parse(saved):[];var boxes=list.querySelectorAll('input[type=checkbox]');boxes.forEach(function(box,i){box.checked=Boolean(states[i]);box.addEventListener('change',function(){safeStorageSet(key,JSON.stringify(Array.from(boxes).map(function(x){return x.checked})));updateProgress();});});});
+function updateProgress(){var boxes=document.querySelectorAll('#validation input[type=checkbox]');var done=Array.from(boxes).filter(function(b){return b.checked}).length;var total=boxes.length;var fill=document.getElementById('prog-fill');var count=document.getElementById('prog-count');if(fill)fill.style.width=(total?Math.round(done/total*100):0)+'%';if(count)count.textContent=done+' / '+total+' étapes validées';}
+updateProgress();
+document.querySelectorAll('.exercise-sidebar a').forEach(function(link){link.addEventListener('click',function(){document.querySelectorAll('.exercise-sidebar a').forEach(function(a){a.classList.remove('active')});link.classList.add('active');});});
+  </script>
 </body>
 </html>

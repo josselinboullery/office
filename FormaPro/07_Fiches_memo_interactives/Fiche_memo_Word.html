@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fiche memo Word</title>
+  <title>Fiche mémo Word : réflexes professionnels</title>
   <style>
 :root{--p:#334155;--s:#1F2937;--a:#64748B;--bg:#F8FAFC;--t:#111827;--b:#E5E7EB;--ok:#15803D;--w:#B45309;--d:#B91C1C;--r:8px}
 .theme-word{--p:#185ABD;--s:#2B579A;--a:#41A5EE;--bg:#F3F7FF;--t:#1F2937;--b:#D8E3F8}
@@ -58,20 +58,52 @@ textarea{width:100%;min-height:7rem}
 @media(max-width:900px){.grid,.two,.toc ul{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.wrap{width:min(100% - 1rem,1120px)}.grid,.two,.toc ul{grid-template-columns:1fr}.panel{padding:1rem}button,.button{width:100%}.actions,.filters{flex-direction:column}}
 @media print{body{background:#fff;color:#111827}.no-print,.actions,button{display:none!important}.panel,.card,.toc,.callout,table{box-shadow:none;break-inside:avoid}.content{display:block!important}a{color:#111827;text-decoration:none}}
+
+.source-note{font-size:.92rem;color:#64748B;margin-top:.75rem}
+.table-scroll{overflow-x:auto;margin-top:1rem}.table-scroll table{min-width:760px}
+.lesson{background:#fff;border:1px solid var(--b);border-radius:var(--r);padding:1.15rem;margin-bottom:1rem}
+.lesson h3{margin-top:0}.compact-list li{margin-bottom:.35rem}
+.split{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem;margin:1rem 0}
+.flow .card{min-height:100%;border-top:4px solid var(--p)}
+.badge.soft{background:var(--bg);color:var(--s)}
+.day-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1rem}
+.memo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.search-item .content ol{margin-top:.25rem}
+header .wrap,main.wrap>*{animation:none!important}
+@media(max-width:900px){.split,.day-grid,.memo-grid{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,1fr)}.table-scroll table{min-width:640px}}
+@media(max-width:640px){.flow{grid-template-columns:1fr}}
 </style>
+  <link rel="stylesheet" href="../assets/formapro-design.css">
 </head>
-<body class="theme-general">
+<body class="theme-word">
+
+  <nav class="site-nav no-print">
+    <a class="site-nav-logo" href="../00_Index_general/index.html">
+      <span class="site-nav-logo-icon">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="2" rx="1" fill="white"/><rect x="2" y="6" width="7" height="2" rx="1" fill="white"/><rect x="2" y="10" width="5" height="2" rx="1" fill="white"/></svg>
+      </span>
+      Formation Office
+    </a>
+    <div class="site-nav-tabs">
+      <a href="../03_Supports_stagiaires_HTML/Support_Word_Debutant.html" class="word-active">Word</a>
+      <a href="../03_Supports_stagiaires_HTML/Support_Excel_Debutant.html">Excel</a>
+      <a href="../03_Supports_stagiaires_HTML/Support_PowerPoint_Debutant.html">PowerPoint</a>
+    </div>
+  </nav>
+
   <header>
     <div class="wrap">
       <a class="top no-print" href="../00_Index_general/index.html">Retour à l'index général</a>
-      <h1>Fiche memo Word</h1>
-      <p class="lead">Fiche mémo interactive, imprimable et utilisable pendant les exercices.</p>
-      <div class="meta"><span class="badge">Fiche mémo</span></div>
+      <p class="section-label">Fiche mémo</p>
+      <h1>Fiche mémo Word : réflexes professionnels</h1>
+      <p class="lead">Mémo interactif pour diagnostiquer, structurer, mettre en page et finaliser un document Word.</p>
+      <div class="meta"><span class="badge">Word</span><span class="badge">Fiche mémo</span><span class="badge">Imprimable</span><span class="badge soft">Source : contenuFormationWord.md</span></div>
       <div class="actions no-print"><button type="button" onclick="window.print()">Imprimer / Exporter en PDF</button><button type="button" class="secondary" data-open-all>Tout ouvrir</button><button type="button" class="secondary" data-close-all>Tout fermer</button></div>
     </div>
   </header>
   <main class="wrap">
-    <div class="filters no-print"><label for="search">Recherche</label><input id="search" type="search" data-search placeholder="Rechercher"></div><section class="grid"><article class="card search-item"><h3>Sélectionner du texte</h3><p>Geste à refaire lentement en contexte professionnel.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Repérer la zone.</li><li>Faire le geste.</li><li>Vérifier le résultat.</li></ol></div></div><button type="button">Je sais faire</button></article><article class="card search-item"><h3>Mettre en gras</h3><p>Geste à refaire lentement en contexte professionnel.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Repérer la zone.</li><li>Faire le geste.</li><li>Vérifier le résultat.</li></ol></div></div><button type="button">Je sais faire</button></article><article class="card search-item"><h3>Créer une liste</h3><p>Geste à refaire lentement en contexte professionnel.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Repérer la zone.</li><li>Faire le geste.</li><li>Vérifier le résultat.</li></ol></div></div><button type="button">Je sais faire</button></article><article class="card search-item"><h3>Insérer image</h3><p>Geste à refaire lentement en contexte professionnel.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Repérer la zone.</li><li>Faire le geste.</li><li>Vérifier le résultat.</li></ol></div></div><button type="button">Je sais faire</button></article><article class="card search-item"><h3>Créer tableau</h3><p>Geste à refaire lentement en contexte professionnel.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Repérer la zone.</li><li>Faire le geste.</li><li>Vérifier le résultat.</li></ol></div></div><button type="button">Je sais faire</button></article><article class="card search-item"><h3>Exporter PDF</h3><p>Geste à refaire lentement en contexte professionnel.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Repérer la zone.</li><li>Faire le geste.</li><li>Vérifier le résultat.</li></ol></div></div><button type="button">Je sais faire</button></article></section><div class="panel"><h2>Quiz rapide</h2><p><strong>Que faire en cas d'erreur ?</strong></p><div class="quiz-options" data-answer="A"><button type="button" data-choice="A">Annuler</button><button type="button" data-choice="B">Fermer sans enregistrer</button><button type="button" data-choice="C">Tout supprimer</button></div><p class="feedback" aria-live="polite"></p></div>
+    <div class="filters no-print"><label for="search">Recherche</label><input id="search" type="search" data-search placeholder="Rechercher un réflexe Word"></div><section class="panel"><h2>Les 3 réflexes à retenir</h2><section class="flow"><article class="card"><h3>1. Voir</h3><p>Afficher ¶ pour comprendre le document.</p></article><article class="card"><h3>2. Structurer</h3><p>Styles, listes, tableaux propres.</p></article><article class="card"><h3>3. Vérifier</h3><p>Aperçu, accessibilité simple, PDF.</p></article></section></section><section class="memo-grid"><article class="card search-item"><h3>Créer et enregistrer</h3><p>Fichier > Enregistrer sous, nom clair, dossier connu, Ctrl+S régulier.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Choisir le dossier.</li><li>Nommer le fichier.</li><li>Vérifier le chemin.</li></ol></div></div></article><article class="card search-item"><h3>Afficher ¶</h3><p>Premier réflexe dès qu’un document bouge ou contient des espaces étranges.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Accueil > ¶.</li><li>Repérer espaces, tabulations, paragraphes.</li><li>Corriger une famille de problème à la fois.</li></ol></div></div></article><article class="card search-item"><h3>Sélectionner</h3><p>On sélectionne d’abord, on applique ensuite.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Mot : double-clic.</li><li>Paragraphe : triple-clic.</li><li>Tout : Ctrl+A.</li></ol></div></div></article><article class="card search-item"><h3>Paragraphes</h3><p>Aérer avec les espacements, pas avec des lignes vides répétées.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Sélectionner le paragraphe.</li><li>Accueil > Paragraphe.</li><li>Régler espace avant/après.</li></ol></div></div></article><article class="card search-item"><h3>Styles</h3><p>Un style donne une structure exploitable par Word.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Cliquer dans le titre.</li><li>Accueil > Styles.</li><li>Choisir Titre 1 ou Titre 2.</li></ol></div></div></article><article class="card search-item"><h3>Table des matières</h3><p>Elle fonctionne si les titres utilisent de vrais styles.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Appliquer les styles.</li><li>Références > Table des matières.</li><li>Mettre à jour avant PDF.</li></ol></div></div></article><article class="card search-item"><h3>Saut de page</h3><p>Nouvelle page volontaire.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Placer le curseur.</li><li>Insertion ou Disposition > Saut de page.</li><li>Éviter les Entrée répétées.</li></ol></div></div></article><article class="card search-item"><h3>Saut de section</h3><p>Changer la mise en page d’une partie seulement.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Afficher ¶.</li><li>Identifier la section.</li><li>Ne pas supprimer sans vérifier.</li></ol></div></div></article><article class="card search-item"><h3>Image stable</h3><p>Aligné sur le texte pour débuter ; carré si besoin d’habillage.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Insérer l’image.</li><li>Redimensionner par un coin.</li><li>Choisir Options de disposition.</li></ol></div></div></article><article class="card search-item"><h3>Tableau lisible</h3><p>Un tableau Word sert à présenter, pas à faire de gros calculs.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Créer les en-têtes.</li><li>Une info par cellule.</li><li>Vérifier largeur et répétition d’en-tête.</li></ol></div></div></article><article class="card search-item"><h3>Révision</h3><p>Commentaires et suivi servent à collaborer sans écraser.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Révision > Nouveau commentaire.</li><li>Activer suivi si demandé.</li><li>Accepter/refuser à la fin.</li></ol></div></div></article><article class="card search-item"><h3>PDF final</h3><p>Le PDF est la version d’envoi quand la mise en page doit rester fixe.</p><div class="accordion"><button type="button" aria-expanded="false">Voir les étapes</button><div class="content"><ol><li>Fichier > Exporter PDF.</li><li>Ouvrir le PDF.</li><li>Comparer rapidement avec Word.</li></ol></div></div></article></section><section class="panel"><h2>Quiz rapide</h2><p><strong>Un titre mis en gras suffit-il pour une table des matières automatique ?</strong></p><div class="quiz-options" data-answer="A"><button type="button" data-choice="A">Non, il faut un style de titre.</button><button type="button" data-choice="B">Oui, Word devine toujours.</button><button type="button" data-choice="C">Seulement si le titre est bleu.</button></div><p class="feedback" aria-live="polite"></p></section>
   </main>
   <script>
 function safeStorageGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
