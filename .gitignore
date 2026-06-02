@@ -22,6 +22,7 @@ pnpm-debug.log*
 
 # Local caches / logs
 .cache/
+_site/
 *.log
 
 # Local secrets

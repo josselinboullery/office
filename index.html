@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formation Office - Supports en ligne</title>
+  <style>
+    :root{--ink:#172033;--muted:#5f6b7a;--line:#dfe6ef;--word:#185abd;--excel:#107c41;--ppt:#c43e1c;--bg:#f7f9fc;--panel:#fff}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+    a{color:inherit}
+    .hero{min-height:66svh;display:grid;align-items:end;background:
+      linear-gradient(90deg,rgba(12,18,30,.86),rgba(12,18,30,.48),rgba(12,18,30,.16)),
+      url("FormaPro/06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_documents_word_programme.png") center/cover no-repeat;color:#fff}
+    .wrap{width:min(1120px,calc(100% - 2rem));margin:auto}
+    .hero-inner{padding:5rem 0 4rem;max-width:720px}
+    .eyebrow{margin:0 0 .75rem;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:800;color:#d8e7ff}
+    h1{margin:0;font-size:clamp(2.4rem,7vw,5.6rem);line-height:.96;letter-spacing:0}
+    .lead{margin:1.15rem 0 0;max-width:640px;font-size:1.12rem;color:#eef5ff}
+    .actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;border-radius:8px;padding:.75rem 1rem;background:#fff;color:#132035;text-decoration:none;font-weight:800}
+    .button.secondary{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.5)}
+    main{padding:2rem 0 3rem}
+    .section-head{display:flex;justify-content:space-between;gap:1rem;align-items:end;margin-bottom:1rem}
+    h2{margin:0;font-size:1.45rem}
+    .hint{margin:0;color:var(--muted);font-size:.95rem}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .module{position:relative;min-height:210px;border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:1.25rem;text-decoration:none;overflow:hidden;transition:transform .18s ease,border-color .18s ease}
+    .module:hover{transform:translateY(-3px);border-color:var(--accent)}
+    .module:focus{outline:3px solid var(--accent);outline-offset:3px}
+    .module small{display:inline-flex;margin-bottom:.8rem;color:var(--accent);font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+    .module h3{margin:.15rem 0 .5rem;font-size:1.35rem}
+    .module p{margin:0;color:var(--muted)}
+    .module span{position:absolute;right:1rem;bottom:.35rem;color:color-mix(in srgb,var(--accent) 20%,transparent);font-size:6rem;font-weight:900;line-height:1}
+    .links{margin-top:1rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+    .quick{border:1px solid var(--line);border-radius:8px;background:#fff;padding:.85rem;text-decoration:none;font-weight:750}
+    .quick:hover{border-color:#94a3b8}
+    footer{border-top:1px solid var(--line);padding:1rem 0 2rem;color:var(--muted);font-size:.92rem}
+    @media(max-width:760px){.hero{min-height:62svh}.grid,.links{grid-template-columns:1fr}.section-head{display:block}.button{width:100%}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Supports de cours en ligne</p>
+      <h1>Formation Office</h1>
+      <p class="lead">Acces direct aux supports stagiaires, exercices, corriges, evaluations, fiches memo et cartes SOS.</p>
+      <div class="actions">
+        <a class="button" href="FormaPro/00_Index_general/index.html">Ouvrir le portail complet</a>
+        <a class="button secondary" href="#modules">Choisir un module</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="modules">
+      <div class="section-head">
+        <h2>Modules principaux</h2>
+        <p class="hint">Pages statiques compatibles GitHub Pages.</p>
+      </div>
+      <div class="grid">
+        <a class="module" style="--accent:var(--word)" href="FormaPro/03_Supports_stagiaires_HTML/Support_Word_Debutant.html">
+          <small>Word</small>
+          <h3>Document propre</h3>
+          <p>Structurer, mettre en page, inserer tableaux et images, finaliser en PDF.</p>
+          <span>W</span>
+        </a>
+        <a class="module" style="--accent:var(--excel)" href="FormaPro/03_Supports_stagiaires_HTML/Support_Excel_Debutant.html">
+          <small>Excel</small>
+          <h3>Tableaux et calculs</h3>
+          <p>Saisir, presenter, calculer, recopier, imprimer et creer des graphiques simples.</p>
+          <span>X</span>
+        </a>
+        <a class="module" style="--accent:var(--ppt)" href="FormaPro/03_Supports_stagiaires_HTML/Support_PowerPoint_Debutant.html">
+          <small>PowerPoint</small>
+          <h3>Slides lisibles</h3>
+          <p>Construire un message clair, utiliser images et graphiques, preparer l'oral.</p>
+          <span>P</span>
+        </a>
+      </div>
+    </section>
+
+    <section style="margin-top:2rem">
+      <div class="section-head">
+        <h2>Acces rapide</h2>
+        <p class="hint">Entrer par usage, pas par dossier.</p>
+      </div>
+      <div class="links">
+        <a class="quick" href="FormaPro/02_Guide_formateur_HTML/Guide_formateur_general.html">Guide formateur</a>
+        <a class="quick" href="FormaPro/04_Exercices_HTML/Word/Word_01_Mettre_en_forme_un_texte_brut.html">Exercices</a>
+        <a class="quick" href="FormaPro/08_Evaluations_HTML/Evaluation_initiale.html">Evaluations</a>
+        <a class="quick" href="FormaPro/11_Cartes_SOS_interactives/Index_Cartes_SOS.html">Cartes SOS</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">URL prevue : https://josselinboullery.github.io/office/</div>
+  </footer>
+</body>
+</html>
