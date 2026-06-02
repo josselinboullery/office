@@ -827,6 +827,52 @@ main.wrap > *:nth-child(5) { animation-delay: 180ms; }
   color: #fff;
 }
 
+.course-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  margin: 0 0 1.25rem;
+  padding: 0.5rem;
+  border: 1px solid var(--fp-border);
+  border-radius: var(--fp-radius);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: var(--fp-shadow-soft);
+}
+
+.course-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  padding: 0.5rem 0.75rem;
+  color: var(--fp-muted);
+  font-size: 0.86rem;
+  font-weight: 790;
+  text-decoration: none;
+}
+
+.course-nav a:hover {
+  border-color: var(--fp-border);
+  background: var(--fp-surface-soft);
+  color: var(--fp-ink);
+}
+
+.course-nav a.active,
+.course-nav a[aria-current="page"] {
+  border-color: transparent;
+  background: var(--p);
+  color: #fff;
+}
+
+@media(max-width:640px) {
+  .course-nav a {
+    flex: 1 1 calc(50% - 0.35rem);
+    justify-content: center;
+  }
+}
+
 /* ========================
    SECTION LABEL
 ======================== */
