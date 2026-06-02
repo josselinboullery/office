@@ -23,7 +23,8 @@ Le workflow `.github/workflows/pages.yml` publie ces fichiers dans la branche `g
 
 - `index.html`
 - `.nojekyll`
-- `FormaPro/`
+- `FormaPro/00_Index_general/` a `FormaPro/12_Templates_HTML/`
+- `FormaPro/assets/`
 
 Les dossiers sources `Word/`, `Excel/`, `Powerpoint/` et les scripts restent sur `main`, hors site publie.
 

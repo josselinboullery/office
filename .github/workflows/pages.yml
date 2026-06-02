@@ -26,13 +26,32 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p _site
-          cp -R FormaPro _site/FormaPro
+          mkdir -p _site/FormaPro
+          for dir in \
+            00_Index_general \
+            01_Admin_et_vue_d_ensemble \
+            02_Guide_formateur_HTML \
+            03_Supports_stagiaires_HTML \
+            04_Exercices_HTML \
+            05_Corriges_HTML \
+            06_Fichiers_de_depart \
+            07_Fiches_memo_interactives \
+            08_Evaluations_HTML \
+            09_Projet_fil_rouge_HTML \
+            10_Mini_defis_intersessions_HTML \
+            11_Cartes_SOS_interactives \
+            12_Templates_HTML \
+            assets
+          do
+            cp -R "FormaPro/${dir}" "_site/FormaPro/${dir}"
+          done
           cp index.html _site/index.html
           cp .nojekyll _site/.nojekyll
 
       - name: Publish gh-pages branch
         shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           cd _site
