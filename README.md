@@ -19,16 +19,17 @@ https://josselinboullery.github.io/office/
 
 ## Publication
 
-Le workflow `.github/workflows/pages.yml` publie uniquement :
+Le workflow `.github/workflows/pages.yml` publie ces fichiers dans la branche `gh-pages` :
 
 - `index.html`
 - `.nojekyll`
 - `FormaPro/`
 
-Les dossiers sources `Word/`, `Excel/`, `Powerpoint/` et les scripts restent dans le repo, hors site publie.
+Les dossiers sources `Word/`, `Excel/`, `Powerpoint/` et les scripts restent sur `main`, hors site publie.
 
 Si Pages n'est pas encore active dans GitHub :
 
 1. Ouvrir `Settings > Pages`.
-2. Choisir `GitHub Actions` comme source.
-3. Relancer `Deploy course supports` dans l'onglet Actions si besoin.
+2. Choisir `Deploy from a branch`.
+3. Choisir `gh-pages` et `/ (root)`.
+4. Enregistrer.
