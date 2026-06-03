@@ -87,13 +87,41 @@ button,.button{min-height:44px;border:0;border-radius:var(--r);background:var(--
   <main class="wrap">
   <nav class="course-nav no-print" aria-label="Navigation de formation">
     <a href="../../00_Index_general/index.html">Accueil</a>
-    <a href="../../03_Supports_stagiaires_HTML/Support_Word_Debutant.html">Supports</a>
-    <a href="../Word/Word_01_Mettre_en_forme_un_texte_brut.html" class="active">Exercices</a>
+    <a href="../../03_Supports_stagiaires_HTML/Support_Excel_Debutant.html">Supports</a>
+    <a href="Excel_01_Creer_un_tableau_de_suivi.html" class="active">Exercices</a>
     <a href="../../09_Projet_fil_rouge_HTML/Projet_fil_rouge.html">Projet fil rouge</a>
     <a href="../../09_Projet_fil_rouge_HTML/Charte_graphique_projet.html">Charte graphique</a>
     <a href="../../11_Cartes_SOS_interactives/Index_Cartes_SOS.html">Cartes SOS</a>
   </nav>
 
+<!-- exercise-sequence-nav:start -->
+  <section class="exercise-sequence-nav no-print" aria-label="Navigation entre exercices">
+    <div class="exercise-sequence-top">
+      <p class="section-label">Exercices Excel</p>
+      <div class="exercise-module-tabs" aria-label="Choisir un logiciel">
+        <a href="../Word/Word_01_Mettre_en_forme_un_texte_brut.html">Word</a>
+        <a href="Excel_01_Creer_un_tableau_de_suivi.html" class="active" aria-current="true">Excel</a>
+        <a href="../PowerPoint/PowerPoint_01_Creer_une_presentation_3_diapositives.html">PowerPoint</a>
+      </div>
+    </div>
+    <div class="exercise-prev-next">
+      <a class="exercise-step-link" href="Excel_07_Mise_en_page_et_impression.html"><span>Précédent</span><strong>Excel 07</strong></a>
+      <a class="exercise-step-link next" href="Excel_09_References_absolues_commission.html"><span>Suivant</span><strong>Excel 09</strong></a>
+    </div>
+    <ol class="exercise-strip" aria-label="Exercices Excel">
+      <li><a href="Excel_01_Creer_un_tableau_de_suivi.html"><span>01</span><strong>Tableau suivi</strong></a></li>
+      <li><a href="Excel_02_Calculer_totaux_et_moyennes.html"><span>02</span><strong>Totaux/moyennes</strong></a></li>
+      <li><a href="Excel_03_Creer_un_budget_simple.html"><span>03</span><strong>Budget simple</strong></a></li>
+      <li><a href="Excel_04_Utiliser_SI_simple.html"><span>04</span><strong>Fonction SI</strong></a></li>
+      <li><a href="Excel_05_Creer_un_graphique.html"><span>05</span><strong>Graphique</strong></a></li>
+      <li><a href="Excel_06_Corriger_un_tableau_avec_erreurs.html"><span>06</span><strong>Tableau à corriger</strong></a></li>
+      <li><a href="Excel_07_Mise_en_page_et_impression.html"><span>07</span><strong>Impression</strong></a></li>
+      <li><a href="Excel_08_Series_et_recopie_de_formules.html" class="active" aria-current="page"><span>08</span><strong>Séries/formules</strong></a></li>
+      <li><a href="Excel_09_References_absolues_commission.html"><span>09</span><strong>Références absolues</strong></a></li>
+      <li><a href="Excel_10_Graphiques_et_mise_en_forme_conditionnelle.html"><span>10</span><strong>Graphiques + MFC</strong></a></li>
+    </ol>
+  </section>
+  <!-- exercise-sequence-nav:end -->
 <div class="exercise-layout">
       <nav class="exercise-sidebar no-print">
         <a href="#objectif" class="active">Objectif</a>
@@ -158,6 +186,12 @@ button,.button{min-height:44px;border:0;border-radius:var(--r);background:var(--
         </section>
       </div>
     </div>
+<!-- exercise-bottom-nav:start -->
+    <section class="exercise-bottom-nav exercise-prev-next no-print" aria-label="Navigation fin d'exercice">
+      <a class="exercise-step-link" href="Excel_07_Mise_en_page_et_impression.html"><span>Précédent</span><strong>Excel 07</strong></a>
+      <a class="exercise-step-link next" href="Excel_09_References_absolues_commission.html"><span>Suivant</span><strong>Excel 09</strong></a>
+    </section>
+  <!-- exercise-bottom-nav:end -->
   </main>
   <script>
 function safeStorageGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
