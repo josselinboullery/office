@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Word : créer des documents professionnels structurés</title>
+  <style>
+:root{--p:#334155;--s:#1F2937;--a:#64748B;--bg:#F8FAFC;--t:#111827;--b:#E5E7EB;--ok:#15803D;--w:#B45309;--d:#B91C1C;--r:8px}
+.theme-word{--p:#185ABD;--s:#2B579A;--a:#41A5EE;--bg:#F3F7FF;--t:#1F2937;--b:#D8E3F8}
+.theme-excel{--p:#107C41;--s:#217346;--a:#33C481;--bg:#F1FAF5;--t:#1F2937;--b:#CFEBDD}
+.theme-powerpoint{--p:#C43E1C;--s:#D24726;--a:#F0643B;--bg:#FFF4F0;--t:#1F2937;--b:#F6D4C9}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.65;color:var(--t);background:linear-gradient(180deg,var(--bg),#fff 28rem)}
+.wrap{width:min(1120px,calc(100% - 2rem));margin:auto}
+header{padding:2rem 0;border-bottom:1px solid var(--b)}
+main{padding:2rem 0}
+h1{margin:0;color:var(--s);font-size:clamp(1.9rem,4vw,2.65rem);line-height:1.15}
+h2{margin:0 0 1rem;color:var(--s);font-size:1.5rem}
+h3{margin:.25rem 0;color:var(--s);font-size:1.12rem}
+p{margin:.5rem 0 1rem}
+a{color:var(--p);font-weight:700}
+a:focus,button:focus,input:focus,textarea:focus,select:focus{outline:3px solid var(--a);outline-offset:3px}
+.top{display:inline-block;margin-bottom:1rem;text-decoration:none}
+.lead{max-width:780px;font-size:1.1rem}
+.meta,.actions,.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.badge{display:inline-flex;align-items:center;min-height:2rem;border:1px solid var(--b);border-radius:999px;background:#fff;padding:.25rem .75rem;font-weight:700}
+button,.button{min-height:44px;border:0;border-radius:var(--r);background:var(--p);color:#fff;padding:.72rem 1rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+button.secondary,.button.secondary{background:#fff;color:var(--p);border:1px solid var(--p)}
+.panel,.card,.toc{background:#fff;border:1px solid var(--b);border-radius:var(--r);box-shadow:0 8px 24px rgba(15,23,42,.08)}
+.panel{padding:1.5rem;margin-bottom:1.5rem}
+.card{padding:1rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.two{grid-template-columns:repeat(2,1fr)}
+.toc{padding:1rem;margin-bottom:1.5rem}
+.toc ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.toc a{display:block;min-height:44px;border-radius:var(--r);background:var(--bg);padding:.65rem .8rem;text-decoration:none}
+.callout{border-left:5px solid var(--p);background:var(--bg);border-radius:var(--r);padding:1rem;margin:1rem 0}
+.callout.ok{border-color:var(--ok)}.callout.warn{border-color:var(--w)}.callout.danger{border-color:var(--d)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2.5rem 1fr;gap:.75rem;padding:.75rem 0;border-bottom:1px solid var(--b)}
+.steps li:before{content:counter(s);display:grid;place-items:center;width:2rem;height:2rem;border-radius:999px;background:var(--p);color:#fff;font-weight:800}
+.checklist{list-style:none;margin:0;padding:0}
+.checklist li{display:flex;gap:.75rem;padding:.72rem;border-bottom:1px solid var(--b)}
+.checklist input{width:1.2rem;height:1.2rem;margin-top:.2rem;accent-color:var(--p)}
+.accordion{border:1px solid var(--b);border-radius:var(--r);overflow:hidden;margin-top:.75rem;background:#fff}
+.accordion button{width:100%;border-radius:0;text-align:left;justify-content:flex-start}
+.content{display:none;padding:1rem}
+.content.open{display:block}
+.quiz-options{display:grid;gap:.5rem;margin-top:.75rem}
+.quiz-options button{background:#fff;color:var(--s);border:1px solid var(--b);justify-content:flex-start;text-align:left}
+.feedback{font-weight:800}
+table{width:100%;border-collapse:collapse;margin-top:1rem}
+th,td{border:1px solid var(--b);padding:.65rem;text-align:left;vertical-align:top}
+th{background:var(--bg);color:var(--s)}
+input[type=search],textarea,select{min-height:44px;border:1px solid var(--b);border-radius:var(--r);padding:.65rem .8rem;font:inherit}
+textarea{width:100%;min-height:7rem}
+.search-item[hidden]{display:none}
+@media(max-width:900px){.grid,.two,.toc ul{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.wrap{width:min(100% - 1rem,1120px)}.grid,.two,.toc ul{grid-template-columns:1fr}.panel{padding:1rem}button,.button{width:100%}.actions,.filters{flex-direction:column}}
+@media print{body{background:#fff;color:#111827}.no-print,.actions,button{display:none!important}.panel,.card,.toc,.callout,table{box-shadow:none;break-inside:avoid}.content{display:block!important}a{color:#111827;text-decoration:none}}
+
+.source-note{font-size:.92rem;color:#64748B;margin-top:.75rem}
+.table-scroll{overflow-x:auto;margin-top:1rem}.table-scroll table{min-width:760px}
+.lesson{background:#fff;border:1px solid var(--b);border-radius:var(--r);padding:1.15rem;margin-bottom:1rem}
+.lesson h3{margin-top:0}.compact-list li{margin-bottom:.35rem}
+.split{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem;margin:1rem 0}
+.flow .card{min-height:100%;border-top:4px solid var(--p)}
+.badge.soft{background:var(--bg);color:var(--s)}
+.day-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1rem}
+.memo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.search-item .content ol{margin-top:.25rem}
+header .wrap,main.wrap>*{animation:none!important}
+@media(max-width:900px){.split,.day-grid,.memo-grid{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,1fr)}.table-scroll table{min-width:640px}}
+@media(max-width:640px){.flow{grid-template-columns:1fr}}
+</style>
+  <link rel="stylesheet" href="../assets/formapro-design.css">
+</head>
+<body class="theme-word">
+
+  <nav class="site-nav no-print">
+    <a class="site-nav-logo" href="../00_Index_general/index.html">
+      <span class="site-nav-logo-icon">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="2" rx="1" fill="white"/><rect x="2" y="6" width="7" height="2" rx="1" fill="white"/><rect x="2" y="10" width="5" height="2" rx="1" fill="white"/></svg>
+      </span>
+      Formation Office
+    </a>
+    <div class="site-nav-tabs">
+      <a href="../03_Supports_stagiaires_HTML/Support_Word_Debutant.html" class="word-active">Word</a>
+      <a href="../03_Supports_stagiaires_HTML/Support_Excel_Debutant.html">Excel</a>
+      <a href="../03_Supports_stagiaires_HTML/Support_PowerPoint_Debutant.html">PowerPoint</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="wrap">
+      <a class="top no-print" href="../00_Index_general/index.html">Retour à l'index général</a>
+      <p class="section-label">Support stagiaire</p>
+      <h1>Word : créer des documents professionnels structurés</h1>
+      <p class="lead">Support stagiaire refondu depuis le parcours complet Word : logique du document, gestes de base, styles, mise en page, objets, finalisation.</p>
+      <div class="meta"><span class="badge">Word</span><span class="badge">Support stagiaire</span><span class="badge">Débutant à autonome</span><span class="badge">18 h</span><span class="badge soft">Source : contenuFormationWord.md</span></div>
+      <div class="actions no-print"><button type="button" onclick="window.print()">Imprimer / Exporter en PDF</button><button type="button" class="secondary" data-open-all>Tout ouvrir</button><button type="button" class="secondary" data-close-all>Tout fermer</button></div>
+    </div>
+  </header>
+  <main class="wrap">
+  <nav class="course-nav no-print" aria-label="Navigation de formation">
+    <a href="../00_Index_general/index.html">Accueil</a>
+    <a href="../02_Guide_formateur_HTML/Guide_formateur_general.html">Guide</a>
+    <a href="Support_Word_Debutant.html" class="active" aria-current="page">Supports</a>
+    <a href="../04_Exercices_HTML/Word/Word_01_Mettre_en_forme_un_texte_brut.html">Exercices</a>
+    <a href="../09_Projet_fil_rouge_HTML/Projet_fil_rouge.html">Projet</a>
+    <a href="../08_Evaluations_HTML/Evaluation_initiale.html">Evaluations</a>
+    <a href="../11_Cartes_SOS_interactives/Index_Cartes_SOS.html">SOS</a>
+  </nav>
+
+<nav class="toc"><ul><li><a href="#logique">Logique Word</a></li><li><a href="#depart">Départ</a></li><li><a href="#texte">Texte</a></li><li><a href="#structure">Styles</a></li><li><a href="#page">Page</a></li><li><a href="#objets">Objets</a></li><li><a href="#avance">Fonctions avancées</a></li><li><a href="#finaliser">Finaliser</a></li><li><a href="#exercices">Exercices</a></li></ul></nav><section class="panel" id="logique"><h2>La règle de travail : structurer avant de décorer</h2><p>Un bon document Word est un document structuré avant d’être décoré. On rédige le contenu, on indique sa structure, puis seulement on règle l’apparence.</p><section class="flow"><article class="card"><h3>1. Rédiger</h3><p>Écrire le contenu sans chercher la mise en forme parfaite.</p></article><article class="card"><h3>2. Organiser</h3><p>Découper en paragraphes, listes et parties.</p></article><article class="card"><h3>3. Structurer</h3><p>Appliquer Normal, Titre 1, Titre 2.</p></article><article class="card"><h3>4. Présenter</h3><p>Régler police, espacements, marges, tableaux et images.</p></article><article class="card"><h3>5. Finaliser</h3><p>Relire, vérifier l’accessibilité, exporter en PDF.</p></article></section><div class="table-scroll"><table><thead><tr><th>Niveau Word</th><th>Ce que cela contrôle</th><th>Erreur classique</th></tr></thead><tbody><tr><td>Caractère</td><td>Un mot ou quelques lettres : police, gras, couleur.</td><td>Mettre chaque titre en forme à la main.</td></tr><tr><td>Paragraphe</td><td>Alignement, retrait, interligne, espace avant/après.</td><td>Appuyer plusieurs fois sur Entrée pour aérer.</td></tr><tr><td>Page</td><td>Marges, orientation, taille du papier.</td><td>Découvrir le problème seulement à l’impression.</td></tr><tr><td>Section</td><td>Une partie avec sa propre mise en page.</td><td>Supprimer un saut de section sans comprendre son rôle.</td></tr><tr><td>Document</td><td>Structure globale, styles, champs, export.</td><td>Envoyer sans relecture ni PDF.</td></tr></tbody></table></div></section><section class="panel" id="depart"><h2>Créer, enregistrer, retrouver</h2><article class="lesson"><h3>Premier réflexe</h3><ol class="steps"><li><span>Ouvrir Word, créer un document vierge.</span></li><li><span>Enregistrer sous avant de travailler longtemps.</span></li><li><span>Choisir un dossier connu et un nom clair : <code>Courrier_relance_NomPrenom.docx</code>.</span></li><li><span>Utiliser <span class="kbd">Ctrl</span> + <span class="kbd">S</span> après chaque étape importante.</span></li><li><span>Exporter en PDF seulement quand le document est relu et stabilisé.</span></li></ol></article><article class="lesson"><h3>Interface utile</h3><div class="table-scroll"><table><thead><tr><th>Onglet</th><th>Usage prioritaire</th></tr></thead><tbody><tr><td>Fichier</td><td>Nouveau, ouvrir, enregistrer, imprimer, exporter.</td></tr><tr><td>Accueil</td><td>Police, paragraphes, listes, styles, rechercher/remplacer.</td></tr><tr><td>Insertion</td><td>Pages, tableaux, images, formes, en-tête, pied, numéro de page.</td></tr><tr><td>Disposition / Mise en page</td><td>Marges, orientation, sauts de page, sauts de section.</td></tr><tr><td>Références</td><td>Table des matières, notes, légendes, renvois.</td></tr><tr><td>Révision</td><td>Orthographe, commentaires, suivi des modifications.</td></tr><tr><td>Affichage</td><td>Règle, volet de navigation, zoom, modes d’affichage.</td></tr></tbody></table></div></article></section><section class="panel" id="texte"><h2>Saisir, sélectionner, corriger</h2><section class="split"><article class="lesson"><h3>Saisie propre</h3><ul class="compact-list"><li>Ne pas appuyer sur Entrée à la fin de chaque ligne : Word revient à la ligne seul.</li><li>Entrée crée un nouveau paragraphe.</li><li>Maj+Entrée crée un retour à la ligne dans le même paragraphe.</li><li>Tabulation sert à se déplacer dans une structure, pas à aligner un texte à coups d’espaces.</li></ul></article><article class="lesson"><h3>Sélection efficace</h3><ul class="compact-list"><li>Double-clic : sélectionner un mot.</li><li>Triple-clic : sélectionner un paragraphe.</li><li>Ctrl+A : tout sélectionner.</li><li>Ctrl+Z : annuler immédiatement une mauvaise manipulation.</li></ul></article></section><article class="lesson"><h3>Caractères invisibles</h3><p>Afficher ¶ permet de voir les espaces, tabulations, retours, sauts de page et sauts de section. C’est le premier outil de diagnostic quand un document bouge.</p></article><div class="table-scroll"><table><thead><tr><th>Symbole</th><th>Signification</th><th>Action utile</th></tr></thead><tbody><tr><td>·</td><td>Espace</td><td>Supprimer les espaces multiples.</td></tr><tr><td>→</td><td>Tabulation</td><td>Remplacer les alignements bricolés.</td></tr><tr><td>¶</td><td>Fin de paragraphe</td><td>Éviter les lignes vides répétées.</td></tr><tr><td>Saut de page</td><td>Nouvelle page forcée</td><td>Garder si le changement de page est voulu.</td></tr><tr><td>Saut de section</td><td>Nouvelle zone de mise en page</td><td>Vérifier avant suppression.</td></tr></tbody></table></div></section><section class="panel" id="structure"><h2>Styles, titres, listes et table des matières</h2><article class="lesson"><h3>Styles</h3><p>Un style applique plusieurs réglages et donne une identité au texte. Un titre en gras n’est pas un vrai titre pour Word. Un texte en <strong>Titre 1</strong> ou <strong>Titre 2</strong> devient exploitable dans le volet de navigation et la table des matières.</p></article><div class="table-scroll"><table><thead><tr><th>Besoin</th><th>Commande Word</th><th>Résultat</th></tr></thead><tbody><tr><td>Titre principal</td><td>Accueil > Styles > Titre 1</td><td>Structure reconnue.</td></tr><tr><td>Sous-partie</td><td>Accueil > Styles > Titre 2</td><td>Hiérarchie claire.</td></tr><tr><td>Texte courant</td><td>Normal</td><td>Document homogène.</td></tr><tr><td>Table des matières</td><td>Références > Table des matières automatique</td><td>Sommaire généré depuis les styles.</td></tr></tbody></table></div><article class="lesson"><h3>Listes</h3><ul class="compact-list"><li>Puces : éléments sans ordre.</li><li>Numéros : étapes à suivre dans l’ordre.</li><li>Multiniveau : plan, clauses, grandes parties.</li><li>Si la numérotation recommence mal, utiliser les options de liste plutôt que taper les numéros à la main.</li></ul></article></section><section class="panel" id="page"><h2>Mise en page, sections, en-têtes et numérotation</h2><article class="lesson"><h3>Mise en page</h3><ol class="steps"><li><span>Régler les marges avant de finaliser.</span></li><li><span>Choisir Portrait pour courrier ou fiche ; Paysage seulement pour un tableau large.</span></li><li><span>Utiliser un saut de page pour commencer une nouvelle page.</span></li><li><span>Utiliser un saut de section pour changer orientation, marges, colonnes, en-tête ou numérotation sur une partie.</span></li></ol></article><article class="lesson"><h3>En-têtes et pieds de page</h3><ul class="compact-list"><li>En-tête : informations répétées en haut : logo, titre, service.</li><li>Pied de page : date, contact, numéro de page, mention courte.</li><li>Première page différente : utile pour une page de garde non numérotée.</li><li>Lier au précédent : à vérifier quand plusieurs sections existent.</li></ul></article></section><section class="panel" id="objets"><h2>Tableaux, images, légendes</h2><section class="split"><article class="lesson"><h3>Tableaux Word</h3><ul class="compact-list"><li>À utiliser pour des données courtes, lisibles dans le document.</li><li>Ajouter une ligne d’en-tête claire.</li><li>Répéter la ligne d’en-tête si le tableau passe sur plusieurs pages.</li><li>Pour calculs lourds, préparer dans Excel puis copier proprement.</li></ul></article><article class="lesson"><h3>Images et objets</h3><ul class="compact-list"><li>Redimensionner depuis un coin pour ne pas déformer.</li><li>Choisir un habillage : aligné sur le texte pour débuter, carré si le texte doit entourer.</li><li>Ajouter un texte alternatif si l’image porte une information.</li><li>Ajouter une légende quand l’image ou le tableau doit être référencé.</li></ul></article></section></section><section class="panel" id="avance"><h2>Fonctions avancées à connaître</h2><section class="grid"><article class="card"><h3>Documents longs</h3><p>Styles, table des matières, légendes, renvois, notes de bas de page et volet de navigation deviennent indispensables.</p></article><article class="card"><h3>Modèles</h3><p>Un modèle évite de repartir de zéro : courrier, compte rendu, attestation, procédure, fiche client.</p></article><article class="card"><h3>Révision</h3><p>Commentaires et suivi des modifications permettent de corriger sans perdre l’historique.</p></article><article class="card"><h3>Publipostage</h3><p>Document principal + base de données + champs de fusion pour produire courriers, étiquettes ou convocations.</p></article><article class="card"><h3>Formulaires</h3><p>Contrôles de contenu, listes déroulantes, cases à cocher et protection du formulaire.</p></article><article class="card"><h3>Champs</h3><p>Date, numéro de page, table des matières et renvois doivent être mis à jour avant export.</p></article></section></section><section class="panel" id="finaliser"><h2>Contrôle final avant envoi</h2><ul class="checklist" data-checklist-id="controle-final-word"><li><input type="checkbox"><span>Le fichier est enregistré au bon endroit avec un nom explicite.</span></li><li><input type="checkbox"><span>Les caractères invisibles ne montrent pas d’espaces ou paragraphes vides inutiles.</span></li><li><input type="checkbox"><span>Les titres utilisent les styles Word.</span></li><li><input type="checkbox"><span>Les listes sont de vraies listes, pas des tirets tapés à la main.</span></li><li><input type="checkbox"><span>Marges, orientation, en-têtes, pieds et numéros sont vérifiés en aperçu avant impression.</span></li><li><input type="checkbox"><span>Images et tableaux restent lisibles et ne coupent pas le texte.</span></li><li><input type="checkbox"><span>Orthographe, grammaire et accessibilité sont vérifiées.</span></li><li><input type="checkbox"><span>La version PDF a été ouverte pour contrôle.</span></li></ul></section><section class="panel" id="exercices"><h2>Exercices guidés</h2><ul class="checklist" data-checklist-id="support-word-exercices"><li><input type="checkbox"><span><a href="../04_Exercices_HTML/Word/Word_01_Mettre_en_forme_un_texte_brut.html">Word 01 - Structurer un texte brut</a> : sélection, paragraphes, caractères invisibles, styles simples.</span></li><li><input type="checkbox"><span><a href="../04_Exercices_HTML/Word/Word_02_Creer_un_courrier_professionnel.html">Word 02 - Courrier professionnel</a> : mise en page, objet, formule, PDF.</span></li><li><input type="checkbox"><span><a href="../04_Exercices_HTML/Word/Word_03_Inserer_image_et_tableau.html">Word 03 - Image et tableau</a> : habillage, tableau lisible, texte alternatif.</span></li><li><input type="checkbox"><span><a href="../04_Exercices_HTML/Word/Word_04_Creer_une_fiche_de_presentation.html">Word 04 - Fiche structurée</a> : titres, styles, listes, modèle réutilisable.</span></li><li><input type="checkbox"><span><a href="../04_Exercices_HTML/Word/Word_05_Corriger_un_document_mal_presente.html">Word 05 - Diagnostic</a> : réparer espaces, paragraphes, numérotation, pages et export.</span></li></ul><section class="panel"><h2>Quiz rapide</h2><p><strong>Pourquoi utiliser un style Titre 1 plutôt qu’un titre mis en gras à la main ?</strong></p><div class="quiz-options" data-answer="A"><button type="button" data-choice="A">Pour que Word reconnaisse la structure du document.</button><button type="button" data-choice="B">Pour changer seulement la couleur du titre.</button><button type="button" data-choice="C">Pour empêcher l’impression.</button></div><p class="feedback" aria-live="polite"></p></section></section>
+  </main>
+  <script>
+function safeStorageGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function safeStorageSet(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}
+document.querySelectorAll('.accordion button').forEach(function(b){b.addEventListener('click',function(){var c=b.nextElementSibling,o=c.classList.toggle('open');b.setAttribute('aria-expanded',String(o));});});
+document.querySelectorAll('[data-open-all]').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.content').forEach(function(c){c.classList.add('open')});});});
+document.querySelectorAll('[data-close-all]').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.content').forEach(function(c){c.classList.remove('open')});});});
+document.querySelectorAll('[data-checklist-id]').forEach(function(list){var key='formapro-'+list.dataset.checklistId;var saved=safeStorageGet(key);var states=saved?JSON.parse(saved):[];var boxes=list.querySelectorAll('input[type=checkbox]');boxes.forEach(function(box,i){box.checked=Boolean(states[i]);box.addEventListener('change',function(){safeStorageSet(key,JSON.stringify(Array.from(boxes).map(function(x){return x.checked})))});});});
+document.querySelectorAll('.quiz-options').forEach(function(q){var ans=q.dataset.answer;var fb=q.parentElement.querySelector('.feedback');q.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){fb.textContent=b.dataset.choice===ans?'Bonne réponse.':'Pas encore. Relisez la consigne puis réessayez.';});});});
+document.querySelectorAll('[data-search]').forEach(function(input){input.addEventListener('input',function(){var v=input.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');document.querySelectorAll('.search-item').forEach(function(item){var t=item.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');item.hidden=v && !t.includes(v);});});});
+</script>
+</body>
+</html>

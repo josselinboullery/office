@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Créer un budget simple – Excel 03</title>
+  <style>
+:root{--p:#107C41;--s:#217346;--a:#33C481;--bg:#F1FAF5;--t:#1F2937;--b:#CFEBDD;--ok:#15803D;--w:#B45309;--r:8px}
+*{box-sizing:border-box}body{margin:0;font-family:"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.65;color:var(--t);background:var(--bg)}
+.wrap{width:min(1040px,calc(100% - 2rem));margin:auto}header{background:#fff;border-bottom:1px solid var(--b);padding:2rem 0}main{padding:2rem 0}
+h1{margin:0;color:var(--s);font-size:clamp(1.9rem,4vw,2.5rem);line-height:1.15}h2{color:var(--s);margin:0 0 1rem}h3{color:var(--s);margin:.25rem 0}
+a{color:var(--p);font-weight:700}a:focus,button:focus,input:focus{outline:3px solid var(--a);outline-offset:3px}
+.meta,.actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.badge{background:var(--bg);border:1px solid var(--b);border-radius:999px;padding:.25rem .75rem;font-weight:700}
+button,.button{min-height:44px;border:0;border-radius:var(--r);background:var(--p);color:#fff;padding:.75rem 1rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}.secondary{background:#fff!important;color:var(--p)!important;border:1px solid var(--p)!important}
+.panel{background:#fff;border:1px solid var(--b);border-radius:var(--r);box-shadow:0 8px 24px rgba(15,23,42,.08);padding:1.5rem;margin-bottom:1.5rem}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}.steps li{counter-increment:s;display:grid;grid-template-columns:2.5rem 1fr;gap:.75rem;padding:.8rem 0;border-bottom:1px solid var(--b)}.steps li:before{content:counter(s);display:grid;place-items:center;width:2rem;height:2rem;border-radius:999px;background:var(--p);color:#fff;font-weight:800}
+.checklist{list-style:none;padding:0;margin:0}.checklist li{display:flex;gap:.75rem;padding:.7rem;border-bottom:1px solid var(--b)}.checklist input{width:1.2rem;height:1.2rem;accent-color:var(--p)}.callout{border-left:5px solid var(--p);background:var(--bg);padding:1rem;border-radius:var(--r);margin:1rem 0}.ok{border-color:var(--ok)}
+.accordion{border:1px solid var(--b);border-radius:var(--r);overflow:hidden;margin-top:.75rem}.accordion button{width:100%;border-radius:0;text-align:left;justify-content:flex-start}.content{display:none;padding:1rem;background:#fff}.content.open{display:block}
+.exercise-header{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+.exercise-layout{display:grid;grid-template-columns:180px 1fr;gap:2rem;align-items:start}
+.exercise-sidebar{position:sticky;top:1rem;display:flex;flex-direction:column;gap:.25rem}
+.exercise-sidebar a{display:block;padding:.5rem .75rem;border-radius:var(--r);text-decoration:none;color:var(--t);font-weight:500;border:1px solid transparent}
+.exercise-sidebar a:hover,.exercise-sidebar a.active{background:#fff;border-color:var(--b);color:var(--p)}
+.progress-widget{background:var(--bg);border:1px solid var(--b);border-radius:var(--r);padding:1rem;min-width:220px}
+.progress-widget-top{display:flex;gap:.75rem;align-items:center;margin:.5rem 0}
+.progress-track{height:8px;background:var(--b);border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;background:var(--p);border-radius:999px;width:0%;transition:width .3s}
+.progress-count{font-size:.85rem;margin:.25rem 0 0;color:var(--s)}
+.progress-widget-square{width:40px;height:40px;border-radius:var(--r);background:var(--p);flex-shrink:0}
+.mini-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+.mini-step{background:var(--bg);border:1px solid var(--b);border-radius:var(--r);padding:.75rem}
+.mini-step-num{font-weight:800;color:var(--p);margin:0 0 .25rem}
+.mini-step-desc{margin:0;font-size:.9rem}
+.section-label{text-transform:uppercase;font-size:.75rem;font-weight:700;letter-spacing:.08em;color:var(--s);margin:0 0 .5rem}
+.top{font-size:.9rem;display:inline-block;margin-bottom:.75rem}
+.resource-list{list-style:none;padding:0;margin:0}.resource-list li{display:flex;align-items:center;gap:.75rem;padding:.7rem;border-bottom:1px solid var(--b)}
+.format-badge{background:var(--bg);border:1px solid var(--b);border-radius:4px;padding:.1rem .4rem;font-size:.75rem;font-weight:700}
+@media(max-width:640px){.wrap{width:min(100% - 1rem,1040px)}button,.button{width:100%}.actions{flex-direction:column}.panel{padding:1rem}.exercise-layout{grid-template-columns:1fr}.exercise-sidebar{display:none}.exercise-header{grid-template-columns:1fr}.mini-steps{grid-template-columns:1fr}}
+@media print{body{background:#fff}.actions,button,.no-print{display:none!important}.panel,.callout{box-shadow:none;break-inside:avoid}.content{display:block!important}a{color:#111827;text-decoration:none}}
+  </style>
+  <link rel="stylesheet" href="../../assets/formapro-design.css">
+</head>
+<body class="theme-excel">
+  <nav class="site-nav no-print">
+    <a class="site-nav-logo" href="../../00_Index_general/index.html">
+      <span class="site-nav-logo-icon">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="2" rx="1" fill="white"/><rect x="2" y="6" width="7" height="2" rx="1" fill="white"/><rect x="2" y="10" width="5" height="2" rx="1" fill="white"/></svg>
+      </span>
+      Formation Office
+    </a>
+    <div class="site-nav-tabs">
+      <a href="../../03_Supports_stagiaires_HTML/Support_Word_Debutant.html">Word</a>
+      <a href="../../03_Supports_stagiaires_HTML/Support_Excel_Debutant.html" class="excel-active">Excel</a>
+      <a href="../../03_Supports_stagiaires_HTML/Support_PowerPoint_Debutant.html">PowerPoint</a>
+    </div>
+  </nav>
+  <header>
+    <div class="wrap">
+      <div class="exercise-header">
+        <div>
+          <a class="top no-print" href="../../03_Supports_stagiaires_HTML/Support_Excel_Debutant.html">Retour support Excel</a>
+          <p class="section-label">Module 03</p>
+          <h1>Créer un budget simple.</h1>
+          <p class="lead">Présenter un budget clair pour une réunion.</p>
+          <div class="meta">
+            <span class="badge">Excel</span>
+            <span class="badge">Exercice 03</span>
+            <span class="badge">Cas pratique</span>
+          </div>
+        </div>
+        <div class="progress-widget no-print">
+          <p class="section-label">Progression séance</p>
+          <div class="progress-widget-top">
+            <div style="flex:1">
+              <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+              <p class="progress-count" id="prog-count">0 / 5 étapes validées</p>
+            </div>
+            <div class="progress-widget-square"></div>
+          </div>
+          <div style="display:flex;gap:.4rem;flex-wrap:wrap">
+            <span class="badge" style="font-size:.75rem">Budget et présentation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+  <nav class="course-nav no-print" aria-label="Navigation de formation">
+    <a href="../../00_Index_general/index.html">Accueil</a>
+    <a href="../../02_Guide_formateur_HTML/Guide_formateur_general.html">Guide</a>
+    <a href="../../03_Supports_stagiaires_HTML/Support_Excel_Debutant.html">Supports</a>
+    <a href="Excel_01_Creer_un_tableau_de_suivi.html" class="active">Exercices</a>
+    <a href="../../09_Projet_fil_rouge_HTML/Projet_fil_rouge.html">Projet</a>
+    <a href="../../08_Evaluations_HTML/Evaluation_initiale.html">Evaluations</a>
+    <a href="../../11_Cartes_SOS_interactives/Index_Cartes_SOS.html">SOS</a>
+  </nav>
+
+<!-- exercise-sequence-nav:start -->
+  <section class="exercise-sequence-nav no-print" aria-label="Navigation entre exercices">
+    <div class="exercise-sequence-top">
+      <p class="section-label">Exercices Excel</p>
+      <div class="exercise-module-tabs" aria-label="Choisir un logiciel">
+        <a href="../Word/Word_01_Mettre_en_forme_un_texte_brut.html">Word</a>
+        <a href="Excel_01_Creer_un_tableau_de_suivi.html" class="active" aria-current="true">Excel</a>
+        <a href="../PowerPoint/PowerPoint_01_Creer_une_presentation_3_diapositives.html">PowerPoint</a>
+      </div>
+    </div>
+    <div class="exercise-prev-next">
+      <a class="exercise-step-link" href="Excel_02_Calculer_totaux_et_moyennes.html"><span>Précédent</span><strong>Excel 02</strong></a>
+      <a class="exercise-step-link next" href="Excel_04_Utiliser_SI_simple.html"><span>Suivant</span><strong>Excel 04</strong></a>
+    </div>
+    <ol class="exercise-strip" aria-label="Exercices Excel">
+      <li><a href="Excel_01_Creer_un_tableau_de_suivi.html"><span>01</span><strong>Tableau suivi</strong></a></li>
+      <li><a href="Excel_02_Calculer_totaux_et_moyennes.html"><span>02</span><strong>Totaux/moyennes</strong></a></li>
+      <li><a href="Excel_03_Creer_un_budget_simple.html" class="active" aria-current="page"><span>03</span><strong>Budget simple</strong></a></li>
+      <li><a href="Excel_04_Utiliser_SI_simple.html"><span>04</span><strong>Fonction SI</strong></a></li>
+      <li><a href="Excel_05_Creer_un_graphique.html"><span>05</span><strong>Graphique</strong></a></li>
+      <li><a href="Excel_06_Corriger_un_tableau_avec_erreurs.html"><span>06</span><strong>Tableau à corriger</strong></a></li>
+      <li><a href="Excel_07_Mise_en_page_et_impression.html"><span>07</span><strong>Impression</strong></a></li>
+      <li><a href="Excel_08_Series_et_recopie_de_formules.html"><span>08</span><strong>Séries/formules</strong></a></li>
+      <li><a href="Excel_09_References_absolues_commission.html"><span>09</span><strong>Références absolues</strong></a></li>
+      <li><a href="Excel_10_Graphiques_et_mise_en_forme_conditionnelle.html"><span>10</span><strong>Graphiques + MFC</strong></a></li>
+    </ol>
+  </section>
+  <!-- exercise-sequence-nav:end -->
+<div class="exercise-layout">
+      <nav class="exercise-sidebar no-print">
+        <a href="#objectif" class="active">Objectif</a>
+        <a href="#exercice">Exercice</a>
+        <a href="#ressources">Ressources</a>
+        <a href="#validation">Validation</a>
+      </nav>
+      <div>
+        <section class="panel" id="objectif">
+          <p class="section-label">Objectif pédagogique</p>
+          <h2>Structurer un tableau de budget présentable.</h2>
+          <p>Créer un tableau de budget avec titre, totaux et format sobre pour une réunion.</p>
+          <div class="mini-steps">
+            <div class="mini-step"><p class="mini-step-num">1. Structurer</p><p class="mini-step-desc">Titre présent, ligne Imprévus ajoutée.</p></div>
+            <div class="mini-step"><p class="mini-step-num">2. Calculer</p><p class="mini-step-desc">Totaux par ligne et total général corrects.</p></div>
+            <div class="mini-step"><p class="mini-step-num">3. Présenter</p><p class="mini-step-desc">Format monétaire sobre, bordure et en-têtes lisibles.</p></div>
+          </div>
+          <div class="callout ok" style="margin-top:1.25rem"><h3>Résultat attendu</h3><p>Un budget clair, prêt à être projeté ou imprimé en réunion.</p></div>
+        </section>
+        <section class="panel" id="exercice">
+          <p class="section-label">Exercice guidé</p>
+          <h2>Préparer un budget pour présentation.</h2>
+          <p>Les apprenants créent un titre, ajoutent une ligne Imprévus, calculent les totaux et appliquent une mise en forme sobre.</p>
+          <div class="actions no-print" style="margin-bottom:1.25rem">
+            <a class="button" href="../../06_Fichiers_de_depart/Excel/budget_fournitures.xlsx">Ouvrir le fichier</a>
+            <a class="button secondary" href="../../05_Corriges_HTML/Excel/Corrige_Excel_03_Creer_un_budget_simple.html">Ouvrir le corrigé</a>
+          </div>
+          <h3 style="margin-top:1rem;margin-bottom:.5rem">Étapes</h3>
+          <ol class="steps">
+            <li>Créer un titre au-dessus du tableau.</li>
+            <li>Ajouter une ligne <strong>Imprévus</strong>.</li>
+            <li>Calculer les totaux par ligne.</li>
+            <li>Appliquer un format comptabilité ou monétaire.</li>
+            <li>Mettre une bordure extérieure et des en-têtes lisibles.</li>
+            <li>Vérifier que le format ne change pas la valeur réelle.</li>
+          </ol>
+          <div class="accordion"><button type="button" aria-expanded="false">Afficher un indice</button><div class="content"><p>Le format modifie l'affichage, pas le contenu réel de la cellule.</p></div></div>
+          <div class="accordion"><button type="button" aria-expanded="false">Afficher le corrigé résumé</button><div class="content"><p>Titre en ligne 1, formules recopiées, total général sous la colonne Total, formats monétaires sur les montants.</p></div></div>
+        </section>
+        <section class="panel" id="ressources">
+          <p class="section-label">Ressources de séance</p>
+          <h2>À distribuer pendant l'atelier.</h2>
+          <ul class="resource-list">
+            <li><a href="../../06_Fichiers_de_depart/Excel/budget_fournitures.xlsx">budget_fournitures.xlsx</a><span class="format-badge">XLSX</span></li>
+            <li><a href="../../05_Corriges_HTML/Excel/Corrige_Excel_03_Creer_un_budget_simple.html">Corrigé détaillé</a><span class="format-badge">HTML</span></li>
+          </ul>
+        </section>
+        <section class="panel" id="validation">
+          <p class="section-label">Validation</p>
+          <h2>Checklist de réussite.</h2>
+          <ul class="checklist" data-checklist-id="excel-03-validation">
+            <li><input type="checkbox"><label>Titre présent</label></li>
+            <li><input type="checkbox"><label>Ligne imprévus</label></li>
+            <li><input type="checkbox"><label>Total général</label></li>
+            <li><input type="checkbox"><label>Format nombre cohérent</label></li>
+            <li><input type="checkbox"><label>Présentation sobre</label></li>
+          </ul>
+        </section>
+        <section class="panel">
+          <h2>Pour aller plus loin</h2>
+          <p>Ajouter un graphique en secteurs montrant la répartition des postes.</p>
+        </section>
+      </div>
+    </div>
+<!-- exercise-bottom-nav:start -->
+    <section class="exercise-bottom-nav exercise-prev-next no-print" aria-label="Navigation fin d'exercice">
+      <a class="exercise-step-link" href="Excel_02_Calculer_totaux_et_moyennes.html"><span>Précédent</span><strong>Excel 02</strong></a>
+      <a class="exercise-step-link next" href="Excel_04_Utiliser_SI_simple.html"><span>Suivant</span><strong>Excel 04</strong></a>
+    </section>
+  <!-- exercise-bottom-nav:end -->
+  </main>
+  <script>
+function safeStorageGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function safeStorageSet(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}
+document.querySelectorAll('.accordion button').forEach(function(b){b.addEventListener('click',function(){var c=b.nextElementSibling,o=c.classList.toggle('open');b.setAttribute('aria-expanded',String(o));});});
+document.querySelectorAll('[data-checklist-id]').forEach(function(list){var key='formapro-'+list.dataset.checklistId;var saved=safeStorageGet(key);var states=saved?JSON.parse(saved):[];var boxes=list.querySelectorAll('input[type=checkbox]');boxes.forEach(function(box,i){box.checked=Boolean(states[i]);box.addEventListener('change',function(){safeStorageSet(key,JSON.stringify(Array.from(boxes).map(function(x){return x.checked})));updateProgress();});});});
+function updateProgress(){var boxes=document.querySelectorAll('#validation input[type=checkbox]');var done=Array.from(boxes).filter(function(b){return b.checked}).length;var total=boxes.length;var fill=document.getElementById('prog-fill');var count=document.getElementById('prog-count');if(fill)fill.style.width=(total?Math.round(done/total*100):0)+'%';if(count)count.textContent=done+' / '+total+' étapes validées';}
+updateProgress();
+document.querySelectorAll('.exercise-sidebar a').forEach(function(link){link.addEventListener('click',function(){document.querySelectorAll('.exercise-sidebar a').forEach(function(a){a.classList.remove('active')});link.classList.add('active');});});
+  </script>
+</body>
+</html>

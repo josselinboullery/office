@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PowerPoint débutant : construire une présentation claire</title>
+  <style>
+:root{--p:#334155;--s:#1F2937;--a:#64748B;--bg:#F8FAFC;--t:#111827;--b:#E5E7EB;--ok:#15803D;--w:#B45309;--d:#B91C1C;--r:8px}
+.theme-word{--p:#185ABD;--s:#2B579A;--a:#41A5EE;--bg:#F3F7FF;--t:#1F2937;--b:#D8E3F8}
+.theme-excel{--p:#107C41;--s:#217346;--a:#33C481;--bg:#F1FAF5;--t:#1F2937;--b:#CFEBDD}
+.theme-powerpoint{--p:#C43E1C;--s:#D24726;--a:#F0643B;--bg:#FFF4F0;--t:#1F2937;--b:#F6D4C9}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.65;color:var(--t);background:linear-gradient(180deg,var(--bg),#fff 28rem)}
+.wrap{width:min(1120px,calc(100% - 2rem));margin:auto}
+header{padding:2rem 0;border-bottom:1px solid var(--b)}
+main{padding:2rem 0}
+h1{margin:0;color:var(--s);font-size:clamp(1.9rem,4vw,2.65rem);line-height:1.15}
+h2{margin:0 0 1rem;color:var(--s);font-size:1.5rem}
+h3{margin:.25rem 0;color:var(--s);font-size:1.12rem}
+p{margin:.5rem 0 1rem}
+a{color:var(--p);font-weight:700}
+a:focus,button:focus,input:focus,textarea:focus,select:focus{outline:3px solid var(--a);outline-offset:3px}
+.top{display:inline-block;margin-bottom:1rem;text-decoration:none}
+.lead{max-width:780px;font-size:1.1rem}
+.meta,.actions,.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.badge{display:inline-flex;align-items:center;min-height:2rem;border:1px solid var(--b);border-radius:999px;background:#fff;padding:.25rem .75rem;font-weight:700}
+button,.button{min-height:44px;border:0;border-radius:var(--r);background:var(--p);color:#fff;padding:.72rem 1rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+button.secondary,.button.secondary{background:#fff;color:var(--p);border:1px solid var(--p)}
+.panel,.card,.toc{background:#fff;border:1px solid var(--b);border-radius:var(--r);box-shadow:0 8px 24px rgba(15,23,42,.08)}
+.panel{padding:1.5rem;margin-bottom:1.5rem}
+.card{padding:1rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.two{grid-template-columns:repeat(2,1fr)}
+.toc{padding:1rem;margin-bottom:1.5rem}
+.toc ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.toc a{display:block;min-height:44px;border-radius:var(--r);background:var(--bg);padding:.65rem .8rem;text-decoration:none}
+.callout{border-left:5px solid var(--p);background:var(--bg);border-radius:var(--r);padding:1rem;margin:1rem 0}
+.callout.ok{border-color:var(--ok)}.callout.warn{border-color:var(--w)}.callout.danger{border-color:var(--d)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2.5rem 1fr;gap:.75rem;padding:.75rem 0;border-bottom:1px solid var(--b)}
+.steps li:before{content:counter(s);display:grid;place-items:center;width:2rem;height:2rem;border-radius:999px;background:var(--p);color:#fff;font-weight:800}
+.checklist{list-style:none;margin:0;padding:0}
+.checklist li{display:flex;gap:.75rem;padding:.72rem;border-bottom:1px solid var(--b)}
+.checklist input{width:1.2rem;height:1.2rem;margin-top:.2rem;accent-color:var(--p)}
+.accordion{border:1px solid var(--b);border-radius:var(--r);overflow:hidden;margin-top:.75rem;background:#fff}
+.accordion button{width:100%;border-radius:0;text-align:left;justify-content:flex-start}
+.content{display:none;padding:1rem}
+.content.open{display:block}
+.quiz-options{display:grid;gap:.5rem;margin-top:.75rem}
+.quiz-options button{background:#fff;color:var(--s);border:1px solid var(--b);justify-content:flex-start;text-align:left}
+.feedback{font-weight:800}
+table{width:100%;border-collapse:collapse;margin-top:1rem}
+th,td{border:1px solid var(--b);padding:.65rem;text-align:left;vertical-align:top}
+th{background:var(--bg);color:var(--s)}
+input[type=search],textarea,select{min-height:44px;border:1px solid var(--b);border-radius:var(--r);padding:.65rem .8rem;font:inherit}
+textarea{width:100%;min-height:7rem}
+.search-item[hidden]{display:none}
+@media(max-width:900px){.grid,.two,.toc ul{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.wrap{width:min(100% - 1rem,1120px)}.grid,.two,.toc ul{grid-template-columns:1fr}.panel{padding:1rem}button,.button{width:100%}.actions,.filters{flex-direction:column}}
+@media print{body{background:#fff;color:#111827}.no-print,.actions,button{display:none!important}.panel,.card,.toc,.callout,table{box-shadow:none;break-inside:avoid}.content{display:block!important}a{color:#111827;text-decoration:none}}
+
+.learning-path{display:grid;gap:1rem}
+.lesson{background:#fff;border:1px solid var(--b);border-radius:var(--r);padding:1.25rem;margin-bottom:1rem}
+.lesson h3{margin-top:0}
+.do-dont{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.kbd{display:inline-block;border:1px solid var(--b);border-bottom-width:3px;border-radius:6px;background:#fff;padding:.08rem .35rem;font-weight:700;font-family:Consolas,monospace}
+.mini-task{border-left:5px solid var(--ok);background:#F0FDF4;border-radius:var(--r);padding:1rem;margin:1rem 0}
+.rescue{border-left:5px solid var(--w);background:#FFFBEB;border-radius:var(--r);padding:1rem;margin:1rem 0}
+.example{border:1px dashed var(--b);border-radius:var(--r);padding:1rem;background:#fff}
+.table-scroll{overflow-x:auto}.table-scroll table{min-width:780px}
+@media(max-width:760px){.do-dont{grid-template-columns:1fr}.table-scroll table{min-width:640px}}
+</style>
+  <link rel="stylesheet" href="../assets/formapro-design.css">
+</head>
+<body class="theme-powerpoint">
+  <nav class="site-nav no-print">
+    <a class="site-nav-logo" href="../00_Index_general/index.html">
+      <span class="site-nav-logo-icon">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="2" rx="1" fill="white"/><rect x="2" y="6" width="7" height="2" rx="1" fill="white"/><rect x="2" y="10" width="5" height="2" rx="1" fill="white"/></svg>
+      </span>
+      Formation Office
+    </a>
+    <div class="site-nav-tabs">
+      <a href="Support_Word_Debutant.html">Word</a>
+      <a href="Support_Excel_Debutant.html">Excel</a>
+      <a href="Support_PowerPoint_Debutant.html" class="ppt-active">PowerPoint</a>
+    </div>
+  </nav>
+  <header>
+    <div class="wrap">
+      <a class="top no-print" href="../00_Index_general/index.html">Retour à l'index général</a>
+      <p class="section-label">Support stagiaire</p>
+      <h1>PowerPoint débutant : construire une présentation claire</h1>
+      <p class="lead">Guide pratique pour structurer, créer, illustrer et présenter un diaporama simple.</p>
+      <div class="meta"><span class="badge">PowerPoint</span><span class="badge">Support pratique</span><span class="badge">Débutant</span></div>
+      <div class="actions no-print"><button type="button" onclick="window.print()">Imprimer / Exporter en PDF</button><button type="button" class="secondary" data-open-all>Tout ouvrir</button><button type="button" class="secondary" data-close-all>Tout fermer</button></div>
+    </div>
+  </header>
+  <main class="wrap">
+  <nav class="course-nav no-print" aria-label="Navigation de formation">
+    <a href="../00_Index_general/index.html">Accueil</a>
+    <a href="../02_Guide_formateur_HTML/Guide_formateur_general.html">Guide</a>
+    <a href="Support_PowerPoint_Debutant.html" class="active" aria-current="page">Supports</a>
+    <a href="../04_Exercices_HTML/PowerPoint/PowerPoint_01_Creer_une_presentation_3_diapositives.html">Exercices</a>
+    <a href="../09_Projet_fil_rouge_HTML/Projet_fil_rouge.html">Projet</a>
+    <a href="../08_Evaluations_HTML/Evaluation_initiale.html">Evaluations</a>
+    <a href="../11_Cartes_SOS_interactives/Index_Cartes_SOS.html">SOS</a>
+  </nav>
+
+<nav class="toc"><ul><li><a href="#depart">Départ</a></li><li><a href="#structure">Structure</a></li><li><a href="#diapos">Diapos</a></li><li><a href="#visuels">Visuels</a></li><li><a href="#graphiques">Graphiques</a></li><li><a href="#oral">Oral</a></li><li><a href="#controle">Contrôle</a></li><li><a href="#exercices">Exercices</a></li></ul></nav><section class="panel" id="depart"><h2>Démarrer une présentation</h2><article class="lesson"><h3>Créer et enregistrer</h3><ol class="steps"><li><span>Ouvrez PowerPoint.</span></li><li><span>Choisissez Nouvelle présentation ou un modèle très simple.</span></li><li><span>Enregistrez immédiatement le fichier avec un nom clair.</span></li><li><span>Écrivez le sujet dans la première diapositive.</span></li><li><span>Enregistrez régulièrement avec Ctrl+S.</span></li></ol></article><article class="lesson"><h3>Comprendre l'écran</h3><div class="table-scroll"><table><tr><th>Zone</th><th>Rôle</th><th>À faire</th></tr><tr><td>Miniatures à gauche</td><td>Voir l'ordre des diapositives</td><td>Cliquer une miniature pour la modifier.</td></tr><tr><td>Grande diapositive</td><td>Zone de travail</td><td>Sélectionner les textes, images et formes.</td></tr><tr><td>Ruban</td><td>Commandes</td><td>Utiliser Accueil, Insertion, Création, Transitions.</td></tr><tr><td>Notes</td><td>Aide pour l'oral</td><td>Écrire une phrase à dire, pas un paragraphe.</td></tr></table></div></article></section><section class="panel" id="structure"><h2>Construire le message avant la décoration</h2><article class="lesson"><h3>La règle simple</h3><p>Une diapositive doit porter une seule idée. Si deux idées se battent sur la même diapositive, créez deux diapositives.</p></article><article class="lesson"><h3>Plan court conseillé</h3><div class="table-scroll"><table><tr><th>Diapositive</th><th>Contenu</th><th>Question à se poser</th></tr><tr><td>1</td><td>Titre + contexte</td><td>De quoi parle la présentation ?</td></tr><tr><td>2</td><td>Problème ou besoin</td><td>Pourquoi ce sujet existe ?</td></tr><tr><td>3</td><td>Données ou exemple</td><td>Quelle preuve ou information appuie le message ?</td></tr><tr><td>4</td><td>Solution ou proposition</td><td>Que faut-il retenir ou décider ?</td></tr><tr><td>5</td><td>Conclusion</td><td>Quelle est la prochaine action ?</td></tr></table></div></article><div class="mini-task"><strong>Entraînement :</strong> écrivez le titre de 5 diapositives avant de choisir les couleurs ou les images.</div></section><section class="panel" id="diapos"><h2>Créer des diapositives lisibles</h2><article class="lesson"><h3>Ajouter une diapositive</h3><ol class="steps"><li><span>Cliquez sur Accueil &gt; Nouvelle diapositive.</span></li><li><span>Choisissez une disposition simple : Titre et contenu, Deux contenus ou Titre seul.</span></li><li><span>Écrivez un titre précis.</span></li><li><span>Ajoutez 3 à 5 points maximum.</span></li><li><span>Relisez en plein écran : si vous devez plisser les yeux, c'est trop petit ou trop chargé.</span></li></ol></article><article class="lesson"><h3>Texte</h3><div class="table-scroll"><table><tr><th>À faire</th><th>À éviter</th></tr><tr><td>Mots clés, verbes d'action, exemples concrets</td><td>Paragraphes complets copiés depuis Word</td></tr><tr><td>Police assez grande</td><td>Texte inférieur à 20 pt pour une présentation projetée</td></tr><tr><td>Alignement régulier</td><td>Objets placés au hasard</td></tr></table></div></article></section><section class="panel" id="visuels"><h2>Images, formes et mise en page</h2><article class="lesson"><h3>Insérer une image</h3><ol class="steps"><li><span>Cliquez sur Insertion &gt; Images.</span></li><li><span>Choisissez une image utile au message.</span></li><li><span>Redimensionnez depuis un coin pour éviter de la déformer.</span></li><li><span>Alignez-la avec le texte ou les autres objets.</span></li><li><span>Supprimez l'image si elle ne rend pas le message plus clair.</span></li></ol></article><article class="lesson"><h3>Utiliser les formes</h3><p>Les formes servent à organiser : encadrer une information, montrer une étape, relier deux idées. Gardez peu de couleurs et alignez les objets.</p></article><div class="rescue"><strong>Si tout bouge mal :</strong> sélectionnez les objets, puis utilisez Format &gt; Aligner. Dupliquez une diapositive propre au lieu de repartir de zéro.</div></section><section class="panel" id="graphiques"><h2>Graphiques et données</h2><article class="lesson"><h3>Quand utiliser un graphique</h3><div class="table-scroll"><table><tr><th>Besoin</th><th>Choix conseillé</th><th>Point de contrôle</th></tr><tr><td>Comparer</td><td>Colonnes ou barres</td><td>Les valeurs sont lisibles.</td></tr><tr><td>Montrer une évolution</td><td>Courbe</td><td>L'ordre chronologique est clair.</td></tr><tr><td>Montrer une part</td><td>Secteur</td><td>Peu de catégories, total cohérent.</td></tr></table></div></article><article class="lesson"><h3>Insérer depuis Excel</h3><ol class="steps"><li><span>Préparez le tableau ou graphique dans Excel.</span></li><li><span>Copiez le graphique.</span></li><li><span>Collez dans PowerPoint.</span></li><li><span>Redimensionnez sans déformer.</span></li><li><span>Ajoutez un titre qui dit ce que le graphique montre.</span></li></ol></article></section><section class="panel" id="oral"><h2>Préparer la prise de parole</h2><article class="lesson"><h3>Mode diaporama</h3><ol class="steps"><li><span>Cliquez sur Diaporama &gt; À partir du début.</span></li><li><span>Passez les diapositives avec les flèches du clavier.</span></li><li><span>Vérifiez que chaque diapositive est lisible sans zoom.</span></li><li><span>Préparez une phrase d'ouverture et une phrase de conclusion.</span></li><li><span>Si une diapositive demande trop d'explications, simplifiez-la.</span></li></ol></article><article class="lesson"><h3>Notes orales</h3><p>Les notes servent à vous rappeler quoi dire. Elles ne doivent pas être tout le texte de la diapositive.</p></article></section><section class="panel" id="controle"><h2>Contrôle avant de présenter</h2><ul class="checklist" data-checklist-id="powerpoint-controle"><li><input type="checkbox"><span>Le fichier est enregistré au bon endroit.</span></li><li><input type="checkbox"><span>Chaque diapositive a un titre clair.</span></li><li><input type="checkbox"><span>Une diapositive = une idée principale.</span></li><li><input type="checkbox"><span>Le texte est lisible en mode diaporama.</span></li><li><input type="checkbox"><span>Les images ne sont pas déformées.</span></li><li><input type="checkbox"><span>Les graphiques ont un titre et des valeurs lisibles.</span></li><li><input type="checkbox"><span>Les transitions restent sobres.</span></li><li><input type="checkbox"><span>La présentation a été testée du début à la fin.</span></li></ul></section><section class="panel" id="exercices"><h2>Exercices guidés</h2><ul class="checklist" data-checklist-id="support-powerpoint-refonte-exercices"><li><input type="checkbox"><span><a href="../04_Exercices_HTML/PowerPoint/PowerPoint_01_Creer_une_presentation_3_diapositives.html">PowerPoint 01 - Créer une présentation 3 diapositives</a><br><small>Sujet court, structure simple, lisibilité.</small></span></li><li><input type="checkbox"><span><a href="../04_Exercices_HTML/PowerPoint/PowerPoint_02_Ameliorer_une_presentation_trop_chargee.html">PowerPoint 02 - Améliorer une présentation trop chargée</a><br><small>Simplifier, hiérarchiser, alléger.</small></span></li><li><input type="checkbox"><span><a href="../04_Exercices_HTML/PowerPoint/PowerPoint_03_Inserer_images_et_graphique.html">PowerPoint 03 - Insérer images et graphique</a><br><small>Visuel utile, graphique lisible, titre clair.</small></span></li><li><input type="checkbox"><span><a href="../04_Exercices_HTML/PowerPoint/PowerPoint_04_Creer_une_presentation_finale_5_diapositives.html">PowerPoint 04 - Présentation finale 5 diapositives</a><br><small>Parcours complet et restitution orale.</small></span></li></ul></section>
+  </main>
+  <script>
+function safeStorageGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function safeStorageSet(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}
+document.querySelectorAll('.accordion button').forEach(function(b){b.addEventListener('click',function(){var c=b.nextElementSibling,o=c.classList.toggle('open');b.setAttribute('aria-expanded',String(o));});});
+document.querySelectorAll('[data-open-all]').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.content').forEach(function(c){c.classList.add('open')});});});
+document.querySelectorAll('[data-close-all]').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.content').forEach(function(c){c.classList.remove('open')});});});
+document.querySelectorAll('[data-checklist-id]').forEach(function(list){var key='formapro-'+list.dataset.checklistId;var saved=safeStorageGet(key);var states=saved?JSON.parse(saved):[];var boxes=list.querySelectorAll('input[type=checkbox]');boxes.forEach(function(box,i){box.checked=Boolean(states[i]);box.addEventListener('change',function(){safeStorageSet(key,JSON.stringify(Array.from(boxes).map(function(x){return x.checked})))});});});
+document.querySelectorAll('.quiz-options').forEach(function(q){var ans=q.dataset.answer;var fb=q.parentElement.querySelector('.feedback');q.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){fb.textContent=b.dataset.choice===ans?'Bonne réponse.':'Pas encore. Relisez la consigne puis réessayez.';});});});
+document.querySelectorAll('[data-search]').forEach(function(input){input.addEventListener('input',function(){var v=input.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');document.querySelectorAll('.search-item').forEach(function(item){var t=item.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');item.hidden=v && !t.includes(v);});});});
+</script>
+</body>
+</html>

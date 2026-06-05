@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITRE_CORRIGE}} - Corrigé formateur</title>
+  <style>
+    :root {
+      --color-primary: #334155;
+      --color-secondary: #1F2937;
+      --color-accent: #64748B;
+      --color-bg-soft: #F8FAFC;
+      --color-text: #111827;
+      --color-card: #FFFFFF;
+      --color-border: #E5E7EB;
+      --color-success: #15803D;
+      --color-warning: #B45309;
+      --color-danger: #B91C1C;
+      --radius: 8px;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+    .theme-word { --color-primary: #185ABD; --color-secondary: #2B579A; --color-accent: #41A5EE; --color-bg-soft: #F3F7FF; }
+    .theme-excel { --color-primary: #107C41; --color-secondary: #217346; --color-accent: #33C481; --color-bg-soft: #F1FAF5; }
+    .theme-powerpoint { --color-primary: #C43E1C; --color-secondary: #D24726; --color-accent: #F0643B; --color-bg-soft: #FFF4F0; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; font-size: 16px; line-height: 1.65; color: var(--color-text); background: #FFFFFF; }
+    a { color: var(--color-primary); }
+    a:focus, button:focus { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+    .wrap { width: min(1060px, calc(100% - 2rem)); margin: 0 auto; }
+    header { padding: 2rem 0; background: var(--color-bg-soft); border-bottom: 1px solid var(--color-border); }
+    .top-link { display: inline-block; margin-bottom: 1rem; font-weight: 700; text-decoration: none; }
+    h1 { margin: 0; font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.15; color: var(--color-secondary); }
+    h2 { margin: 0 0 1rem; color: var(--color-secondary); }
+    h3 { margin: 0 0 0.5rem; color: var(--color-secondary); }
+    .lead { max-width: 760px; margin: 0.75rem 0 0; font-size: 1.1rem; }
+    .meta, .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .badge { min-height: 2rem; padding: 0.25rem 0.75rem; border-radius: 999px; background: #FFFFFF; border: 1px solid var(--color-border); font-weight: 700; }
+    button { min-height: 44px; border: 0; border-radius: var(--radius); padding: 0.75rem 1rem; background: var(--color-primary); color: #FFFFFF; font: inherit; font-weight: 700; cursor: pointer; }
+    button.secondary { background: #FFFFFF; color: var(--color-primary); border: 1px solid var(--color-primary); }
+    main { padding: 2rem 0; }
+    section { margin-bottom: 2rem; }
+    .panel, .card { background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .panel { padding: 1.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .card { padding: 1rem; }
+    .callout { border-left: 5px solid var(--color-primary); background: var(--color-bg-soft); border-radius: var(--radius); padding: 1rem; margin: 1rem 0; }
+    .callout.warning { border-color: var(--color-warning); }
+    .callout.error { border-color: var(--color-danger); }
+    .callout.remember { border-color: var(--color-success); }
+    .accordion { border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; margin-top: 0.75rem; background: #FFFFFF; }
+    .accordion button { width: 100%; border-radius: 0; text-align: left; }
+    .accordion-content { display: none; padding: 1rem; }
+    .accordion-content.open { display: block; }
+    .collective-mode .trainer-only { border-color: var(--color-primary); background: var(--color-bg-soft); }
+    @media (max-width: 780px) { .grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .wrap { width: min(100% - 1rem, 1060px); } button { width: 100%; } .actions { flex-direction: column; } .panel { padding: 1rem; } }
+    @media print {
+      body { background: #FFFFFF; color: #111827; }
+      .no-print, .actions, button { display: none !important; }
+      header { background: #FFFFFF; }
+      .panel, .card, .callout { box-shadow: none; break-inside: avoid; }
+      .accordion-content, .print-open { display: block !important; }
+      a { color: #111827; text-decoration: none; }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/formapro-design.css">
+</head>
+<body class="theme-word">
+  <header>
+    <div class="wrap">
+      <a class="top-link no-print" href="../00_Index_general/index.html">Retour à l'index général</a>
+      <h1>{{TITRE_CORRIGE}}</h1>
+      <p class="lead">Corrigé formateur pour : {{RAPPEL_EXERCICE}}</p>
+      <div class="meta">
+        <span class="badge">{{LOGICIEL}}</span>
+        <span class="badge">Corrigé formateur</span>
+        <span class="badge">Durée correction : {{DUREE_CORRECTION}}</span>
+      </div>
+      <div class="actions no-print">
+        <button type="button" onclick="window.print()">Imprimer / Exporter en PDF</button>
+        <button type="button" class="secondary" data-open-all>Afficher tout le corrigé</button>
+        <button type="button" class="secondary" data-collective-mode>Mode correction collective</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+  <nav class="course-nav no-print" aria-label="Navigation de formation">
+    <a href="../00_Index_general/index.html">Accueil</a>
+    <a href="../02_Guide_formateur_HTML/Guide_formateur_general.html">Guide</a>
+    <a href="../03_Supports_stagiaires_HTML/Support_Word_Debutant.html" class="active">Supports</a>
+    <a href="../04_Exercices_HTML/Word/Word_01_Mettre_en_forme_un_texte_brut.html">Exercices</a>
+    <a href="../09_Projet_fil_rouge_HTML/Projet_fil_rouge.html">Projet</a>
+    <a href="../08_Evaluations_HTML/Evaluation_initiale.html">Evaluations</a>
+    <a href="../11_Cartes_SOS_interactives/Index_Cartes_SOS.html">SOS</a>
+  </nav>
+
+<section class="grid">
+      <article class="panel">
+        <h2>Résultat attendu</h2>
+        <p>{{RESULTAT_ATTENDU}}</p>
+      </article>
+      <article class="panel">
+        <h2>Objectif</h2>
+        <p>{{OBJECTIF}}</p>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Étapes principales</h2>
+      <div class="accordion">
+        <button type="button" aria-expanded="false">Afficher les étapes</button>
+        <div class="accordion-content print-open">
+          <ol>
+            <li>{{ETAPE_CORRIGE_1}}</li>
+            <li>{{ETAPE_CORRIGE_2}}</li>
+            <li>{{ETAPE_CORRIGE_3}}</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Points de contrôle</h2>
+        <ul>
+          <li>{{POINT_CONTROLE_1}}</li>
+          <li>{{POINT_CONTROLE_2}}</li>
+          <li>{{POINT_CONTROLE_3}}</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Variantes acceptables</h2>
+        <ul>
+          <li>{{VARIANTE_1}}</li>
+          <li>{{VARIANTE_2}}</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="panel trainer-only">
+      <h2>Correction collective</h2>
+      <p>{{COMMENT_CORRIGER_COLLECTIVEMENT}}</p>
+      <div class="callout warning">
+        <h3>Erreurs fréquentes</h3>
+        <p>{{ERREURS_FREQUENTES}}</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Critères de validation</h2>
+      <ul>
+        <li>{{VALIDATION_1}}</li>
+        <li>{{VALIDATION_2}}</li>
+        <li>{{VALIDATION_3}}</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    document.querySelectorAll('.accordion').forEach(function (accordion) {
+      var button = accordion.querySelector('button');
+      var content = accordion.querySelector('.accordion-content');
+      button.addEventListener('click', function () {
+        var isOpen = content.classList.toggle('open');
+        button.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
+    document.querySelector('[data-open-all]')?.addEventListener('click', function () {
+      document.querySelectorAll('.accordion-content').forEach(function (content) { content.classList.add('open'); });
+      document.querySelectorAll('.accordion button').forEach(function (button) { button.setAttribute('aria-expanded', 'true'); });
+    });
+    document.querySelector('[data-collective-mode]')?.addEventListener('click', function () {
+      document.body.classList.toggle('collective-mode');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Charte graphique projet</title>
+  <style>
+:root{--p:#334155;--s:#1F2937;--a:#64748B;--bg:#F8FAFC;--t:#111827;--b:#E5E7EB;--ok:#15803D;--w:#B45309;--d:#B91C1C;--r:8px}
+.theme-word{--p:#185ABD;--s:#2B579A;--a:#41A5EE;--bg:#F3F7FF;--t:#1F2937;--b:#D8E3F8}
+.theme-excel{--p:#107C41;--s:#217346;--a:#33C481;--bg:#F1FAF5;--t:#1F2937;--b:#CFEBDD}
+.theme-powerpoint{--p:#C43E1C;--s:#D24726;--a:#F0643B;--bg:#FFF4F0;--t:#1F2937;--b:#F6D4C9}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.65;color:var(--t);background:linear-gradient(180deg,var(--bg),#fff 28rem)}
+.wrap{width:min(1120px,calc(100% - 2rem));margin:auto}
+header{padding:2rem 0;border-bottom:1px solid var(--b)}
+main{padding:2rem 0}
+h1{margin:0;color:var(--s);font-size:clamp(1.9rem,4vw,2.65rem);line-height:1.15}
+h2{margin:0 0 1rem;color:var(--s);font-size:1.5rem}
+h3{margin:.25rem 0;color:var(--s);font-size:1.12rem}
+p{margin:.5rem 0 1rem}
+a{color:var(--p);font-weight:700}
+a:focus,button:focus,input:focus,textarea:focus,select:focus{outline:3px solid var(--a);outline-offset:3px}
+.top{display:inline-block;margin-bottom:1rem;text-decoration:none}
+.lead{max-width:780px;font-size:1.1rem}
+.meta,.actions,.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.badge{display:inline-flex;align-items:center;min-height:2rem;border:1px solid var(--b);border-radius:999px;background:#fff;padding:.25rem .75rem;font-weight:700}
+button,.button{min-height:44px;border:0;border-radius:var(--r);background:var(--p);color:#fff;padding:.72rem 1rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+button.secondary,.button.secondary{background:#fff;color:var(--p);border:1px solid var(--p)}
+.panel,.card,.toc{background:#fff;border:1px solid var(--b);border-radius:var(--r);box-shadow:0 8px 24px rgba(15,23,42,.08)}
+.panel{padding:1.5rem;margin-bottom:1.5rem}
+.card{padding:1rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.two{grid-template-columns:repeat(2,1fr)}
+.toc{padding:1rem;margin-bottom:1.5rem}
+.toc ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.toc a{display:block;min-height:44px;border-radius:var(--r);background:var(--bg);padding:.65rem .8rem;text-decoration:none}
+.callout{border-left:5px solid var(--p);background:var(--bg);border-radius:var(--r);padding:1rem;margin:1rem 0}
+.callout.ok{border-color:var(--ok)}.callout.warn{border-color:var(--w)}.callout.danger{border-color:var(--d)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2.5rem 1fr;gap:.75rem;padding:.75rem 0;border-bottom:1px solid var(--b)}
+.steps li:before{content:counter(s);display:grid;place-items:center;width:2rem;height:2rem;border-radius:999px;background:var(--p);color:#fff;font-weight:800}
+.checklist{list-style:none;margin:0;padding:0}
+.checklist li{display:flex;gap:.75rem;padding:.72rem;border-bottom:1px solid var(--b)}
+.checklist input{width:1.2rem;height:1.2rem;margin-top:.2rem;accent-color:var(--p)}
+.accordion{border:1px solid var(--b);border-radius:var(--r);overflow:hidden;margin-top:.75rem;background:#fff}
+.accordion button{width:100%;border-radius:0;text-align:left;justify-content:flex-start}
+.content{display:none;padding:1rem}
+.content.open{display:block}
+.quiz-options{display:grid;gap:.5rem;margin-top:.75rem}
+.quiz-options button{background:#fff;color:var(--s);border:1px solid var(--b);justify-content:flex-start;text-align:left}
+.feedback{font-weight:800}
+table{width:100%;border-collapse:collapse;margin-top:1rem}
+th,td{border:1px solid var(--b);padding:.65rem;text-align:left;vertical-align:top}
+th{background:var(--bg);color:var(--s)}
+input[type=search],textarea,select{min-height:44px;border:1px solid var(--b);border-radius:var(--r);padding:.65rem .8rem;font:inherit}
+textarea{width:100%;min-height:7rem}
+.search-item[hidden]{display:none}
+@media(max-width:900px){.grid,.two,.toc ul{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.wrap{width:min(100% - 1rem,1120px)}.grid,.two,.toc ul{grid-template-columns:1fr}.panel{padding:1rem}button,.button{width:100%}.actions,.filters{flex-direction:column}}
+@media print{body{background:#fff;color:#111827}.no-print,.actions,button{display:none!important}.panel,.card,.toc,.callout,table{box-shadow:none;break-inside:avoid}.content{display:block!important}a{color:#111827;text-decoration:none}}
+
+.table-scroll{overflow-x:auto;margin-top:1rem}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1rem 0}
+.kpi .card strong{display:block;font-size:1.35rem;color:var(--p)}
+.asset-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.asset-grid img,.hero-img{display:block;width:100%;height:auto;border:1px solid var(--b);border-radius:var(--r);background:#fff}
+.logo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.logo-grid img{display:block;width:100%;height:auto;border:1px solid var(--b);border-radius:var(--r);background:#fff}
+.file-name{font-family:Consolas,"Courier New",monospace;font-weight:700;overflow-wrap:anywhere}
+.swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:.75rem}
+.swatch{border:1px solid var(--b);border-radius:var(--r);overflow:hidden;background:#fff}
+.swatch span{display:block;height:3rem}
+.swatch code{display:block;padding:.55rem;font-weight:700}
+@media(max-width:900px){.asset-grid,.logo-grid,.kpi,.swatches{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.asset-grid,.logo-grid,.kpi,.swatches{grid-template-columns:1fr}}
+</style>
+  <link rel="stylesheet" href="../assets/formapro-design.css">
+</head>
+<body class="theme-general">
+  <header>
+    <div class="wrap">
+      <a class="top no-print" href="../00_Index_general/index.html">Retour à l'index général</a>
+      <h1>Charte graphique projet</h1>
+      <p class="lead">Logos, photos, couleurs et règles visuelles pour le projet fil rouge.</p>
+      <div class="meta"><span class="badge">Projet fil rouge concret</span><span class="badge">Livrables + charte</span></div>
+      <div class="actions no-print"><button type="button" onclick="window.print()">Imprimer / Exporter en PDF</button><button type="button" class="secondary" data-open-all>Tout ouvrir</button><button type="button" class="secondary" data-close-all>Tout fermer</button></div>
+    </div>
+  </header>
+  <main class="wrap">
+  <nav class="course-nav no-print" aria-label="Navigation de formation">
+    <a href="../00_Index_general/index.html">Accueil</a>
+    <a href="../02_Guide_formateur_HTML/Guide_formateur_general.html">Guide</a>
+    <a href="../03_Supports_stagiaires_HTML/Support_Word_Debutant.html">Supports</a>
+    <a href="../04_Exercices_HTML/Word/Word_01_Mettre_en_forme_un_texte_brut.html">Exercices</a>
+    <a href="Projet_fil_rouge.html" class="active">Projet</a>
+    <a href="../08_Evaluations_HTML/Evaluation_initiale.html">Evaluations</a>
+    <a href="../11_Cartes_SOS_interactives/Index_Cartes_SOS.html">SOS</a>
+  </nav>
+
+<nav class="toc"><ul><li><a href="Projet_fil_rouge.html">Projet</a></li><li><a href="Brief_projet.html">Brief</a></li><li><a href="Livrables_projet.html">Livrables</a></li><li><a href="Charte_graphique_projet.html">Charte</a></li><li><a href="Sources_projet.html">Sources</a></li><li><a href="Grille_correction_projet.html">Grille</a></li><li><a href="Version_simplifiee.html">Simplifié</a></li><li><a href="Version_bonus.html">Bonus</a></li></ul></nav>
+    <section class="panel"><h2>Intention graphique</h2><p>La charte doit donner une impression professionnelle, simple et accessible. Les stagiaires choisissent un logo et au moins une photo, puis appliquent les mêmes couleurs dans Word, Excel et PowerPoint.</p></section><section class="panel"><h2>Logos au choix</h2><p>Choisir un seul logo pour tout le projet. Ne pas mélanger plusieurs logos dans le même rendu.</p><section class='logo-grid'><article class="card"><img src="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/logo_01_bleu_orientation.png" alt="Logo 1 - orientation"><h3>Logo 1 - orientation</h3><p>Option sobre pour invitation Word et première diapositive.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/logo_01_bleu_orientation.png">Ouvrir le fichier</a></p><p class="file-name">logo_01_bleu_orientation.png</p></article><article class="card"><img src="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/logo_02_vert_progression.png" alt="Logo 2 - progression"><h3>Logo 2 - progression</h3><p>Option plus dynamique pour documents Excel et graphiques.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/logo_02_vert_progression.png">Ouvrir le fichier</a></p><p class="file-name">logo_02_vert_progression.png</p></article><article class="card"><img src="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/logo_03_orange_rencontre.png" alt="Logo 3 - rencontre"><h3>Logo 3 - rencontre</h3><p>Option chaleureuse pour accueil et affiche.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/logo_03_orange_rencontre.png">Ouvrir le fichier</a></p><p class="file-name">logo_03_orange_rencontre.png</p></article><article class="card"><img src="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/logo_04_slate_competences.png" alt="Logo 4 - compétences"><h3>Logo 4 - compétences</h3><p>Option neutre pour version institutionnelle.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/logo_04_slate_competences.png">Ouvrir le fichier</a></p><p class="file-name">logo_04_slate_competences.png</p></article></section></section><section class="panel"><h2>Photos au choix</h2><p>Choisir les photos selon le document : accueil pour l'invitation, budget pour Excel, présentation pour PowerPoint.</p><section class='asset-grid'><article class="card"><img src="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_accueil_forum_metiers.png" alt="Accueil forum"><h3>Accueil forum</h3><p>Image d&#x27;ouverture pour invitation ou première diapositive.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_accueil_forum_metiers.png">Ouvrir le fichier</a></p><p class="file-name">photo_accueil_forum_metiers.png</p></article><article class="card"><img src="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_atelier_excel_budget.png" alt="Atelier Excel budget"><h3>Atelier Excel budget</h3><p>Image adaptée au budget, aux participants ou au graphique.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_atelier_excel_budget.png">Ouvrir le fichier</a></p><p class="file-name">photo_atelier_excel_budget.png</p></article><article class="card"><img src="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_documents_word_programme.png" alt="Documents Word"><h3>Documents Word</h3><p>Image adaptée à l&#x27;invitation et au programme.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_documents_word_programme.png">Ouvrir le fichier</a></p><p class="file-name">photo_documents_word_programme.png</p></article><article class="card"><img src="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_presentation_powerpoint.png" alt="Restitution PowerPoint"><h3>Restitution PowerPoint</h3><p>Image adaptée à la conclusion ou à la restitution orale.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_presentation_powerpoint.png">Ouvrir le fichier</a></p><p class="file-name">photo_presentation_powerpoint.png</p></article><article class="card"><img src="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_preparation_salle_forum.png" alt="Préparation de la salle"><h3>Préparation de la salle</h3><p>Image adaptée à l&#x27;organisation, au programme ou à la logistique.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_preparation_salle_forum.png">Ouvrir le fichier</a></p><p class="file-name">photo_preparation_salle_forum.png</p></article><article class="card"><img src="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_accompagnement_cv_word.png" alt="Accompagnement CV"><h3>Accompagnement CV</h3><p>Image adaptée aux productions Word et aux documents d&#x27;invitation.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_accompagnement_cv_word.png">Ouvrir le fichier</a></p><p class="file-name">photo_accompagnement_cv_word.png</p></article><article class="card"><img src="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_echange_recruteur_participants.png" alt="Échange recruteur"><h3>Échange recruteur</h3><p>Image adaptée à la partie métier ou recrutement.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_echange_recruteur_participants.png">Ouvrir le fichier</a></p><p class="file-name">photo_echange_recruteur_participants.png</p></article><article class="card"><img src="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_tableau_bord_excel.png" alt="Tableau de bord Excel"><h3>Tableau de bord Excel</h3><p>Image adaptée aux synthèses, graphiques et budgets.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_tableau_bord_excel.png">Ouvrir le fichier</a></p><p class="file-name">photo_tableau_bord_excel.png</p></article><article class="card"><img src="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_table_ronde_metiers.png" alt="Table ronde métiers"><h3>Table ronde métiers</h3><p>Image adaptée à la restitution finale.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_table_ronde_metiers.png">Ouvrir le fichier</a></p><p class="file-name">photo_table_ronde_metiers.png</p></article><article class="card"><img src="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/fond_abstrait_powerpoint_16_9.png" alt="Fond PowerPoint abstrait"><h3>Fond PowerPoint abstrait</h3><p>Fond 16:9 pour page de titre ou conclusion PowerPoint.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/Visuels/fond_abstrait_powerpoint_16_9.png">Ouvrir le fichier</a></p><p class="file-name">fond_abstrait_powerpoint_16_9.png</p></article></section></section><section class="panel"><h2>Palette couleur</h2><section class="swatches"><article class="swatch"><span style="background:#185ABD"></span><code>#185ABD</code><p>Bleu confiance<br>Word, titres</p></article><article class="swatch"><span style="background:#107C41"></span><code>#107C41</code><p>Vert action<br>Excel, validation</p></article><article class="swatch"><span style="background:#D24726"></span><code>#D24726</code><p>Orange échange<br>PowerPoint, accueil</p></article><article class="swatch"><span style="background:#1F2937"></span><code>#1F2937</code><p>Slate texte<br>Texte principal</p></article><article class="swatch"><span style="background:#F8FAFC"></span><code>#F8FAFC</code><p>Fond clair<br>Arrière-plan</p></article><article class="swatch"><span style="background:#E5E7EB"></span><code>#E5E7EB</code><p>Bordure<br>Tableaux</p></article></section></section><section class="panel"><h2>Règles d&#x27;utilisation</h2><div class="table-scroll"><table><thead><tr><th>Élément</th><th>Règle</th></tr></thead><tbody><tr><td>Logo</td><td>Toujours en haut du document ou sur la première diapositive. Largeur conseillée : 3 à 4 cm dans Word, 10 à 15 % de la diapositive dans PowerPoint.</td></tr><tr><td>Photo</td><td>Une seule photo forte par document ou section. Ne pas étirer l&#x27;image. Garder les proportions.</td></tr><tr><td>Titres</td><td>Bleu ou slate, taille lisible, jamais plus de deux tailles de titre dans un document.</td></tr><tr><td>Excel</td><td>Couleurs sobres : en-têtes verts ou slate, graphiques avec 2 à 3 couleurs maximum.</td></tr><tr><td>PowerPoint</td><td>Fond clair, texte court, une idée par diapositive, image en appui du message.</td></tr><tr><td>Accessibilité</td><td>Contraste fort, texte jamais posé sur une zone trop chargée de la photo.</td></tr></tbody></table></div></section><section class="panel"><h2>Choix stagiaire attendu</h2><ul class="checklist" data-checklist-id="charte-projet-visuels"><li><input type="checkbox"><span>Je choisis 1 logo.</span></li><li><input type="checkbox"><span>Je choisis 1 photo principale pour Word.</span></li><li><input type="checkbox"><span>Je choisis 1 photo ou graphique pour PowerPoint.</span></li><li><input type="checkbox"><span>J'utilise les mêmes couleurs dans mes trois logiciels.</span></li><li><input type="checkbox"><span>Je garde une mise en page lisible et sobre.</span></li></ul></section><section class="panel"><h2>Origine des visuels</h2><p>Visuels générés localement avec imagegen pour ce kit. Ils sont fictifs, sans logos réels et sans texte incrusté obligatoire.</p></section>
+  </main>
+  <script>
+function safeStorageGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function safeStorageSet(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}
+document.querySelectorAll('.accordion button').forEach(function(b){b.addEventListener('click',function(){var c=b.nextElementSibling,o=c.classList.toggle('open');b.setAttribute('aria-expanded',String(o));});});
+document.querySelectorAll('[data-open-all]').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.content').forEach(function(c){c.classList.add('open')});});});
+document.querySelectorAll('[data-close-all]').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.content').forEach(function(c){c.classList.remove('open')});});});
+document.querySelectorAll('[data-checklist-id]').forEach(function(list){var key='formapro-'+list.dataset.checklistId;var saved=safeStorageGet(key);var states=saved?JSON.parse(saved):[];var boxes=list.querySelectorAll('input[type=checkbox]');boxes.forEach(function(box,i){box.checked=Boolean(states[i]);box.addEventListener('change',function(){safeStorageSet(key,JSON.stringify(Array.from(boxes).map(function(x){return x.checked})))});});});
+document.querySelectorAll('.quiz-options').forEach(function(q){var ans=q.dataset.answer;var fb=q.parentElement.querySelector('.feedback');q.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){fb.textContent=b.dataset.choice===ans?'Bonne réponse.':'Pas encore. Relisez la consigne puis réessayez.';});});});
+document.querySelectorAll('[data-search]').forEach(function(input){input.addEventListener('input',function(){var v=input.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');document.querySelectorAll('.search-item').forEach(function(item){var t=item.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');item.hidden=v && !t.includes(v);});});});
+</script>
+</body>
+</html>

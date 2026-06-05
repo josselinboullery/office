@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITRE_SUPPORT}} - Support stagiaire</title>
+  <style>
+    :root {
+      --color-primary: #334155;
+      --color-secondary: #1F2937;
+      --color-accent: #64748B;
+      --color-bg-soft: #F8FAFC;
+      --color-text: #111827;
+      --color-card: #FFFFFF;
+      --color-border: #E5E7EB;
+      --color-success: #15803D;
+      --color-warning: #B45309;
+      --color-danger: #B91C1C;
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.5rem;
+      --space-6: 2rem;
+      --radius: 8px;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .theme-word {
+      --color-primary: #185ABD;
+      --color-secondary: #2B579A;
+      --color-accent: #41A5EE;
+      --color-bg-soft: #F3F7FF;
+    }
+
+    .theme-excel {
+      --color-primary: #107C41;
+      --color-secondary: #217346;
+      --color-accent: #33C481;
+      --color-bg-soft: #F1FAF5;
+    }
+
+    .theme-powerpoint {
+      --color-primary: #C43E1C;
+      --color-secondary: #D24726;
+      --color-accent: #F0643B;
+      --color-bg-soft: #FFF4F0;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--color-text);
+      background: linear-gradient(180deg, var(--color-bg-soft), #FFFFFF 24rem);
+    }
+
+    a { color: var(--color-primary); }
+    a:focus, button:focus, input:focus { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+
+    .wrap {
+      width: min(1100px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: var(--space-6) 0 var(--space-5);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .top-link {
+      display: inline-block;
+      margin-bottom: var(--space-4);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      line-height: 1.15;
+      color: var(--color-secondary);
+    }
+
+    h2 {
+      margin: 0 0 var(--space-4);
+      font-size: 1.55rem;
+      color: var(--color-secondary);
+    }
+
+    h3 {
+      margin: 0 0 var(--space-2);
+      font-size: 1.15rem;
+      color: var(--color-secondary);
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: var(--space-3) 0 0;
+      font-size: 1.12rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      color: var(--color-secondary);
+      font-weight: 700;
+      font-size: 0.94rem;
+    }
+
+    .page-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-5);
+    }
+
+    button,
+    .button {
+      min-height: 44px;
+      border: 0;
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      background: var(--color-primary);
+      color: #FFFFFF;
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    button.secondary,
+    .button.secondary {
+      background: #FFFFFF;
+      color: var(--color-primary);
+      border: 1px solid var(--color-primary);
+    }
+
+    main { padding: var(--space-6) 0; }
+
+    section {
+      margin-bottom: var(--space-6);
+    }
+
+    .panel,
+    .card,
+    .toc {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .panel { padding: var(--space-5); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+
+    .card { padding: var(--space-4); }
+
+    .toc {
+      padding: var(--space-4);
+    }
+
+    .toc ul {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-2);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc a {
+      display: block;
+      min-height: 44px;
+      padding: 0.65rem 0.8rem;
+      border-radius: var(--radius);
+      background: var(--color-bg-soft);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .callout {
+      border-left: 5px solid var(--color-primary);
+      background: var(--color-bg-soft);
+      border-radius: var(--radius);
+      padding: var(--space-4);
+      margin: var(--space-4) 0;
+    }
+
+    .callout.warning { border-color: var(--color-warning); }
+    .callout.error { border-color: var(--color-danger); }
+    .callout.remember { border-color: var(--color-success); }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .checklist li {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+      padding: var(--space-3);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .checklist input {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-top: 0.2rem;
+      accent-color: var(--color-primary);
+    }
+
+    .accordion {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: var(--space-3);
+      background: #FFFFFF;
+    }
+
+    .accordion button {
+      width: 100%;
+      border-radius: 0;
+      text-align: left;
+    }
+
+    .accordion-content {
+      display: none;
+      padding: var(--space-4);
+    }
+
+    .accordion-content.open { display: block; }
+
+    .quiz-options {
+      display: grid;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+    }
+
+    .quiz-options button {
+      background: #FFFFFF;
+      color: var(--color-secondary);
+      border: 1px solid var(--color-border);
+      text-align: left;
+    }
+
+    .feedback {
+      margin-top: var(--space-3);
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .grid,
+      .toc ul { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 1rem, 1100px); }
+      .grid,
+      .toc ul { grid-template-columns: 1fr; }
+      button,
+      .button { width: 100%; }
+      .page-actions { flex-direction: column; }
+      .panel { padding: var(--space-4); }
+    }
+
+    @media print {
+      body { background: #FFFFFF; color: #111827; }
+      .no-print,
+      .page-actions,
+      button { display: none !important; }
+      header { border-bottom: 1px solid #D1D5DB; }
+      .panel,
+      .card,
+      .toc,
+      .callout {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+      .accordion-content,
+      .print-open { display: block !important; }
+      a { color: #111827; text-decoration: none; }
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/formapro-design.css">
+</head>
+<body class="theme-word">
+  <!-- Remplacer theme-word par theme-excel ou theme-powerpoint selon le support. -->
+  <header>
+    <div class="wrap">
+      <a class="top-link no-print" href="../00_Index_general/index.html">Retour à l'index général</a>
+      <h1>{{TITRE_SUPPORT}}</h1>
+      <p class="lead">{{INTRODUCTION_SIMPLE}}</p>
+      <div class="meta" aria-label="Informations du support">
+        <span class="badge">{{LOGICIEL}}</span>
+        <span class="badge">Public : grands débutants</span>
+        <span class="badge">Durée : {{DUREE}}</span>
+        <span class="badge">Niveau : débutant</span>
+      </div>
+      <div class="page-actions no-print">
+        <button type="button" onclick="window.print()">Imprimer / Exporter en PDF</button>
+        <button type="button" class="secondary" data-open-all>Tout ouvrir</button>
+        <button type="button" class="secondary" data-close-all>Tout fermer</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+  <nav class="course-nav no-print" aria-label="Navigation de formation">
+    <a href="../00_Index_general/index.html">Accueil</a>
+    <a href="../02_Guide_formateur_HTML/Guide_formateur_general.html">Guide</a>
+    <a href="../03_Supports_stagiaires_HTML/Support_Word_Debutant.html" class="active">Supports</a>
+    <a href="../04_Exercices_HTML/Word/Word_01_Mettre_en_forme_un_texte_brut.html">Exercices</a>
+    <a href="../09_Projet_fil_rouge_HTML/Projet_fil_rouge.html">Projet</a>
+    <a href="../08_Evaluations_HTML/Evaluation_initiale.html">Evaluations</a>
+    <a href="../11_Cartes_SOS_interactives/Index_Cartes_SOS.html">SOS</a>
+  </nav>
+
+<nav class="toc" aria-label="Sommaire">
+      <ul>
+        <li><a href="#objectifs">Objectifs</a></li>
+        <li><a href="#notions">Notions</a></li>
+        <li><a href="#exercices">Mini-exercices</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+        <li><a href="#memo">Mémo</a></li>
+        <li><a href="#synthese">Synthèse</a></li>
+      </ul>
+    </nav>
+
+    <section id="objectifs" class="panel">
+      <h2>Objectifs</h2>
+      <ul>
+        <li>{{OBJECTIF_1}}</li>
+        <li>{{OBJECTIF_2}}</li>
+        <li>{{OBJECTIF_3}}</li>
+      </ul>
+      <div class="callout remember">
+        <h3>À retenir</h3>
+        <p>{{MESSAGE_RASSURANT}}</p>
+      </div>
+    </section>
+
+    <section id="notions">
+      <h2>Notions essentielles</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>{{NOTION_1_TITRE}}</h3>
+          <p><strong>À quoi ça sert ?</strong> {{NOTION_1_UTILITE}}</p>
+          <p><strong>Où cliquer ?</strong> {{NOTION_1_OU_CLIQUER}}</p>
+        </article>
+        <article class="card">
+          <h3>{{NOTION_2_TITRE}}</h3>
+          <p><strong>Comment faire ?</strong> {{NOTION_2_COMMENT_FAIRE}}</p>
+          <p><strong>Erreur fréquente.</strong> {{NOTION_2_ERREUR}}</p>
+        </article>
+        <article class="card">
+          <h3>{{NOTION_3_TITRE}}</h3>
+          <p>{{NOTION_3_EXPLICATION}}</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="exercices" class="panel">
+      <h2>Mini-exercices</h2>
+      <ul class="checklist" data-checklist-id="{{ID_CHECKLIST_SUPPORT}}">
+        <li><input type="checkbox"><span>{{EXERCICE_ETAPE_1}}</span></li>
+        <li><input type="checkbox"><span>{{EXERCICE_ETAPE_2}}</span></li>
+        <li><input type="checkbox"><span>{{EXERCICE_ETAPE_3}}</span></li>
+      </ul>
+      <div class="accordion">
+        <button type="button" aria-expanded="false">Afficher un indice</button>
+        <div class="accordion-content">
+          <p>{{INDICE}}</p>
+        </div>
+      </div>
+      <div class="accordion">
+        <button type="button" aria-expanded="false">Afficher la correction</button>
+        <div class="accordion-content">
+          <p>{{CORRECTION_MASQUEE_PAR_DEFAUT}}</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz" class="panel">
+      <h2>Quiz rapide</h2>
+      <p><strong>{{QUESTION_QUIZ}}</strong></p>
+      <div class="quiz-options" data-answer="{{BONNE_REPONSE}}">
+        <button type="button" data-choice="A">{{REPONSE_A}}</button>
+        <button type="button" data-choice="B">{{REPONSE_B}}</button>
+        <button type="button" data-choice="C">{{REPONSE_C}}</button>
+      </div>
+      <p class="feedback" aria-live="polite"></p>
+    </section>
+
+    <section id="memo" class="panel">
+      <h2>Mémo final</h2>
+      <div class="callout">
+        <h3>Les gestes à refaire</h3>
+        <p>{{MEMO_FINAL}}</p>
+      </div>
+    </section>
+
+    <section id="synthese" class="panel">
+      <h2>Synthèse</h2>
+      <p>{{SYNTHESE}}</p>
+    </section>
+  </main>
+
+  <script>
+    function safeStorageGet(key) {
+      try { return localStorage.getItem(key); } catch (error) { return null; }
+    }
+
+    function safeStorageSet(key, value) {
+      try { localStorage.setItem(key, value); return true; } catch (error) { return false; }
+    }
+
+    document.querySelectorAll('.accordion').forEach(function (accordion) {
+      var button = accordion.querySelector('button');
+      var content = accordion.querySelector('.accordion-content');
+      button.addEventListener('click', function () {
+        var isOpen = content.classList.toggle('open');
+        button.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
+
+    document.querySelector('[data-open-all]')?.addEventListener('click', function () {
+      document.querySelectorAll('.accordion-content').forEach(function (content) { content.classList.add('open'); });
+      document.querySelectorAll('.accordion button').forEach(function (button) { button.setAttribute('aria-expanded', 'true'); });
+    });
+
+    document.querySelector('[data-close-all]')?.addEventListener('click', function () {
+      document.querySelectorAll('.accordion-content').forEach(function (content) { content.classList.remove('open'); });
+      document.querySelectorAll('.accordion button').forEach(function (button) { button.setAttribute('aria-expanded', 'false'); });
+    });
+
+    document.querySelectorAll('[data-checklist-id]').forEach(function (list) {
+      var key = 'formapro-checklist-' + list.dataset.checklistId;
+      var saved = safeStorageGet(key);
+      var states = saved ? JSON.parse(saved) : [];
+      var boxes = list.querySelectorAll('input[type="checkbox"]');
+      boxes.forEach(function (box, index) {
+        box.checked = Boolean(states[index]);
+        box.addEventListener('change', function () {
+          var next = Array.from(boxes).map(function (item) { return item.checked; });
+          safeStorageSet(key, JSON.stringify(next));
+        });
+      });
+    });
+
+    document.querySelectorAll('.quiz-options').forEach(function (quiz) {
+      var answer = quiz.dataset.answer;
+      var feedback = quiz.parentElement.querySelector('.feedback');
+      quiz.querySelectorAll('button').forEach(function (button) {
+        button.addEventListener('click', function () {
+          feedback.textContent = button.dataset.choice === answer
+            ? 'Bonne réponse. Vous pouvez continuer.'
+            : 'Pas encore. Relisez la consigne, puis réessayez.';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

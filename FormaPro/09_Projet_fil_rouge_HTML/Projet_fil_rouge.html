@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projet fil rouge</title>
+  <style>
+:root{--p:#334155;--s:#1F2937;--a:#64748B;--bg:#F8FAFC;--t:#111827;--b:#E5E7EB;--ok:#15803D;--w:#B45309;--d:#B91C1C;--r:8px}
+.theme-word{--p:#185ABD;--s:#2B579A;--a:#41A5EE;--bg:#F3F7FF;--t:#1F2937;--b:#D8E3F8}
+.theme-excel{--p:#107C41;--s:#217346;--a:#33C481;--bg:#F1FAF5;--t:#1F2937;--b:#CFEBDD}
+.theme-powerpoint{--p:#C43E1C;--s:#D24726;--a:#F0643B;--bg:#FFF4F0;--t:#1F2937;--b:#F6D4C9}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.65;color:var(--t);background:linear-gradient(180deg,var(--bg),#fff 28rem)}
+.wrap{width:min(1120px,calc(100% - 2rem));margin:auto}
+header{padding:2rem 0;border-bottom:1px solid var(--b)}
+main{padding:2rem 0}
+h1{margin:0;color:var(--s);font-size:clamp(1.9rem,4vw,2.65rem);line-height:1.15}
+h2{margin:0 0 1rem;color:var(--s);font-size:1.5rem}
+h3{margin:.25rem 0;color:var(--s);font-size:1.12rem}
+p{margin:.5rem 0 1rem}
+a{color:var(--p);font-weight:700}
+a:focus,button:focus,input:focus,textarea:focus,select:focus{outline:3px solid var(--a);outline-offset:3px}
+.top{display:inline-block;margin-bottom:1rem;text-decoration:none}
+.lead{max-width:780px;font-size:1.1rem}
+.meta,.actions,.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.badge{display:inline-flex;align-items:center;min-height:2rem;border:1px solid var(--b);border-radius:999px;background:#fff;padding:.25rem .75rem;font-weight:700}
+button,.button{min-height:44px;border:0;border-radius:var(--r);background:var(--p);color:#fff;padding:.72rem 1rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+button.secondary,.button.secondary{background:#fff;color:var(--p);border:1px solid var(--p)}
+.panel,.card,.toc{background:#fff;border:1px solid var(--b);border-radius:var(--r);box-shadow:0 8px 24px rgba(15,23,42,.08)}
+.panel{padding:1.5rem;margin-bottom:1.5rem}
+.card{padding:1rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.two{grid-template-columns:repeat(2,1fr)}
+.toc{padding:1rem;margin-bottom:1.5rem}
+.toc ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.toc a{display:block;min-height:44px;border-radius:var(--r);background:var(--bg);padding:.65rem .8rem;text-decoration:none}
+.callout{border-left:5px solid var(--p);background:var(--bg);border-radius:var(--r);padding:1rem;margin:1rem 0}
+.callout.ok{border-color:var(--ok)}.callout.warn{border-color:var(--w)}.callout.danger{border-color:var(--d)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2.5rem 1fr;gap:.75rem;padding:.75rem 0;border-bottom:1px solid var(--b)}
+.steps li:before{content:counter(s);display:grid;place-items:center;width:2rem;height:2rem;border-radius:999px;background:var(--p);color:#fff;font-weight:800}
+.checklist{list-style:none;margin:0;padding:0}
+.checklist li{display:flex;gap:.75rem;padding:.72rem;border-bottom:1px solid var(--b)}
+.checklist input{width:1.2rem;height:1.2rem;margin-top:.2rem;accent-color:var(--p)}
+.accordion{border:1px solid var(--b);border-radius:var(--r);overflow:hidden;margin-top:.75rem;background:#fff}
+.accordion button{width:100%;border-radius:0;text-align:left;justify-content:flex-start}
+.content{display:none;padding:1rem}
+.content.open{display:block}
+.quiz-options{display:grid;gap:.5rem;margin-top:.75rem}
+.quiz-options button{background:#fff;color:var(--s);border:1px solid var(--b);justify-content:flex-start;text-align:left}
+.feedback{font-weight:800}
+table{width:100%;border-collapse:collapse;margin-top:1rem}
+th,td{border:1px solid var(--b);padding:.65rem;text-align:left;vertical-align:top}
+th{background:var(--bg);color:var(--s)}
+input[type=search],textarea,select{min-height:44px;border:1px solid var(--b);border-radius:var(--r);padding:.65rem .8rem;font:inherit}
+textarea{width:100%;min-height:7rem}
+.search-item[hidden]{display:none}
+@media(max-width:900px){.grid,.two,.toc ul{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.wrap{width:min(100% - 1rem,1120px)}.grid,.two,.toc ul{grid-template-columns:1fr}.panel{padding:1rem}button,.button{width:100%}.actions,.filters{flex-direction:column}}
+@media print{body{background:#fff;color:#111827}.no-print,.actions,button{display:none!important}.panel,.card,.toc,.callout,table{box-shadow:none;break-inside:avoid}.content{display:block!important}a{color:#111827;text-decoration:none}}
+
+.table-scroll{overflow-x:auto;margin-top:1rem}
+.source-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.source-list .card{display:flex;flex-direction:column;gap:.35rem}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1rem 0}
+.kpi .card strong{display:block;font-size:1.45rem;color:var(--p)}
+.file-name{font-family:Consolas,"Courier New",monospace;font-weight:700;overflow-wrap:anywhere}
+.small{font-size:.92rem}
+@media(max-width:900px){.source-list,.kpi{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.source-list,.kpi{grid-template-columns:1fr}}
+</style>
+  <link rel="stylesheet" href="../assets/formapro-design.css">
+</head>
+<body class="theme-general">
+  <header>
+    <div class="wrap">
+      <a class="top no-print" href="../00_Index_general/index.html">Retour à l'index général</a>
+      <h1>Projet fil rouge</h1>
+      <p class="lead">Organiser un forum métiers réaliste avec sources, budget, participants et livrables précis.</p>
+      <div class="meta"><span class="badge">Projet fil rouge concret</span><span class="badge">Word + Excel + PowerPoint</span></div>
+      <div class="actions no-print"><button type="button" onclick="window.print()">Imprimer / Exporter en PDF</button><button type="button" class="secondary" data-open-all>Tout ouvrir</button><button type="button" class="secondary" data-close-all>Tout fermer</button></div>
+    </div>
+  </header>
+  <main class="wrap">
+  <nav class="course-nav no-print" aria-label="Navigation de formation">
+    <a href="../00_Index_general/index.html">Accueil</a>
+    <a href="../02_Guide_formateur_HTML/Guide_formateur_general.html">Guide</a>
+    <a href="../03_Supports_stagiaires_HTML/Support_Word_Debutant.html">Supports</a>
+    <a href="../04_Exercices_HTML/Word/Word_01_Mettre_en_forme_un_texte_brut.html">Exercices</a>
+    <a href="Projet_fil_rouge.html" class="active" aria-current="page">Projet</a>
+    <a href="../08_Evaluations_HTML/Evaluation_initiale.html">Evaluations</a>
+    <a href="../11_Cartes_SOS_interactives/Index_Cartes_SOS.html">SOS</a>
+  </nav>
+
+<nav class="toc"><ul><li><a href="Projet_fil_rouge.html">Projet</a></li><li><a href="Brief_projet.html">Brief</a></li><li><a href="Livrables_projet.html">Livrables</a></li><li><a href="Charte_graphique_projet.html">Charte</a></li><li><a href="Sources_projet.html">Sources</a></li><li><a href="Grille_correction_projet.html">Grille</a></li><li><a href="Version_simplifiee.html">Simplifié</a></li><li><a href="Version_bonus.html">Bonus</a></li></ul></nav>
+    <section class="panel" id="scenario"><h2>Scénario</h2>
+        <p>Vous travaillez pour <strong>Horizon Compétences, service formation</strong>. Votre responsable vous demande de préparer les documents d'un événement réel et complet : le <strong>Forum Découverte Métiers et Formation</strong>.</p>
+        <p>L'événement aura lieu le <strong>jeudi 9 juillet 2026</strong>, de <strong>14h00 à 17h00</strong>, à <strong>Salle polyvalente Jean-Moulin, 12 rue des Ateliers, 59000 Lille</strong>.</p>
+        <p>Contact projet : <strong>Camille Bernard, coordinatrice formation, camille.bernard@example.local</strong>.</p>
+        </section><section class="kpi"><article class="card"><strong>24</strong><span>participants inscrits</span></article><article class="card"><strong>20</strong><span>présences confirmées</span></article><article class="card"><strong>1 028,55 €</strong><span>budget prévu</span></article><article class="card"><strong>171,45 €</strong><span>marge restante</span></article></section><section class="panel" id="livrables"><h2>Fichiers à réaliser</h2><div class="table-scroll"><table><thead><tr><th>Logiciel</th><th>Fichier attendu</th><th>Contenu concret attendu</th></tr></thead><tbody><tr><td>Word</td><td>Invitation_Forum_Metiers_NomPrenom.docx</td><td>Invitation professionnelle d&#x27;une page avec titre, date, lieu, programme court, contact.</td></tr><tr><td>Word</td><td>Invitation_Forum_Metiers_NomPrenom.pdf</td><td>Export PDF propre, prêt à envoyer.</td></tr><tr><td>Word</td><td>Programme_Forum_Metiers_NomPrenom.docx</td><td>Programme détaillé en tableau simple avec horaires et responsables.</td></tr><tr><td>Excel</td><td>Suivi_participants_forum_metiers_NomPrenom.xlsx</td><td>Liste participants nettoyée, filtres, total inscrits, total confirmés, personnes à relancer.</td></tr><tr><td>Excel</td><td>Budget_forum_metiers_NomPrenom.xlsx</td><td>Budget avec quantités, prix unitaires, totaux, total général, reste disponible.</td></tr><tr><td>Excel</td><td>Graphique_budget_forum_metiers_NomPrenom.xlsx</td><td>Graphique clair : budget par catégorie ou participants par atelier.</td></tr><tr><td>PowerPoint</td><td>Restitution_Forum_Metiers_NomPrenom.pptx</td><td>5 diapositives maximum : contexte, participants, budget, planning, décision finale.</td></tr><tr><td>PowerPoint</td><td>Restitution_Forum_Metiers_NomPrenom.pdf</td><td>Export PDF de la présentation.</td></tr></tbody></table></div></section><section class="panel" id="sources"><h2>Sources fournies</h2><p>Utilisez ces fichiers comme point de départ. Les noms, chiffres, horaires et rôles sont déjà fournis pour éviter toute invention pendant l'exercice.</p><section class="source-list"><article class="card"><h3>participants_forum_metiers.xlsx</h3><p>Liste nominative fictive de 24 participants, statuts, villes, ateliers, présence, collation.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/participants_forum_metiers.xlsx">Ouvrir la source</a></p></article><article class="card"><h3>budget_forum_metiers.xlsx</h3><p>Budget détaillé : postes, catégories, quantités, prix, total, budget maximum.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/budget_forum_metiers.xlsx">Ouvrir la source</a></p></article><article class="card"><h3>donnees_restitution_forum_metiers.xlsx</h3><p>Indicateurs prêts à réutiliser dans le PowerPoint : participants, budget, planning, ateliers.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/donnees_restitution_forum_metiers.xlsx">Ouvrir la source</a></p></article><article class="card"><h3>programme_forum_metiers.txt</h3><p>Programme horaire à reprendre dans Word et PowerPoint.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/programme_forum_metiers.txt">Ouvrir la source</a></p></article><article class="card"><h3>brief_intervenants_forum_metiers.txt</h3><p>Rôles des intervenants, messages clés, contraintes de prise de parole.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/brief_intervenants_forum_metiers.txt">Ouvrir la source</a></p></article><article class="card"><h3>notes_organisation_forum_metiers.txt</h3><p>Contraintes logistiques, nommage, délais et critères de réussite.</p><p><a href="../06_Fichiers_de_depart/Projet_fil_rouge/notes_organisation_forum_metiers.txt">Ouvrir la source</a></p></article></section></section><section class="panel" id="donnees"><h2>Données rapides à reprendre</h2><div class="table-scroll"><table><thead><tr><th>Nom</th><th>Statut</th><th>Ville</th><th>Atelier</th><th>Présence</th><th>Collation</th></tr></thead><tbody><tr><td>Alice Martin</td><td>Demandeuse d&#x27;emploi</td><td>Lille</td><td>CV et candidature Word</td><td>Oui</td><td>Oui</td></tr><tr><td>Karim Benali</td><td>Salarié en reconversion</td><td>Roubaix</td><td>Budget Excel</td><td>Oui</td><td>Oui</td></tr><tr><td>Sophie Laurent</td><td>Assistante RH</td><td>Tourcoing</td><td>Présentation PowerPoint</td><td>Oui</td><td>Non</td></tr><tr><td>Thomas Petit</td><td>Commercial junior</td><td>Lille</td><td>Budget Excel</td><td>Oui</td><td>Oui</td></tr><tr><td>Nadia Diallo</td><td>Demandeuse d&#x27;emploi</td><td>Villeneuve-d&#x27;Ascq</td><td>CV et candidature Word</td><td>À confirmer</td><td>Oui</td></tr><tr><td>Hugo Moreau</td><td>Agent logistique</td><td>Seclin</td><td>Budget Excel</td><td>Oui</td><td>Oui</td></tr><tr><td>Léa Nguyen</td><td>Apprentie</td><td>Lomme</td><td>Présentation PowerPoint</td><td>Oui</td><td>Oui</td></tr><tr><td>Samir Haddad</td><td>Demandeur d&#x27;emploi</td><td>Lille</td><td>CV et candidature Word</td><td>Oui</td><td>Oui</td></tr></tbody></table></div><div class="table-scroll"><table><thead><tr><th>Poste</th><th>Catégorie</th><th>Qté</th><th>PU HT</th><th>Total HT</th><th>Statut</th></tr></thead><tbody><tr><td>Location salle polyvalente</td><td>Lieu</td><td>1</td><td>320,00 €</td><td>320,00 €</td><td>Confirmé</td></tr><tr><td>Collations individuelles</td><td>Accueil</td><td>32</td><td>4,50 €</td><td>144,00 €</td><td>Confirmé</td></tr><tr><td>Café, thé, eau</td><td>Accueil</td><td>1</td><td>65,00 €</td><td>65,00 €</td><td>Confirmé</td></tr><tr><td>Badges nominatifs</td><td>Signalétique</td><td>35</td><td>0,65 €</td><td>22,75 €</td><td>À commander</td></tr><tr><td>Impression programmes A4</td><td>Impression</td><td>45</td><td>0,28 €</td><td>12,60 €</td><td>Confirmé</td></tr><tr><td>Affiches A3</td><td>Communication</td><td>10</td><td>2,10 €</td><td>21,00 €</td><td>À valider</td></tr><tr><td>Fournitures atelier</td><td>Ateliers</td><td>1</td><td>85,00 €</td><td>85,00 €</td><td>Confirmé</td></tr><tr><td>Défraiement intervenants</td><td>Intervenants</td><td>3</td><td>90,00 €</td><td>270,00 €</td><td>Confirmé</td></tr><tr><td>Transport matériel</td><td>Logistique</td><td>1</td><td>45,00 €</td><td>45,00 €</td><td>À valider</td></tr><tr><td>Kit papier participant</td><td>Impression</td><td>24</td><td>1,80 €</td><td>43,20 €</td><td>Confirmé</td></tr></tbody></table></div></section><section class="panel" id="methode"><h2>Méthode conseillée</h2><ol class="steps"><li><span>Ouvrir les sources et lire le scénario avant de créer les fichiers.</span></li><li><span>Créer le document Word d'invitation avec date, lieu, contact et programme court.</span></li><li><span>Créer ou compléter le suivi Excel participants : filtres, totaux, personnes à relancer.</span></li><li><span>Créer le budget Excel : quantités, prix unitaires, totaux, total général, marge restante.</span></li><li><span>Créer un graphique simple utilisable dans PowerPoint.</span></li><li><span>Créer la présentation de restitution en 5 diapositives maximum.</span></li><li><span>Exporter les documents demandés en PDF et vérifier les noms de fichiers.</span></li></ol></section><section class="panel"><h2>Checklist finale</h2><ul class="checklist" data-checklist-id="projet-fil-rouge-concret"><li><input type="checkbox"><span>Tous les fichiers attendus existent avec le bon nom.</span></li><li><input type="checkbox"><span>Les noms, dates, lieux et montants viennent des sources fournies.</span></li><li><input type="checkbox"><span>Le budget total est calculé par formule, pas saisi à la main.</span></li><li><input type="checkbox"><span>Le graphique a un titre clair.</span></li><li><input type="checkbox"><span>La présentation PowerPoint contient 5 diapositives maximum.</span></li><li><input type="checkbox"><span>Les exports PDF sont lisibles.</span></li></ul></section>
+  <section class="panel"><h2>Livrables et charte</h2><p id='livrables-detail-ajout'>Avant de commencer, ouvrez la liste détaillée des livrables et choisissez vos visuels.</p><p><a href='Livrables_projet.html'>Voir les livrables précis</a> · <a href='Charte_graphique_projet.html'>Voir la charte graphique</a></p></section>
+  </main>
+  <script>
+function safeStorageGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function safeStorageSet(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}
+document.querySelectorAll('.accordion button').forEach(function(b){b.addEventListener('click',function(){var c=b.nextElementSibling,o=c.classList.toggle('open');b.setAttribute('aria-expanded',String(o));});});
+document.querySelectorAll('[data-open-all]').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.content').forEach(function(c){c.classList.add('open')});});});
+document.querySelectorAll('[data-close-all]').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.content').forEach(function(c){c.classList.remove('open')});});});
+document.querySelectorAll('[data-checklist-id]').forEach(function(list){var key='formapro-'+list.dataset.checklistId;var saved=safeStorageGet(key);var states=saved?JSON.parse(saved):[];var boxes=list.querySelectorAll('input[type=checkbox]');boxes.forEach(function(box,i){box.checked=Boolean(states[i]);box.addEventListener('change',function(){safeStorageSet(key,JSON.stringify(Array.from(boxes).map(function(x){return x.checked})))});});});
+document.querySelectorAll('.quiz-options').forEach(function(q){var ans=q.dataset.answer;var fb=q.parentElement.querySelector('.feedback');q.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){fb.textContent=b.dataset.choice===ans?'Bonne réponse.':'Pas encore. Relisez la consigne puis réessayez.';});});});
+document.querySelectorAll('[data-search]').forEach(function(input){input.addEventListener('input',function(){var v=input.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');document.querySelectorAll('.search-item').forEach(function(item){var t=item.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');item.hidden=v && !t.includes(v);});});});
+</script>
+</body>
+</html>

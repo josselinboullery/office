@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formation Office - Supports en ligne</title>
+  <style>
+    :root {
+      --bg: #f7f7f8;
+      --surface: #ffffff;
+      --ink: #111111;
+      --text: #2b2f36;
+      --muted: #6f7378;
+      --line: #d9dde3;
+      --line-strong: #aeb5be;
+      --accent: #002fa7;
+      --word: #185abd;
+      --excel: #107c41;
+      --powerpoint: #c43e1c;
+      --radius: 8px;
+      --font: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background:
+        linear-gradient(90deg, rgba(17, 17, 17, 0.055) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(17, 17, 17, 0.045) 1px, transparent 1px),
+        var(--bg);
+      background-size: 48px 48px;
+      color: var(--text);
+      font: 16px/1.56 var(--font);
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      min-height: 58px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .topbar .wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-height: 58px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: var(--ink);
+      font-weight: 820;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: #fff;
+      font-weight: 860;
+    }
+
+    .nav {
+      display: flex;
+      gap: 0;
+      margin-left: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .nav a {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      border-right: 1px solid var(--line);
+      padding: 0 0.82rem;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 760;
+      text-decoration: none;
+    }
+
+    .nav a:last-child { border-right: 0; }
+    .nav a:hover { background: var(--bg); color: var(--ink); }
+
+    main {
+      padding: 36px 0 64px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 2rem;
+      align-items: end;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 2rem;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.5rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 760;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--ink);
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    h1,
+    h2,
+    h3,
+    .lead,
+    .brand,
+    .nav a,
+    .module,
+    .quick {
+      overflow-wrap: anywhere;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: 3.4rem;
+      line-height: 1.02;
+      font-weight: 820;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 1.55rem;
+      line-height: 1.15;
+      font-weight: 780;
+    }
+
+    h3 {
+      margin-bottom: 0.45rem;
+      font-size: 1.18rem;
+      line-height: 1.2;
+    }
+
+    p {
+      margin: 0.55rem 0 0;
+    }
+
+    .lead {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .preview {
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .preview img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .preview figcaption {
+      border-top: 1px solid var(--line);
+      padding: 0.72rem;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .section {
+      margin-top: 1rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 1rem;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: end;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .hint {
+      max-width: 440px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .module {
+      --module: var(--accent);
+      position: relative;
+      min-height: 230px;
+      display: grid;
+      align-content: space-between;
+      border: 1px solid var(--line);
+      border-top: 8px solid var(--module);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .module:hover {
+      border-color: var(--module);
+      background: var(--bg);
+    }
+
+    .module-number {
+      color: var(--module);
+      font-size: 4.2rem;
+      line-height: 0.9;
+      font-weight: 860;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .module p {
+      color: var(--muted);
+    }
+
+    .module-action {
+      margin-top: 1rem;
+      color: var(--module);
+      font-weight: 780;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .quick {
+      min-height: 84px;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--line);
+      padding: 0.9rem;
+      color: var(--text);
+      font-weight: 760;
+      text-decoration: none;
+    }
+
+    .quick:last-child { border-right: 0; }
+    .quick:hover { background: var(--bg); color: var(--ink); }
+    .quick span { display: block; color: var(--muted); font-size: 0.84rem; font-weight: 500; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 1rem 0 2rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 860px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .hero { grid-template-columns: 1fr; padding: 1.25rem; }
+      h1 { font-size: 2.35rem; }
+      .module-grid { grid-template-columns: 1fr; }
+      .quick-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .quick:nth-child(2) { border-right: 0; }
+      .quick:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 20px, 1120px); }
+      .topbar .wrap {
+        flex-wrap: wrap;
+        padding-block: 0.5rem;
+      }
+      .brand { flex: 1 1 100%; }
+      .nav {
+        flex: 1 1 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-left: 0;
+      }
+      .nav a {
+        justify-content: center;
+      }
+      h1 { font-size: 2rem; }
+      .section-head { display: block; }
+      .quick-grid { grid-template-columns: 1fr; }
+      .quick,
+      .quick:nth-child(2),
+      .quick:nth-child(-n+2) {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .quick:last-child { border-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Accueil Formation Office">
+        <span class="brand-mark">O</span>
+        <span>Formation Office</span>
+      </a>
+      <nav class="nav" aria-label="Modules">
+        <a href="FormaPro/03_Supports_stagiaires_HTML/Support_Word_Debutant.html">Word</a>
+        <a href="FormaPro/03_Supports_stagiaires_HTML/Support_Excel_Debutant.html">Excel</a>
+        <a href="FormaPro/03_Supports_stagiaires_HTML/Support_PowerPoint_Debutant.html">PowerPoint</a>
+        <a href="FormaPro/00_Index_general/index.html">Portail</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Supports de cours en ligne</p>
+        <h1 id="page-title">Formation Office débutant.</h1>
+        <p class="lead">Accès direct aux supports stagiaires, exercices, évaluations, fiches mémo et cartes SOS pour Word, Excel et PowerPoint.</p>
+      </div>
+      <figure class="preview">
+        <img src="FormaPro/06_Fichiers_de_depart/Projet_fil_rouge/Visuels/photo_documents_word_programme.png" alt="Documents de formation Word">
+        <figcaption>Supports et fichiers de départ inclus.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="modules">
+      <div class="section-head">
+        <h2>Choisir un logiciel</h2>
+        <p class="hint">Entrée par outil, puis exercices et ressources associés.</p>
+      </div>
+      <div class="module-grid">
+        <a class="module" style="--module: var(--word)" href="FormaPro/03_Supports_stagiaires_HTML/Support_Word_Debutant.html">
+          <span class="module-number">01</span>
+          <div>
+            <h3>Word</h3>
+            <p>Documents structurés, styles, mise en page, images, tableaux, export PDF.</p>
+            <span class="module-action">Ouvrir Word</span>
+          </div>
+        </a>
+        <a class="module" style="--module: var(--excel)" href="FormaPro/03_Supports_stagiaires_HTML/Support_Excel_Debutant.html">
+          <span class="module-number">02</span>
+          <div>
+            <h3>Excel</h3>
+            <p>Tableaux, calculs, recopie de formules, graphiques, impression.</p>
+            <span class="module-action">Ouvrir Excel</span>
+          </div>
+        </a>
+        <a class="module" style="--module: var(--powerpoint)" href="FormaPro/03_Supports_stagiaires_HTML/Support_PowerPoint_Debutant.html">
+          <span class="module-number">03</span>
+          <div>
+            <h3>PowerPoint</h3>
+            <p>Slides lisibles, images, graphiques, structure de présentation, oral.</p>
+            <span class="module-action">Ouvrir PowerPoint</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="quick-title">
+      <div class="section-head">
+        <h2 id="quick-title">Accès rapides</h2>
+        <p class="hint">Entrée par usage, pas par dossier.</p>
+      </div>
+      <div class="quick-grid">
+        <a class="quick" href="FormaPro/00_Index_general/index.html">Portail complet <span>Tous les contenus</span></a>
+        <a class="quick" href="FormaPro/02_Guide_formateur_HTML/Guide_formateur_general.html">Guide formateur <span>Préparer la séance</span></a>
+        <a class="quick" href="FormaPro/08_Evaluations_HTML/Evaluation_initiale.html">Évaluations <span>Initiale, finale, quiz</span></a>
+        <a class="quick" href="FormaPro/11_Cartes_SOS_interactives/Index_Cartes_SOS.html">Cartes SOS <span>Aide rapide</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">URL prévue : https://josselinboullery.github.io/office/</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raccourcis clavier et caractères spéciaux</title>
+  <style>
+:root{--p:#334155;--s:#1F2937;--a:#64748B;--bg:#F8FAFC;--t:#111827;--b:#E5E7EB;--ok:#15803D;--w:#B45309;--d:#B91C1C;--r:8px}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.65;color:var(--t);background:linear-gradient(180deg,var(--bg),#fff 28rem)}
+.wrap{width:min(1120px,calc(100% - 2rem));margin:auto}
+header{padding:2rem 0;border-bottom:1px solid var(--b)}
+main{padding:2rem 0}
+h1{margin:0;color:var(--s);font-size:clamp(1.9rem,4vw,2.65rem);line-height:1.15}
+h2{margin:0 0 1rem;color:var(--s);font-size:1.5rem}
+h3{margin:.25rem 0;color:var(--s);font-size:1.12rem}
+p{margin:.5rem 0 1rem}
+a{color:var(--p);font-weight:700}
+a:focus,button:focus,input:focus,textarea:focus,select:focus{outline:3px solid var(--a);outline-offset:3px}
+.top{display:inline-block;margin-bottom:1rem;text-decoration:none}
+.lead{max-width:780px;font-size:1.1rem}
+.meta,.actions,.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.badge{display:inline-flex;align-items:center;min-height:2rem;border:1px solid var(--b);border-radius:999px;background:#fff;padding:.25rem .75rem;font-weight:700}
+button,.button{min-height:44px;border:0;border-radius:var(--r);background:var(--p);color:#fff;padding:.72rem 1rem;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+button.secondary,.button.secondary{background:#fff;color:var(--p);border:1px solid var(--p)}
+.panel,.card,.toc{background:#fff;border:1px solid var(--b);border-radius:var(--r);box-shadow:0 8px 24px rgba(15,23,42,.08)}
+.panel{padding:1.5rem;margin-bottom:1.5rem}
+.card{padding:1rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.two{grid-template-columns:repeat(2,1fr)}
+.toc{padding:1rem;margin-bottom:1.5rem}
+.toc ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.toc a{display:block;min-height:44px;border-radius:var(--r);background:var(--bg);padding:.65rem .8rem;text-decoration:none}
+.callout{border-left:5px solid var(--p);background:var(--bg);border-radius:var(--r);padding:1rem;margin:1rem 0}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2.5rem 1fr;gap:.75rem;padding:.75rem 0;border-bottom:1px solid var(--b)}
+.steps li:before{content:counter(s);display:grid;place-items:center;width:2rem;height:2rem;border-radius:999px;background:var(--p);color:#fff;font-weight:800}
+.checklist{list-style:none;margin:0;padding:0}
+.checklist li{display:flex;gap:.75rem;padding:.72rem;border-bottom:1px solid var(--b)}
+.checklist input{width:1.2rem;height:1.2rem;margin-top:.2rem;accent-color:var(--p)}
+table{width:100%;border-collapse:collapse;margin-top:1rem}
+th,td{border:1px solid var(--b);padding:.65rem;text-align:left;vertical-align:top}
+th{background:var(--bg);color:var(--s)}
+input[type=search]{min-height:44px;border:1px solid var(--b);border-radius:var(--r);padding:.65rem .8rem;font:inherit}
+.search-item[hidden]{display:none}
+.kbd{display:inline-flex;align-items:center;min-height:1.8rem;border:1px solid var(--b);border-bottom-color:#cbd5e1;border-radius:6px;background:#fff;padding:.08rem .42rem;font-family:"Cascadia Mono",Consolas,monospace;font-weight:800;color:#111827}
+.shortcut-table td:first-child{white-space:nowrap;font-weight:800}
+.symbol{font-size:1.45rem;font-weight:800;text-align:center}
+.method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.table-scroll{overflow-x:auto}
+@media(max-width:900px){.grid,.two,.toc ul,.method-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.wrap{width:min(100% - 1rem,1120px)}.grid,.two,.toc ul,.method-grid{grid-template-columns:1fr}.panel{padding:1rem}button,.button{width:100%}.actions,.filters{flex-direction:column}}
+@media print{body{background:#fff;color:#111827}.no-print,.actions,button{display:none!important}.panel,.card,.toc,.callout,table{box-shadow:none;break-inside:avoid}a{color:#111827;text-decoration:none}}
+</style>
+  <link rel="stylesheet" href="../assets/formapro-design.css">
+  <style>
+@media(max-width:640px){
+  .actions>*,
+  .filters input,
+  button,
+  .button{width:100%;max-width:100%;white-space:normal;text-align:center}
+  .course-nav a{flex:1 1 100%;min-width:0;text-align:center;white-space:normal}
+  .badge{white-space:normal}
+}
+</style>
+</head>
+<body class="theme-general">
+  <header>
+    <div class="wrap">
+      <a class="top no-print" href="../00_Index_general/index.html">Retour à l'index général</a>
+      <h1>Raccourcis clavier et caractères spéciaux</h1>
+      <p class="lead">Fiche mémo pour gagner du temps dans Word, Excel, PowerPoint et insérer rapidement accents, symboles, signes typographiques et caractères invisibles.</p>
+      <div class="meta"><span class="badge">Fiche mémo</span><span class="badge">Windows + Office</span><span class="badge">Raccourcis + Alt codes</span></div>
+      <div class="actions no-print"><button type="button" onclick="window.print()">Imprimer / Exporter en PDF</button><a class="button secondary" href="#symboles">Aller aux symboles</a></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+  <nav class="course-nav no-print" aria-label="Navigation de formation">
+    <a href="../00_Index_general/index.html">Accueil</a>
+    <a href="../02_Guide_formateur_HTML/Guide_formateur_general.html">Guide</a>
+    <a href="../03_Supports_stagiaires_HTML/Support_Word_Debutant.html" class="active">Supports</a>
+    <a href="../04_Exercices_HTML/Word/Word_01_Mettre_en_forme_un_texte_brut.html">Exercices</a>
+    <a href="../09_Projet_fil_rouge_HTML/Projet_fil_rouge.html">Projet</a>
+    <a href="../08_Evaluations_HTML/Evaluation_initiale.html">Evaluations</a>
+    <a href="../11_Cartes_SOS_interactives/Index_Cartes_SOS.html">SOS</a>
+  </nav>
+
+    <nav class="toc no-print">
+      <ul>
+        <li><a href="#methodes">Méthodes</a></li>
+        <li><a href="#essentiels">Essentiels</a></li>
+        <li><a href="#office">Office</a></li>
+        <li><a href="#symboles">Symboles Alt</a></li>
+      </ul>
+    </nav>
+
+    <div class="filters no-print">
+      <label for="search">Recherche</label>
+      <input id="search" type="search" data-search placeholder="Ex. copier, euro, majuscule, alt 0176">
+    </div>
+
+    <section class="panel search-item" id="methodes">
+      <h2>Insérer un caractère spécial</h2>
+      <div class="method-grid">
+        <article class="card">
+          <h3>Alt + code</h3>
+          <p>Maintenir <span class="kbd">Alt</span>, taper le code sur le pavé numérique, relâcher <span class="kbd">Alt</span>.</p>
+        </article>
+        <article class="card">
+          <h3>Emoji et symboles</h3>
+          <p><span class="kbd">Windows</span> + <span class="kbd">.</span> ouvre le panneau emoji, symboles et caractères récents.</p>
+        </article>
+        <article class="card">
+          <h3>Word</h3>
+          <p><strong>Insertion &gt; Symbole &gt; Autres symboles</strong>, puis choisir police et sous-ensemble.</p>
+        </article>
+        <article class="card">
+          <h3>Copier-coller</h3>
+          <p>Copier un symbole depuis cette fiche, puis coller. Pour garder seulement le texte : <span class="kbd">Ctrl</span> + <span class="kbd">Maj</span> + <span class="kbd">V</span>.</p>
+        </article>
+      </div>
+      <div class="callout">
+        <strong>Point important :</strong> les codes Alt longs comme <span class="kbd">Alt</span> + <span class="kbd">0176</span> demandent souvent le pavé numérique. Les résultats peuvent varier selon Windows, clavier, application et police.
+      </div>
+    </section>
+
+    <section class="panel search-item" id="essentiels">
+      <h2>Raccourcis essentiels</h2>
+      <div class="table-scroll">
+        <table class="shortcut-table">
+          <thead><tr><th>Raccourci</th><th>Action</th><th>Quand l'utiliser</th></tr></thead>
+          <tbody>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">C</span></td><td>Copier</td><td>Dupliquer une sélection sans la supprimer.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">V</span></td><td>Coller</td><td>Insérer ce qui vient d'être copié ou coupé.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">Maj</span> + <span class="kbd">V</span></td><td>Coller texte brut</td><td>Coller sans mise en forme quand elle gêne.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">X</span></td><td>Couper</td><td>Déplacer une sélection.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">Z</span></td><td>Annuler</td><td>Revenir immédiatement après une erreur.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">Y</span></td><td>Rétablir</td><td>Refaire une action annulée.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">A</span></td><td>Tout sélectionner</td><td>Sélectionner tout le document, tableau ou champ actif.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">S</span></td><td>Enregistrer</td><td>Sauvegarder souvent.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">P</span></td><td>Imprimer</td><td>Ouvrir l'aperçu avant impression.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">F</span></td><td>Rechercher</td><td>Trouver un mot, un montant, une date.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">H</span></td><td>Remplacer</td><td>Corriger plusieurs occurrences.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">N</span></td><td>Nouveau</td><td>Créer un nouveau document.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">O</span></td><td>Ouvrir</td><td>Ouvrir un fichier existant.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">W</span></td><td>Fermer</td><td>Fermer le document ou l'onglet actif.</td></tr>
+            <tr><td><span class="kbd">Alt</span> + <span class="kbd">Tab</span></td><td>Changer de fenêtre</td><td>Passer de Word à Excel, au navigateur ou à l'explorateur.</td></tr>
+            <tr><td><span class="kbd">Windows</span> + <span class="kbd">E</span></td><td>Explorateur de fichiers</td><td>Retrouver ou déplacer un fichier.</td></tr>
+            <tr><td><span class="kbd">Windows</span> + <span class="kbd">V</span></td><td>Historique du presse-papiers</td><td>Retrouver plusieurs éléments copiés, si activé.</td></tr>
+            <tr><td><span class="kbd">Windows</span> + <span class="kbd">.</span></td><td>Emoji et symboles</td><td>Insérer rapidement emoji, ponctuation spéciale et symboles.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel search-item" id="office">
+      <h2>Raccourcis Office utiles</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Word</h3>
+          <ul class="compact-list">
+            <li><span class="kbd">Ctrl</span> + <span class="kbd">G</span> : gras.</li>
+            <li><span class="kbd">Ctrl</span> + <span class="kbd">I</span> : italique.</li>
+            <li><span class="kbd">Ctrl</span> + <span class="kbd">U</span> : souligner.</li>
+            <li><span class="kbd">Ctrl</span> + <span class="kbd">E</span> : centrer.</li>
+            <li><span class="kbd">Ctrl</span> + <span class="kbd">J</span> : justifier.</li>
+            <li><span class="kbd">Ctrl</span> + <span class="kbd">L</span> : aligner à gauche.</li>
+            <li><span class="kbd">Ctrl</span> + <span class="kbd">Entrée</span> : saut de page.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Excel</h3>
+          <ul class="compact-list">
+            <li><span class="kbd">F2</span> : modifier la cellule active.</li>
+            <li><span class="kbd">Ctrl</span> + <span class="kbd">;</span> : date du jour.</li>
+            <li><span class="kbd">Ctrl</span> + <span class="kbd">Maj</span> + <span class="kbd">:</span> : heure actuelle.</li>
+            <li><span class="kbd">Ctrl</span> + <span class="kbd">Espace</span> : sélectionner la colonne.</li>
+            <li><span class="kbd">Maj</span> + <span class="kbd">Espace</span> : sélectionner la ligne.</li>
+            <li><span class="kbd">Ctrl</span> + <span class="kbd">1</span> : format de cellule.</li>
+            <li><span class="kbd">F4</span> : répéter l'action ou verrouiller une référence dans une formule.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>PowerPoint</h3>
+          <ul class="compact-list">
+            <li><span class="kbd">F5</span> : lancer le diaporama depuis le début.</li>
+            <li><span class="kbd">Maj</span> + <span class="kbd">F5</span> : lancer depuis la diapositive actuelle.</li>
+            <li><span class="kbd">Ctrl</span> + <span class="kbd">M</span> : nouvelle diapositive.</li>
+            <li><span class="kbd">Ctrl</span> + <span class="kbd">D</span> : dupliquer l'objet ou la diapositive.</li>
+            <li><span class="kbd">Ctrl</span> + <span class="kbd">G</span> : grouper des objets.</li>
+            <li><span class="kbd">Ctrl</span> + <span class="kbd">Maj</span> + <span class="kbd">G</span> : dissocier.</li>
+            <li><span class="kbd">Échap</span> : quitter le diaporama.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel search-item" id="selection">
+      <h2>Sélection et déplacement</h2>
+      <div class="table-scroll">
+        <table class="shortcut-table">
+          <thead><tr><th>Geste</th><th>Résultat</th></tr></thead>
+          <tbody>
+            <tr><td>Double-clic</td><td>Sélectionner un mot.</td></tr>
+            <tr><td>Triple-clic</td><td>Sélectionner un paragraphe.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + clic</td><td>Sélectionner une phrase dans Word.</td></tr>
+            <tr><td><span class="kbd">Maj</span> + clic</td><td>Étendre la sélection jusqu'au point cliqué.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">Flèche</span></td><td>Se déplacer mot par mot ou bloc par bloc.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">Début</span></td><td>Aller au début du document.</td></tr>
+            <tr><td><span class="kbd">Ctrl</span> + <span class="kbd">Fin</span></td><td>Aller à la fin du document.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel search-item" id="symboles">
+      <h2>Symboles courants avec Alt</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Code</th><th>Symbole</th><th>Usage courant</th><th>Code</th><th>Symbole</th><th>Usage courant</th></tr></thead>
+          <tbody>
+            <tr><td>Alt + 1</td><td class="symbol">☺</td><td>Smiley blanc</td><td>Alt + 2</td><td class="symbol">☻</td><td>Smiley noir</td></tr>
+            <tr><td>Alt + 3</td><td class="symbol">♥</td><td>Coeur</td><td>Alt + 4</td><td class="symbol">♦</td><td>Carreau</td></tr>
+            <tr><td>Alt + 5</td><td class="symbol">♣</td><td>Trèfle</td><td>Alt + 6</td><td class="symbol">♠</td><td>Pique</td></tr>
+            <tr><td>Alt + 7</td><td class="symbol">•</td><td>Puce</td><td>Alt + 8</td><td class="symbol">◘</td><td>Point inversé</td></tr>
+            <tr><td>Alt + 13</td><td class="symbol">♪</td><td>Note</td><td>Alt + 14</td><td class="symbol">♫</td><td>Notes</td></tr>
+            <tr><td>Alt + 15</td><td class="symbol">☼</td><td>Soleil</td><td>Alt + 16</td><td class="symbol">►</td><td>Flèche droite pleine</td></tr>
+            <tr><td>Alt + 17</td><td class="symbol">◄</td><td>Flèche gauche pleine</td><td>Alt + 20</td><td class="symbol">¶</td><td>Paragraphe</td></tr>
+            <tr><td>Alt + 21</td><td class="symbol">§</td><td>Section</td><td>Alt + 24</td><td class="symbol">↑</td><td>Haut</td></tr>
+            <tr><td>Alt + 25</td><td class="symbol">↓</td><td>Bas</td><td>Alt + 26</td><td class="symbol">→</td><td>Droite</td></tr>
+            <tr><td>Alt + 27</td><td class="symbol">←</td><td>Gauche</td><td>Alt + 29</td><td class="symbol">↔</td><td>Double sens</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel search-item">
+      <h2>Symboles typographiques</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Code</th><th>Symbole</th><th>Nom</th><th>Code</th><th>Symbole</th><th>Nom</th></tr></thead>
+          <tbody>
+            <tr><td>Alt + 0128</td><td class="symbol">€</td><td>Euro</td><td>Alt + 0137</td><td class="symbol">‰</td><td>Pour mille</td></tr>
+            <tr><td>Alt + 0147</td><td class="symbol">“</td><td>Guillemet ouvrant anglais</td><td>Alt + 0148</td><td class="symbol">”</td><td>Guillemet fermant anglais</td></tr>
+            <tr><td>Alt + 0150</td><td class="symbol">–</td><td>Tiret demi-cadratin</td><td>Alt + 0151</td><td class="symbol">—</td><td>Tiret cadratin</td></tr>
+            <tr><td>Alt + 0153</td><td class="symbol">™</td><td>Marque commerciale</td><td>Alt + 0169</td><td class="symbol">©</td><td>Copyright</td></tr>
+            <tr><td>Alt + 0171</td><td class="symbol">«</td><td>Guillemet français ouvrant</td><td>Alt + 0187</td><td class="symbol">»</td><td>Guillemet français fermant</td></tr>
+            <tr><td>Alt + 0174</td><td class="symbol">®</td><td>Marque déposée</td><td>Alt + 0176</td><td class="symbol">°</td><td>Degré</td></tr>
+            <tr><td>Alt + 0182</td><td class="symbol">¶</td><td>Paragraphe</td><td>Alt + 0160</td><td class="symbol">&nbsp;</td><td>Espace insécable</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel search-item">
+      <h2>Symboles mathématiques</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Code</th><th>Symbole</th><th>Nom</th><th>Code</th><th>Symbole</th><th>Nom</th></tr></thead>
+          <tbody>
+            <tr><td>Alt + 241</td><td class="symbol">±</td><td>Plus ou moins</td><td>Alt + 246</td><td class="symbol">÷</td><td>Division</td></tr>
+            <tr><td>Alt + 247</td><td class="symbol">×</td><td>Multiplication</td><td>Alt + 251</td><td class="symbol">¹</td><td>Exposant 1</td></tr>
+            <tr><td>Alt + 252</td><td class="symbol">³</td><td>Exposant 3</td><td>Alt + 253</td><td class="symbol">²</td><td>Exposant 2</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel search-item">
+      <h2>Lettres accentuées utiles</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Code</th><th>Lettre</th><th>Exemple</th><th>Code</th><th>Lettre</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td>Alt + 0192</td><td class="symbol">À</td><td>À bientôt</td><td>Alt + 0199</td><td class="symbol">Ç</td><td>Ça</td></tr>
+            <tr><td>Alt + 0200</td><td class="symbol">È</td><td>Ève</td><td>Alt + 0201</td><td class="symbol">É</td><td>Équipe</td></tr>
+            <tr><td>Alt + 0202</td><td class="symbol">Ê</td><td>Être</td><td>Alt + 0203</td><td class="symbol">Ë</td><td>Noël</td></tr>
+            <tr><td>Alt + 0212</td><td class="symbol">Ô</td><td>Ôter</td><td>Alt + 0217</td><td class="symbol">Ù</td><td>Où</td></tr>
+            <tr><td>Alt + 0219</td><td class="symbol">Û</td><td>Û majuscule</td><td>Alt + 0231</td><td class="symbol">ç</td><td>façade</td></tr>
+            <tr><td>Alt + 0224</td><td class="symbol">à</td><td>à</td><td>Alt + 0233</td><td class="symbol">é</td><td>écrire</td></tr>
+            <tr><td>Alt + 0232</td><td class="symbol">è</td><td>très</td><td>Alt + 0234</td><td class="symbol">ê</td><td>forêt</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel search-item">
+      <h2>Mini-checklist stagiaire</h2>
+      <ul class="checklist" data-checklist-id="raccourcis-caracteres-speciaux">
+        <li><input type="checkbox"><span>Je sais copier, couper, coller et annuler sans chercher dans les menus.</span></li>
+        <li><input type="checkbox"><span>Je sais coller en texte brut quand une mise en forme parasite apparaît.</span></li>
+        <li><input type="checkbox"><span>Je sais ouvrir le panneau emoji/symboles avec Windows + point.</span></li>
+        <li><input type="checkbox"><span>Je sais insérer au moins €, ©, ®, °, É, Ç et ¶.</span></li>
+        <li><input type="checkbox"><span>Je vérifie le rendu du symbole dans la police utilisée.</span></li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+function safeStorageGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function safeStorageSet(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}
+document.querySelectorAll('[data-checklist-id]').forEach(function(list){var key='formapro-'+list.dataset.checklistId;var saved=safeStorageGet(key);var states=saved?JSON.parse(saved):[];var boxes=list.querySelectorAll('input[type=checkbox]');boxes.forEach(function(box,i){box.checked=Boolean(states[i]);box.addEventListener('change',function(){safeStorageSet(key,JSON.stringify(Array.from(boxes).map(function(x){return x.checked})))});});});
+document.querySelectorAll('[data-search]').forEach(function(input){input.addEventListener('input',function(){var v=input.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');document.querySelectorAll('.search-item').forEach(function(item){var t=item.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');item.hidden=v && !t.includes(v);});});});
+</script>
+</body>
+</html>

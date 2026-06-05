@@ -1,0 +1,19 @@
+Charte graphique source - Forum Découverte Métiers et Formation
+
+Titre de l'événement : Forum Découverte Métiers et Formation
+Ton visuel : professionnel, simple, accessible, adulte, formation et emploi.
+
+Couleurs :
+- Bleu confiance : #185ABD
+- Vert action : #107C41
+- Orange échange : #D24726
+- Slate texte : #1F2937
+- Fond clair : #F8FAFC
+- Bordure : #E5E7EB
+
+Règles :
+- Choisir un seul logo.
+- Choisir au moins une photo.
+- Ne pas déformer les images.
+- Utiliser les mêmes couleurs dans Word, Excel et PowerPoint.
+- Garder les titres courts et lisibles.
