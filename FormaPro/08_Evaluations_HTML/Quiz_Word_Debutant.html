@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz de révision Word débutant</title>
+  <style>
+    :root {
+      --surface: #ffffff;
+      --surface-soft: #f7f7f8;
+      --ink: #111111;
+      --muted: #5f6368;
+      --line: #d6d8de;
+      --accent: #002fa7;
+      --ok: #137333;
+      --bad: #b3261e;
+      --radius: 0;
+      --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(90deg, rgba(17,17,17,0.045) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(17,17,17,0.035) 1px, transparent 1px),
+        var(--surface);
+      background-size: 44px 44px, 44px 44px, auto;
+      color: var(--ink);
+      font: 16px/1.55 var(--font);
+      letter-spacing: 0;
+    }
+
+    a {
+      color: var(--accent);
+      font-weight: 700;
+      text-underline-offset: 0.18em;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+    }
+
+    .site-nav .wrap {
+      display: flex;
+      min-height: 58px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      color: var(--ink);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .tabs a {
+      border: 1px solid var(--line);
+      padding: 0.45rem 0.72rem;
+      background: var(--surface);
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .tabs a.active {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    header {
+      border-bottom: 1px solid var(--ink);
+      padding: 42px 0 34px;
+      background: var(--surface);
+    }
+
+    .top-link {
+      display: inline-block;
+      margin-bottom: 1.2rem;
+      color: var(--accent);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 2rem;
+      align-items: end;
+    }
+
+    .section-label {
+      margin: 0 0 0.7rem;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin-bottom: 1rem;
+      font-size: clamp(2.4rem, 7vw, 5.8rem);
+      font-weight: 800;
+      line-height: 0.94;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: clamp(1.42rem, 2.4vw, 2rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      font-size: 1rem;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin-bottom: 1.1rem;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .meta,
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      min-height: 34px;
+      align-items: center;
+      border: 1px solid var(--ink);
+      padding: 0.35rem 0.75rem;
+      background: var(--surface);
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    button,
+    .button {
+      min-height: 44px;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 0.7rem 1rem;
+      background: var(--accent);
+      color: #ffffff;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font: inherit;
+      font-weight: 800;
+      line-height: 1.15;
+      text-decoration: none;
+    }
+
+    button.secondary,
+    .button.secondary {
+      background: var(--surface);
+      color: var(--accent);
+    }
+
+    button.ghost {
+      border-color: var(--line);
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    main {
+      padding: 28px 0 64px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .score-rail {
+      position: sticky;
+      top: 78px;
+      border: 1px solid var(--ink);
+      background: var(--surface);
+      padding: 1rem;
+    }
+
+    .score-value {
+      margin: 0;
+      color: var(--accent);
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .score-caption {
+      margin: 0.3rem 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .progress {
+      height: 12px;
+      margin-top: 1rem;
+      border: 1px solid var(--ink);
+      background: var(--surface-soft);
+    }
+
+    .progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: var(--accent);
+      transition: width 180ms ease;
+    }
+
+    .summary-list {
+      display: grid;
+      gap: 0.35rem;
+      margin: 1rem 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .toc a {
+      min-height: 44px;
+      padding: 0.72rem 0.8rem;
+      background: var(--surface);
+      color: var(--ink);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .toc a:hover {
+      color: var(--accent);
+    }
+
+    .panel,
+    .question-card {
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .panel {
+      margin-bottom: 1.25rem;
+      padding: 1.25rem;
+    }
+
+    .quiz-section {
+      margin-bottom: 1.25rem;
+    }
+
+    .quiz-section-header {
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+      gap: 1rem;
+      border: 1px solid var(--ink);
+      border-bottom: 0;
+      padding: 1rem;
+      background: var(--surface-soft);
+    }
+
+    .section-number {
+      color: var(--accent);
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .questions {
+      display: grid;
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .question-card {
+      padding: 1rem;
+    }
+
+    .question-top {
+      display: grid;
+      grid-template-columns: 3.6rem 1fr;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .q-number {
+      color: var(--accent);
+      font-size: 1.45rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    fieldset {
+      min-width: 0;
+      margin: 0;
+      border: 0;
+      padding: 0;
+    }
+
+    legend {
+      padding: 0;
+      color: var(--ink);
+      font-size: 1.04rem;
+      font-weight: 800;
+    }
+
+    .choices {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.58rem;
+      margin-top: 0.85rem;
+    }
+
+    .choice {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.7rem minmax(0, 1fr);
+      gap: 0.6rem;
+      min-height: 48px;
+      align-items: start;
+      border: 1px solid var(--line);
+      padding: 0.68rem 0.75rem;
+      background: var(--surface);
+      cursor: pointer;
+    }
+
+    .choice:hover {
+      border-color: var(--accent);
+    }
+
+    .choice input {
+      width: 1.15rem;
+      height: 1.15rem;
+      margin: 0.18rem 0 0;
+      accent-color: var(--accent);
+    }
+
+    .choice-key {
+      display: inline-flex;
+      min-width: 1.45rem;
+      height: 1.45rem;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .choice-text {
+      display: inline;
+    }
+
+    .question-card.answered .choice:has(input:checked) {
+      border-color: var(--accent);
+      background: #f7f7f8;
+    }
+
+    .question-card.correct {
+      border-left: 5px solid var(--ok);
+    }
+
+    .question-card.incorrect {
+      border-left: 5px solid var(--bad);
+    }
+
+    .question-card.correct .choice.correct-choice,
+    .question-card.incorrect .choice.correct-choice,
+    .show-answers .choice.correct-choice {
+      border-color: var(--ok);
+      background: #f1f8f4;
+    }
+
+    .question-card.incorrect .choice.wrong-choice {
+      border-color: var(--bad);
+      background: #fceeee;
+    }
+
+    .feedback {
+      min-height: 1.4rem;
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .feedback.ok {
+      color: var(--ok);
+    }
+
+    .feedback.bad {
+      color: var(--bad);
+    }
+
+    .document-visual {
+      border: 1px solid var(--ink);
+      background: var(--surface);
+      padding: 1rem;
+    }
+
+    .document-visual .ribbon {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .document-visual .ribbon span,
+    .document-visual .line {
+      display: block;
+      height: 10px;
+      background: var(--line);
+    }
+
+    .document-visual .ribbon span:first-child,
+    .document-visual .line.primary {
+      background: var(--accent);
+    }
+
+    .document-visual .page-mark {
+      margin-bottom: 1rem;
+      color: var(--accent);
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .document-visual .line {
+      margin-top: 0.5rem;
+    }
+
+    .document-visual .line.short {
+      width: 62%;
+    }
+
+    .document-visual .line.mid {
+      width: 78%;
+    }
+
+    .print-note {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .score-rail {
+        position: static;
+        order: -1;
+      }
+
+      .toc {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .document-visual {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 20px, 1180px);
+      }
+
+      .site-nav .wrap,
+      .actions,
+      .tabs {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .tabs a,
+      button,
+      .button {
+        width: 100%;
+      }
+
+      .toc,
+      .choices,
+      .quiz-section-header,
+      .question-top {
+        grid-template-columns: 1fr;
+      }
+
+      .question-top {
+        gap: 0.4rem;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        color: #111111;
+      }
+
+      .no-print,
+      .site-nav,
+      .actions,
+      button,
+      .toc,
+      .score-rail {
+        display: none !important;
+      }
+
+      header,
+      .quiz-section-header,
+      .panel,
+      .question-card,
+      .questions {
+        border-color: #111111;
+      }
+
+      .question-card {
+        break-inside: avoid;
+      }
+
+      .choices {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feedback {
+        color: #111111;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav no-print">
+    <div class="wrap">
+      <a class="brand" href="../00_Index_general/index.html">Formation Office</a>
+      <div class="tabs" aria-label="Navigation de formation">
+        <a class="active" href="../03_Supports_stagiaires_HTML/Support_Word_Debutant.html">Word</a>
+        <a href="../03_Supports_stagiaires_HTML/Support_Excel_Debutant.html">Excel</a>
+        <a href="../03_Supports_stagiaires_HTML/Support_PowerPoint_Debutant.html">PowerPoint</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="wrap">
+      <a class="top-link no-print" href="../00_Index_general/index.html">Retour à l'index général</a>
+      <div class="hero">
+        <div>
+          <p class="section-label">Word débutant</p>
+          <h1>Quiz de révision Word</h1>
+          <p class="lead">35 questions pour vérifier les bases : interface, saisie, paragraphes, images, mise en page et documents professionnels.</p>
+          <div class="meta">
+            <span class="badge">35 questions</span>
+            <span class="badge">Corrigé intégré</span>
+            <span class="badge">Imprimable</span>
+          </div>
+          <div class="actions no-print">
+            <button type="button" data-check>Corriger</button>
+            <button type="button" class="secondary" data-show-answers>Afficher le corrigé</button>
+            <button type="button" class="ghost" data-reset>Réinitialiser</button>
+            <button type="button" class="ghost" onclick="window.print()">Imprimer / Exporter en PDF</button>
+          </div>
+        </div>
+        <div class="document-visual" aria-hidden="true">
+          <div class="ribbon"><span></span><span></span><span></span><span></span></div>
+          <div class="page-mark">W</div>
+          <span class="line primary"></span>
+          <span class="line mid"></span>
+          <span class="line"></span>
+          <span class="line short"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="layout">
+      <div>
+        <nav class="toc no-print" aria-label="Sections du quiz">
+          <a href="#interface">Interface</a>
+          <a href="#texte">Texte</a>
+          <a href="#paragraphes">Paragraphes</a>
+          <a href="#objets">Images et objets</a>
+          <a href="#page">Mise en page</a>
+          <a href="#professionnel">Documents pro</a>
+        </nav>
+
+        <section class="panel">
+          <h2>Consigne</h2>
+          <p>Sélectionnez une réponse par question, puis cliquez sur <strong>Corriger</strong>. Le score et les corrections restent sur la page pour relire les points à revoir.</p>
+          <p class="print-note">Pour un usage papier, imprimez la page avant correction ou affichez le corrigé puis exportez en PDF.</p>
+        </section>
+
+        <form id="quiz" autocomplete="off"></form>
+      </div>
+
+      <aside class="score-rail" aria-live="polite">
+        <p class="section-label">Score</p>
+        <p class="score-value"><span data-score>0</span>/35</p>
+        <p class="score-caption"><span data-answered>0</span> question(s) répondue(s)</p>
+        <div class="progress" aria-hidden="true"><span data-progress></span></div>
+        <ul class="summary-list">
+          <li>Bonnes réponses : <strong data-good>0</strong></li>
+          <li>À revoir : <strong data-bad>0</strong></li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    const quizData = [
+      {
+        id: "interface",
+        title: "Découverte de l'interface",
+        questions: [
+          { n: 1, q: "À quoi sert le ruban dans Word ?", a: "A", choices: { A: "À regrouper les outils par onglets", B: "À imprimer directement le document", C: "À afficher uniquement les images", D: "À changer le nom du fichier" } },
+          { n: 2, q: "Quel onglet permet généralement de modifier la police, la taille du texte et l'alignement ?", a: "B", choices: { A: "Insertion", B: "Accueil", C: "Révision", D: "Affichage" } },
+          { n: 3, q: "À quoi sert la barre d'accès rapide ?", a: "A", choices: { A: "À accéder rapidement à certaines commandes fréquentes", B: "À afficher les pages supprimées", C: "À corriger automatiquement le document", D: "À créer une nouvelle imprimante" } },
+          { n: 4, q: "Quel raccourci permet d'enregistrer rapidement un document ?", a: "C", choices: { A: "Ctrl + C", B: "Ctrl + V", C: "Ctrl + S", D: "Ctrl + P" } },
+          { n: 5, q: "À quoi sert le zoom dans Word ?", a: "B", choices: { A: "À modifier la taille réelle du texte", B: "À agrandir ou réduire l'affichage du document à l'écran", C: "À changer les marges", D: "À imprimer plus grand" } }
+        ]
+      },
+      {
+        id: "texte",
+        title: "Saisie, modification et mise en forme du texte",
+        questions: [
+          { n: 6, q: "Quel raccourci permet de copier un texte sélectionné ?", a: "B", choices: { A: "Ctrl + X", B: "Ctrl + C", C: "Ctrl + V", D: "Ctrl + Z" } },
+          { n: 7, q: "Quel raccourci permet de coller un élément copié ?", a: "B", choices: { A: "Ctrl + C", B: "Ctrl + V", C: "Ctrl + A", D: "Ctrl + P" } },
+          { n: 8, q: "Quel raccourci permet d'annuler la dernière action ?", a: "A", choices: { A: "Ctrl + Z", B: "Ctrl + S", C: "Ctrl + P", D: "Ctrl + F" } },
+          { n: 9, q: "Que faut-il faire avant de mettre un texte en gras ?", a: "B", choices: { A: "Fermer le document", B: "Sélectionner le texte concerné", C: "Créer une nouvelle page", D: "Modifier les marges" } },
+          { n: 10, q: "Quelle commande permet de rendre un texte incliné ?", a: "B", choices: { A: "Gras", B: "Italique", C: "Souligné", D: "Surlignage" } },
+          { n: 11, q: "Quelle commande permet de tracer une ligne sous le texte ?", a: "C", choices: { A: "Gras", B: "Italique", C: "Souligné", D: "Justifié" } },
+          { n: 12, q: "Quelle est la différence entre Suppr et Retour arrière ?", a: "B", choices: { A: "Suppr efface à gauche, Retour arrière efface à droite", B: "Suppr efface à droite, Retour arrière efface à gauche", C: "Les deux enregistrent le document", D: "Les deux changent la police" } }
+        ]
+      },
+      {
+        id: "paragraphes",
+        title: "Paragraphes et styles",
+        questions: [
+          { n: 13, q: "Quel bouton permet de centrer un paragraphe ?", a: "B", choices: { A: "Aligner à gauche", B: "Centrer", C: "Justifier", D: "Réduire le retrait" } },
+          { n: 14, q: "À quoi sert l'alignement justifié ?", a: "C", choices: { A: "À aligner le texte uniquement à gauche", B: "À aligner le texte uniquement à droite", C: "À aligner le texte sur les deux bords du paragraphe", D: "À mettre le texte en gras" } },
+          { n: 15, q: "À quoi sert l'interligne ?", a: "A", choices: { A: "À régler l'espace entre les lignes", B: "À changer la couleur du texte", C: "À insérer une image", D: "À imprimer le document" } },
+          { n: 16, q: "Que permet un retrait de paragraphe ?", a: "A", choices: { A: "Décaler le texte vers la droite ou vers la gauche", B: "Changer la langue du document", C: "Ajouter une image", D: "Supprimer une page" } },
+          { n: 17, q: "À quoi servent les styles dans Word ?", a: "A", choices: { A: "À appliquer rapidement une mise en forme cohérente", B: "À enregistrer automatiquement le fichier", C: "À envoyer le document par mail", D: "À modifier l'imprimante" } },
+          { n: 18, q: "Pourquoi utiliser les styles Titre 1, Titre 2, etc. ?", a: "A", choices: { A: "Pour structurer clairement le document", B: "Pour ajouter des images automatiquement", C: "Pour supprimer les paragraphes", D: "Pour verrouiller le document" } }
+        ]
+      },
+      {
+        id: "objets",
+        title: "Insertion d'images et d'objets",
+        questions: [
+          { n: 19, q: "Quel onglet permet d'insérer une image dans un document ?", a: "B", choices: { A: "Accueil", B: "Insertion", C: "Révision", D: "Mise en page" } },
+          { n: 20, q: "À quoi sert l'habillage du texte autour d'une image ?", a: "A", choices: { A: "À choisir comment le texte se place autour de l'image", B: "À changer la police du document", C: "À enregistrer le document en PDF", D: "À corriger l'orthographe" } },
+          { n: 21, q: "Quel élément peut-on insérer dans un document Word ?", a: "D", choices: { A: "Une image", B: "Une forme", C: "Une icône", D: "Toutes ces réponses" } },
+          { n: 22, q: "Que peut-on faire avec une image insérée dans Word ?", a: "D", choices: { A: "La redimensionner", B: "La déplacer", C: "Modifier son habillage", D: "Toutes ces réponses" } }
+        ]
+      },
+      {
+        id: "page",
+        title: "Mise en page et impression",
+        questions: [
+          { n: 23, q: "À quoi servent les marges ?", a: "A", choices: { A: "À régler l'espace entre le texte et les bords de la page", B: "À changer la couleur des images", C: "À modifier le nom du fichier", D: "À supprimer les fautes" } },
+          { n: 24, q: "Quelles orientations de page existent dans Word ?", a: "C", choices: { A: "Portrait uniquement", B: "Paysage uniquement", C: "Portrait et paysage", D: "Vertical uniquement" } },
+          { n: 25, q: "Quel raccourci permet d'ouvrir la fenêtre d'impression ?", a: "A", choices: { A: "Ctrl + P", B: "Ctrl + S", C: "Ctrl + C", D: "Ctrl + X" } },
+          { n: 26, q: "Avant d'imprimer, que faut-il vérifier ?", a: "D", choices: { A: "L'aperçu avant impression", B: "Le nombre de pages", C: "La mise en page", D: "Toutes ces réponses" } },
+          { n: 27, q: "À quoi sert un saut de page ?", a: "A", choices: { A: "À commencer directement une nouvelle page", B: "À supprimer une page", C: "À agrandir le texte", D: "À insérer une image" } },
+          { n: 28, q: "Pourquoi convertir un document Word en PDF ?", a: "A", choices: { A: "Pour faciliter l'envoi et conserver la mise en page", B: "Pour supprimer les images", C: "Pour rendre le texte invisible", D: "Pour changer automatiquement le contenu" } }
+        ]
+      },
+      {
+        id: "professionnel",
+        title: "Création de documents professionnels",
+        questions: [
+          { n: 29, q: "Dans un courrier professionnel, quelles informations trouve-t-on généralement en haut du document ?", a: "A", choices: { A: "Les coordonnées de l'expéditeur", B: "Une image décorative uniquement", C: "Une liste de raccourcis clavier", D: "Une table des matières obligatoire" } },
+          { n: 30, q: "Dans une lettre professionnelle, où place-t-on généralement la formule de politesse ?", a: "B", choices: { A: "Au début du document", B: "À la fin du courrier", C: "Dans le nom du fichier", D: "Dans les marges" } },
+          { n: 31, q: "Que signifie l'objet dans un courrier professionnel ?", a: "A", choices: { A: "Le sujet principal du courrier", B: "Le nom de l'imprimante", C: "Le style utilisé", D: "Le format de la page" } },
+          { n: 32, q: "Pour un CV, quelle mise en forme est recommandée ?", a: "A", choices: { A: "Une présentation claire, lisible et structurée", B: "Beaucoup de couleurs différentes", C: "Une police très fantaisie", D: "Un texte sans titres" } },
+          { n: 33, q: "Quel élément est important dans un CV ?", a: "D", choices: { A: "Les coordonnées", B: "Les expériences", C: "Les compétences", D: "Toutes ces réponses" } },
+          { n: 34, q: "Pourquoi faut-il relire un document professionnel avant de l'envoyer ?", a: "D", choices: { A: "Pour corriger les fautes", B: "Pour vérifier la mise en page", C: "Pour vérifier la cohérence du contenu", D: "Toutes ces réponses" } },
+          { n: 35, q: "Quel format est souvent préférable pour envoyer un CV ou un courrier terminé ?", a: "A", choices: { A: "PDF", B: "Brouillon Word non relu", C: "Image basse qualité", D: "Fichier sans extension" } }
+        ]
+      }
+    ];
+
+    const quiz = document.querySelector("#quiz");
+    const totalQuestions = quizData.reduce((sum, section) => sum + section.questions.length, 0);
+
+    function renderQuiz() {
+      quiz.innerHTML = quizData.map((section, sectionIndex) => `
+        <section class="quiz-section" id="${section.id}">
+          <div class="quiz-section-header">
+            <span class="section-number">${String(sectionIndex + 1).padStart(2, "0")}</span>
+            <div>
+              <p class="section-label">Section</p>
+              <h2>${section.title}</h2>
+            </div>
+          </div>
+          <div class="questions">
+            ${section.questions.map(renderQuestion).join("")}
+          </div>
+        </section>
+      `).join("");
+    }
+
+    function renderQuestion(item) {
+      const choices = Object.entries(item.choices).map(([key, label]) => `
+        <label class="choice" data-choice="${key}">
+          <input type="radio" name="q${item.n}" value="${key}">
+          <span><span class="choice-key">${key}</span> <span class="choice-text">${label}</span></span>
+        </label>
+      `).join("");
+
+      return `
+        <article class="question-card" data-question="${item.n}" data-answer="${item.a}">
+          <div class="question-top">
+            <div class="q-number">${item.n}</div>
+            <fieldset>
+              <legend>${item.q}</legend>
+              <div class="choices">${choices}</div>
+            </fieldset>
+          </div>
+          <p class="feedback" aria-live="polite"></p>
+        </article>
+      `;
+    }
+
+    function getCards() {
+      return Array.from(document.querySelectorAll(".question-card"));
+    }
+
+    function updateAnswered() {
+      const answered = getCards().filter(card => card.querySelector("input:checked")).length;
+      document.querySelector("[data-answered]").textContent = String(answered);
+      document.querySelector("[data-progress]").style.width = `${Math.round((answered / totalQuestions) * 100)}%`;
+    }
+
+    function markCard(card, revealOnly = false) {
+      const answer = card.dataset.answer;
+      const selected = card.querySelector("input:checked");
+      const feedback = card.querySelector(".feedback");
+      card.classList.remove("correct", "incorrect", "answered");
+      feedback.className = "feedback";
+      card.querySelectorAll(".choice").forEach(choice => {
+        choice.classList.remove("correct-choice", "wrong-choice");
+        if (choice.dataset.choice === answer) choice.classList.add("correct-choice");
+      });
+
+      if (!selected) {
+        feedback.textContent = revealOnly ? `Réponse attendue : ${answer}.` : "Non répondu.";
+        return false;
+      }
+
+      card.classList.add("answered");
+      if (selected.value === answer) {
+        card.classList.add("correct");
+        feedback.classList.add("ok");
+        feedback.textContent = "Bonne réponse.";
+        return true;
+      }
+
+      card.classList.add("incorrect");
+      card.querySelector(`.choice[data-choice="${selected.value}"]`)?.classList.add("wrong-choice");
+      feedback.classList.add("bad");
+      feedback.textContent = `Réponse attendue : ${answer}.`;
+      return false;
+    }
+
+    function checkQuiz(revealOnly = false) {
+      let good = 0;
+      let bad = 0;
+      getCards().forEach(card => {
+        const selected = card.querySelector("input:checked");
+        const isGood = markCard(card, revealOnly);
+        if (selected && isGood) good += 1;
+        if (selected && !isGood) bad += 1;
+      });
+      document.body.classList.toggle("show-answers", revealOnly);
+      document.querySelector("[data-score]").textContent = String(good);
+      document.querySelector("[data-good]").textContent = String(good);
+      document.querySelector("[data-bad]").textContent = String(bad);
+      updateAnswered();
+    }
+
+    function resetQuiz() {
+      document.querySelectorAll("input[type='radio']").forEach(input => { input.checked = false; });
+      getCards().forEach(card => {
+        card.classList.remove("correct", "incorrect", "answered");
+        card.querySelectorAll(".choice").forEach(choice => choice.classList.remove("correct-choice", "wrong-choice"));
+        const feedback = card.querySelector(".feedback");
+        feedback.className = "feedback";
+        feedback.textContent = "";
+      });
+      document.body.classList.remove("show-answers");
+      document.querySelector("[data-score]").textContent = "0";
+      document.querySelector("[data-good]").textContent = "0";
+      document.querySelector("[data-bad]").textContent = "0";
+      updateAnswered();
+    }
+
+    renderQuiz();
+    document.querySelector("[data-check]").addEventListener("click", () => checkQuiz(false));
+    document.querySelector("[data-show-answers]").addEventListener("click", () => checkQuiz(true));
+    document.querySelector("[data-reset]").addEventListener("click", resetQuiz);
+    quiz.addEventListener("change", updateAnswered);
+    updateAnswered();
+  </script>
+</body>
+</html>
